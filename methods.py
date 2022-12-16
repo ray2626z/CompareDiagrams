@@ -75,10 +75,17 @@ if __name__ == '__main__':
     # print(classes1)
     # print(classes2)
 
-    # Determine newly added classes
+    # Identify newly added classes
     new_classes = []
     for i in classes2.keys():
         if i not in classes1.keys():
             new_classes.append(i)
-
     # print(new_classes)
+
+    # Identify removed classes
+    rm_classes = []
+    for i in classes1.keys():
+        if i not in classes2.keys():
+            rm_classes.append(i)
+    print(rm_classes)
+
