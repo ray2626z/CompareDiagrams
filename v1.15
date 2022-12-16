@@ -1,0 +1,90 @@
+classDiagram
+direction BT
+class AndroidLogAdapter {
+  + AndroidLogAdapter() 
+  + wtf(String, String) void
+  + d(String, String) void
+  + i(String, String) void
+  + w(String, String) void
+  + v(String, String) void
+  + e(String, String) void
+}
+class LogAdapter {
+<<Interface>>
+  + d(String, String) void
+  + w(String, String) void
+  + e(String, String) void
+  + i(String, String) void
+  + v(String, String) void
+  + wtf(String, String) void
+}
+class Logger {
+  - Logger() 
+  + init() Settings
+  + t(String) Printer
+  + w(String, Object[]) void
+  + json(String) void
+  + t(String, int) Printer
+  + t(int) Printer
+  + wtf(String, Object[]) void
+  + resetSettings() void
+  + d(String, Object[]) void
+  + e(Throwable, String, Object[]) void
+  + e(String, Object[]) void
+  + init(String) Settings
+  + v(String, Object[]) void
+  + i(String, Object[]) void
+  + log(int, String, String, Throwable) void
+  + xml(String) void
+  + d(Object) void
+}
+class LoggerPrinter {
+  + LoggerPrinter() 
+  - formatTag(String) String
+  + e(String, Object[]) void
+  + e(Throwable, String, Object[]) void
+  - logDivider(int, String) void
+  - logTopBorder(int, String) void
+  - logHeaderContent(int, String, int) void
+  + d(Object) void
+  - logContent(int, String, String) void
+  + wtf(String, Object[]) void
+  + getSettings() Settings
+  + i(String, Object[]) void
+  - log(int, Throwable, String, Object[]) void
+  - getTag() String
+  + init(String) Settings
+  + t(String, int) Printer
+  + json(String) void
+  - createMessage(String, Object[]) String
+  + xml(String) void
+  - getMethodCount() int
+  + resetSettings() void
+  - logChunk(int, String, String) void
+  - getStackOffset(StackTraceElement[]) int
+  - logBottomBorder(int, String) void
+  + d(String, Object[]) void
+  - getSimpleClassName(String) String
+  + v(String, Object[]) void
+  + log(int, String, String, Throwable) void
+  + w(String, Object[]) void
+}
+class Printer {
+<<Interface>>
+  + t(String, int) Printer
+  + w(String, Object[]) void
+  + wtf(String, Object[]) void
+  + d(String, Object[]) void
+  + log(int, String, String, Throwable) void
+  + e(Throwable, String, Object[]) void
+  + resetSettings() void
+  + d(Object) void
+  + e(String, Object[]) void
+  + v(String, Object[]) void
+  + xml(String) void
+  + init(String) Settings
+  + i(String, Object[]) void
+  + json(String) void
+  + getSettings() Settings
+}
+

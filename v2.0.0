@@ -1,0 +1,148 @@
+classDiagram
+direction BT
+class AndroidLogAdapter {
+  + AndroidLogAdapter() 
+  + AndroidLogAdapter(FormatStrategy) 
+  + isLoggable(int, String) boolean
+  + log(int, String, String) void
+}
+class Builder {
+  - Builder() 
+  + logStrategy(LogStrategy) Builder
+  + tag(String) Builder
+  + methodCount(int) Builder
+  + showThreadInfo(boolean) Builder
+  + methodOffset(int) Builder
+  + build() PrettyFormatStrategy
+}
+class Builder {
+  - Builder() 
+  + build() CsvFormatStrategy
+  + dateFormat(SimpleDateFormat) Builder
+  + logStrategy(LogStrategy) Builder
+  + tag(String) Builder
+  + date(Date) Builder
+}
+class CsvFormatStrategy {
+  - CsvFormatStrategy(Builder) 
+  - formatTag(String) String
+  + newBuilder() Builder
+  + log(int, String, String) void
+}
+class DiskLogAdapter {
+  + DiskLogAdapter() 
+  + DiskLogAdapter(FormatStrategy) 
+  + isLoggable(int, String) boolean
+  + log(int, String, String) void
+}
+class DiskLogStrategy {
+  + DiskLogStrategy(Handler) 
+  + log(int, String, String) void
+}
+class FormatStrategy {
+<<Interface>>
+  + log(int, String, String) void
+}
+class LogAdapter {
+<<Interface>>
+  + isLoggable(int, String) boolean
+  + log(int, String, String) void
+}
+class LogStrategy {
+<<Interface>>
+  + log(int, String, String) void
+}
+class LogcatLogStrategy {
+  + LogcatLogStrategy() 
+  + log(int, String, String) void
+}
+class Logger {
+  - Logger() 
+  + xml(String) void
+  + d(String, Object[]) void
+  + wtf(String, Object[]) void
+  + t(String) Printer
+  + w(String, Object[]) void
+  + printer(Printer) void
+  + v(String, Object[]) void
+  + d(Object) void
+  + e(String, Object[]) void
+  + clearLogAdapters() void
+  + json(String) void
+  + e(Throwable, String, Object[]) void
+  + addLogAdapter(LogAdapter) void
+  + log(int, String, String, Throwable) void
+  + i(String, Object[]) void
+}
+class LoggerPrinter {
+  + LoggerPrinter() 
+  + log(int, String, String, Throwable) void
+  - createMessage(String, Object[]) String
+  + v(String, Object[]) void
+  + xml(String) void
+  + d(String, Object[]) void
+  + e(String, Object[]) void
+  + d(Object) void
+  + t(String) Printer
+  + wtf(String, Object[]) void
+  - getTag() String?
+  + clearLogAdapters() void
+  + json(String) void
+  + e(Throwable, String, Object[]) void
+  - log(int, Throwable, String, Object[]) void
+  + w(String, Object[]) void
+  + i(String, Object[]) void
+  + addAdapter(LogAdapter) void
+}
+class PrettyFormatStrategy {
+  - PrettyFormatStrategy(Builder) 
+  - logBottomBorder(int, String) void
+  - logContent(int, String, String) void
+  - logChunk(int, String, String) void
+  - formatTag(String) String
+  - getSimpleClassName(String) String
+  - getStackOffset(StackTraceElement[]) int
+  - logTopBorder(int, String) void
+  + newBuilder() Builder
+  - logHeaderContent(int, String, int) void
+  - logDivider(int, String) void
+  + log(int, String, String) void
+}
+class Printer {
+<<Interface>>
+  + json(String) void
+  + log(int, String, String, Throwable) void
+  + clearLogAdapters() void
+  + wtf(String, Object[]) void
+  + w(String, Object[]) void
+  + d(Object) void
+  + e(Throwable, String, Object[]) void
+  + xml(String) void
+  + e(String, Object[]) void
+  + i(String, Object[]) void
+  + addAdapter(LogAdapter) void
+  + t(String) Printer
+  + v(String, Object[]) void
+  + d(String, Object[]) void
+}
+class Utils {
+  - Utils() 
+  ~ isEmpty(CharSequence) boolean
+  ~ equals(CharSequence, CharSequence) boolean
+  ~ logLevel(int) String
+  ~ getStackTraceString(Throwable) String
+}
+class WriteHandler {
+  ~ WriteHandler(Looper, String, int) 
+  - getLogFile(String, String) File
+  + handleMessage(Message) void
+  - writeLog(FileWriter, String) void
+}
+
+CsvFormatStrategy  -->  Builder 
+Builder  ..>  CsvFormatStrategy : «create»
+PrettyFormatStrategy  -->  Builder 
+Builder  ..>  PrettyFormatStrategy : «create»
+CsvFormatStrategy  ..>  Builder : «create»
+PrettyFormatStrategy  ..>  Builder : «create»
+DiskLogStrategy  -->  WriteHandler 
