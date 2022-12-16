@@ -76,5 +76,9 @@ if __name__ == '__main__':
     # print(classes2)
 
     # Determine newly added classes
+    new_classes = []
     for i in classes2.keys():
-        if
+        if i not in classes1.keys():
+            new_classes.append(i)
+
+    # print(new_classes)
