@@ -19,6 +19,7 @@ AndroidLogAdapter:
 + w(String, String) void
 + v(String, String) void
 + e(String, String) void
+
 LogAdapter:
 + d(String, String) void
 + w(String, String) void
@@ -26,10 +27,12 @@ LogAdapter:
 + i(String, String) void
 + v(String, String) void
 + wtf(String, String) void
+
 Logger:
 + init() Settings
 + resetSettings() void
 + init(String) Settings
+
 LoggerPrinter:
 - formatTag(String) String
 - logDivider(int, String) void
@@ -44,10 +47,12 @@ LoggerPrinter:
 - getStackOffset(StackTraceElement[]) int
 - logBottomBorder(int, String) void
 - getSimpleClassName(String) String
+
 Printer:
 + resetSettings() void
 + init(String) Settings
 + getSettings() Settings
+
 
 New methods:
 Builder:
