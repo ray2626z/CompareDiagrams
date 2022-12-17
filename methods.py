@@ -261,3 +261,22 @@ if __name__ == '__main__':
             methods = rm_class_methods[alt]
             for m in methods:
                 output.write(m)
+        output.write('\n')
+
+        # new methods
+        output.write("New methods:\n")
+        # for new classes
+        for n in new_classes:
+            output.write(n + ':\n')
+            methods = classes2[n]
+            for m in methods:
+                output.write(m)
+            output.write('\n')
+        # for altered classes
+        for alt in rm_class_methods.keys():
+            output.write(alt + ':\n')
+            methods = new_class_methods[alt]
+            for m in methods:
+                output.write(m)
+            output.write('\n')
+        output.write('\n')
