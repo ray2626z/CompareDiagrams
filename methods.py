@@ -180,4 +180,23 @@ if __name__ == '__main__':
     # print(dependencies_1)
     # print(dependencies_2)
 
-    # Identify
+    # Identify altered dependencies
+    alt_ds = dict()
+    for d1 in dependencies_1:
+
+        class1 = d1.split()[0]
+        changes = []
+        exist = d1 in dependencies_2
+
+        for d2 in dependencies_2:
+            class2 = d2.split()[0]
+            if class1 == class2 and d1 != d2 and not exist:
+                changes.append(d2)
+
+        alt_ds.update({d1: changes})
+
+    # for i in alt_ds.keys():
+    #     if alt_ds[i]:
+    #         print(i + ': ')
+    #         print(alt_ds[i])
+
