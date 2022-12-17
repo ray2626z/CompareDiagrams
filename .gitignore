@@ -1,2 +1,4 @@
 deprecated/
+.idea/
 .DS_Store
+*.iml
