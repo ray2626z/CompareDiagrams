@@ -140,7 +140,21 @@ if __name__ == '__main__':
                 rm_methods.append(m)
 
         rm_class_methods.update({key: rm_methods})
-
     # print(rm_class_methods)
 
+    # Identify new methods for classes in alt_classes
+    new_class_methods = dict()
+    for key in alt_classes:
+        # initialize
+        methods_1 = classes1[key]
+        methods_2 = classes2[key]
+        alt_methods = alt_class_methods[key]
+        new_methods = []
+
+        for m in methods_2:
+            if m not in methods_1 and m not in alt_methods.values():
+                new_methods.append(m)
+
+        new_class_methods.update({key: new_methods})
+    # print(new_class_methods)
 
