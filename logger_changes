@@ -1,0 +1,155 @@
+Removed dependencies:
+
+New dependencies:
+CsvFormatStrategy  -->  Builder 
+Builder  ..>  CsvFormatStrategy : «create»
+PrettyFormatStrategy  -->  Builder 
+Builder  ..>  PrettyFormatStrategy : «create»
+CsvFormatStrategy  ..>  Builder : «create»
+PrettyFormatStrategy  ..>  Builder : «create»
+DiskLogStrategy  -->  WriteHandler 
+
+Altered dependencies:
+
+Removed methods:
+AndroidLogAdapter:
++ wtf(String, String) void
++ d(String, String) void
++ i(String, String) void
++ w(String, String) void
++ v(String, String) void
++ e(String, String) void
+LogAdapter:
++ d(String, String) void
++ w(String, String) void
++ e(String, String) void
++ i(String, String) void
++ v(String, String) void
++ wtf(String, String) void
+Logger:
++ init() Settings
++ resetSettings() void
++ init(String) Settings
+LoggerPrinter:
+- formatTag(String) String
+- logDivider(int, String) void
+- logTopBorder(int, String) void
+- logHeaderContent(int, String, int) void
+- logContent(int, String, String) void
++ getSettings() Settings
++ init(String) Settings
+- getMethodCount() int
++ resetSettings() void
+- logChunk(int, String, String) void
+- getStackOffset(StackTraceElement[]) int
+- logBottomBorder(int, String) void
+- getSimpleClassName(String) String
+Printer:
++ resetSettings() void
++ init(String) Settings
++ getSettings() Settings
+
+New methods:
+Builder:
+- Builder() 
++ build() CsvFormatStrategy
++ dateFormat(SimpleDateFormat) Builder
++ logStrategy(LogStrategy) Builder
++ tag(String) Builder
++ date(Date) Builder
+
+CsvFormatStrategy:
+- CsvFormatStrategy(Builder) 
+- formatTag(String) String
++ newBuilder() Builder
++ log(int, String, String) void
+
+DiskLogAdapter:
++ DiskLogAdapter() 
++ DiskLogAdapter(FormatStrategy) 
++ isLoggable(int, String) boolean
++ log(int, String, String) void
+
+DiskLogStrategy:
++ DiskLogStrategy(Handler) 
++ log(int, String, String) void
+
+FormatStrategy:
++ log(int, String, String) void
+
+LogStrategy:
++ log(int, String, String) void
+
+LogcatLogStrategy:
++ LogcatLogStrategy() 
++ log(int, String, String) void
+
+PrettyFormatStrategy:
+- PrettyFormatStrategy(Builder) 
+- logBottomBorder(int, String) void
+- logContent(int, String, String) void
+- logChunk(int, String, String) void
+- formatTag(String) String
+- getSimpleClassName(String) String
+- getStackOffset(StackTraceElement[]) int
+- logTopBorder(int, String) void
++ newBuilder() Builder
+- logHeaderContent(int, String, int) void
+- logDivider(int, String) void
++ log(int, String, String) void
+
+Utils:
+- Utils() 
+
+WriteHandler:
+- getLogFile(String, String) File
++ handleMessage(Message) void
+- writeLog(FileWriter, String) void
+
+AndroidLogAdapter:
++ AndroidLogAdapter(FormatStrategy) 
++ isLoggable(int, String) boolean
++ log(int, String, String) void
+
+LogAdapter:
++ isLoggable(int, String) boolean
++ log(int, String, String) void
+
+Logger:
++ printer(Printer) void
++ clearLogAdapters() void
++ addLogAdapter(LogAdapter) void
+
+LoggerPrinter:
++ clearLogAdapters() void
++ addAdapter(LogAdapter) void
+
+Printer:
++ clearLogAdapters() void
++ addAdapter(LogAdapter) void
+
+
+Altered methods:
+Logger:
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+
++ t(int) Printer
+has been changed to:
++ t(String) Printer
+
+LoggerPrinter:
+- getTag() String
+has been changed to:
+- getTag() String?
+
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+
+Printer:
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+

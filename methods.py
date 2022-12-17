@@ -41,6 +41,7 @@ if __name__ == '__main__':
 
     file1 = ''
     file2 = ''
+    outFile = ''
     f1_lines = []
     f2_lines = []
 
@@ -48,11 +49,13 @@ if __name__ == '__main__':
     classes1 = dict()
     classes2 = dict()
 
-    if len(sys.argv) != 3:
-        print("Usage: python3 compare.py <diagram1> <diagram2>")
+    if len(sys.argv) != 4:
+        print("Usage: python3 compare.py <diagram1> <diagram2> <output_file>")
+        exit()
     else:
         file1 = sys.argv[1]
         file2 = sys.argv[2]
+        outFile = sys.argv[3]
 
     # Populate classes and methods for both dictionaries
     # Open class diagram flies (format: mermaid.md)
@@ -221,7 +224,7 @@ if __name__ == '__main__':
     # print(new_ds)
 
     # Write the results to a file
-    with open("changes.txt", 'w') as output:
+    with open(outFile, 'w') as output:
 
         # removed dependencies
         output.write("Removed dependencies:\n")
