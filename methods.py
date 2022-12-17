@@ -209,4 +209,10 @@ if __name__ == '__main__':
             rm_ds.append(d)
     # print(rm_ds)
 
+    # Identify new dependencies:
+    new_ds = []
+    for d in dependencies_2:
+        if d not in dependencies_1 and d not in alt_ds.values():
+            new_ds.append(d)
+    # print(new_ds)
 
