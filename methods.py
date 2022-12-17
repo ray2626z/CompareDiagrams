@@ -31,10 +31,18 @@ def m_name(l: str):
     return name
 
 
+def is_dependency(l: str):
+    if re.match('.+> .+', l):
+        return True
+    return False
+
+
 if __name__ == '__main__':
 
     file1 = ''
     file2 = ''
+    f1_lines = []
+    f2_lines = []
 
     # Use dictionary to record methods for each class
     classes1 = dict()
@@ -158,3 +166,18 @@ if __name__ == '__main__':
         new_class_methods.update({key: new_methods})
     # print(new_class_methods)
 
+    # Identify dependencies for both versions
+    dependencies_1 = []
+    dependencies_2 = []
+
+    for line in f1_lines:
+        if is_dependency(line):
+            dependencies_1.append(line)
+
+    for line in f2_lines:
+        if is_dependency(line):
+            dependencies_2.append(line)
+    # print(dependencies_1)
+    # print(dependencies_2)
+
+    # Identify
