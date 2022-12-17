@@ -27,7 +27,7 @@ def c_name(l: str):
 def m_name(l: str):
     parts = l.split()
     method = parts[1]
-    name = method.split('1')[0]
+    name = method.split('(')[0]
     return name
 
 
@@ -61,6 +61,7 @@ if __name__ == '__main__':
                 current_methods.append(line[2:])
             elif class_end(line):
                 classes1.update({current_class: current_methods})
+                current_methods = []
 
         current_class = ''
         current_methods = []
@@ -71,6 +72,7 @@ if __name__ == '__main__':
                 current_methods.append(line[2:])
             elif class_end(line):
                 classes2.update({current_class: current_methods})
+                current_methods = []
 
     # print(classes1)
     # print(classes2)
@@ -87,5 +89,39 @@ if __name__ == '__main__':
     for i in classes1.keys():
         if i not in classes2.keys():
             rm_classes.append(i)
-    print(rm_classes)
+    # print(rm_classes)
 
+    # Identify altered classes
+    alt_classes = []
+    for i in classes1.keys():
+        if i in classes2.keys():
+            methods_1 = classes1.get(i)
+            methods_2 = classes2.get(i)
+            if methods_1 != methods_2:
+                alt_classes.append(i)
+    # print(alt_classes)
+
+    # Identify altered methods for classes in alt_classes
+    alt_class_methods = dict()
+    for key in alt_classes:
+
+        # initialize
+        methods_1 = classes1[key]
+        methods_2 = classes2[key]
+        exist = False
+        alt_pairs = dict()
+
+        for m1 in methods_1:
+            name1 = m_name(m1)
+            exist = m1 in methods_2
+            # print(name1)
+            for m2 in methods_2:
+                name2 = m_name(m2)
+                if name1 == name2 and m1 != m2 and not exist:
+                    # print('Class: ' + key)
+                    # print(m1 + ' -> ' + m2)
+                    alt_pairs.update({m1: m2})
+
+        alt_class_methods.update({key: alt_pairs})
+
+    # print(alt_class_methods)
