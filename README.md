@@ -1,6 +1,6 @@
 # compare.py
 ## Usage:
-python3 compare.py <diagram1> <diagram2> <output_file>
+python3 compare.py \<diagram1\> \<diagram2\> \<output_file\>
 
 Note: <diagram1> and <diagram2> are files in mermaid.md format, expoted from intelliJ class diagrams
 ## Example:
