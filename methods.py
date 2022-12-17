@@ -141,7 +141,9 @@ if __name__ == '__main__':
         # initialize
         methods_1 = classes1[key]
         methods_2 = classes2[key]
-        alt_methods = alt_class_methods[key]
+        alt_methods = {}
+        if key in alt_class_methods:
+            alt_methods = alt_class_methods[key]
         rm_methods = []
 
         for m in methods_1:
@@ -157,7 +159,9 @@ if __name__ == '__main__':
         # initialize
         methods_1 = classes1[key]
         methods_2 = classes2[key]
-        alt_methods = alt_class_methods[key]
+        alt_methods = {}
+        if key in alt_class_methods:
+            alt_methods = alt_class_methods[key]
         new_methods = []
 
         for m in methods_2:
@@ -242,3 +246,18 @@ if __name__ == '__main__':
                 output.write(new)
             output.write('\n')
         output.write('\n')
+
+        # removed methods
+        output.write("Removed methods:\n")
+        # for removed classes
+        for r in rm_classes:
+            output.write(r + ': \n')
+            methods = classes1[r]
+            for m in methods:
+                output.write(m)
+        # for altered classes
+        for alt in rm_class_methods.keys():
+            output.write(alt + ':\n')
+            methods = rm_class_methods[alt]
+            for m in methods:
+                output.write(m)

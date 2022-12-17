@@ -1,126 +1,50 @@
 Removed dependencies:
-LocationImpl  ..>  Location 
-LocationImpl  ..>  StackTraceFilter : «create»
-LocationImpl "1" *--> "stackTraceFilter 1" StackTraceFilter 
 
 New dependencies:
-MockUtil "1" *--> "defaultMockMaker 1" MockMaker 
+CsvFormatStrategy  -->  Builder 
+Builder  ..>  CsvFormatStrategy : «create»
+PrettyFormatStrategy  -->  Builder 
+Builder  ..>  PrettyFormatStrategy : «create»
+CsvFormatStrategy  ..>  Builder : «create»
+PrettyFormatStrategy  ..>  Builder : «create»
+DiskLogStrategy  -->  WriteHandler 
 
 Altered dependencies:
-DefaultInvocationFactory  ..>  LocationImpl : «create»
-has been changed to: 
-DefaultInvocationFactory  ..>  DelegatingMethod : «create»
-DefaultInvocationFactory  ..>  InterceptedInvocation : «create»
-DefaultInvocationFactory  ..>  InvocationFactory 
-DefaultInvocationFactory  ..>  MockWeakReference~T~ : «create»
-DefaultInvocationFactory  ..>  SerializableMethod : «create»
 
-Localized~T~  ..>  LocationImpl : «create»
-has been changed to: 
-Localized~T~ "1" *--> "location 1" Location 
-
-LocalizedMatcher  ..>  LocationImpl : «create»
-has been changed to: 
-LocalizedMatcher "1" *--> "matcher 1" ArgumentMatcher~T~ 
-LocalizedMatcher "1" *--> "location 1" Location 
-
-MockMethodAdvice  ..>  LocationImpl : «create»
-has been changed to: 
-MockMethodAdvice  ..>  ConditionalStackTraceFilter : «create»
-MockMethodAdvice "1" *--> "onConstruction 1" ConstructionCallback 
-MockMethodAdvice "1" *--> "mockedStatics 1" DetachedThreadLocal~T~ 
-MockMethodAdvice  -->  MockMethodDispatcher 
-MockMethodAdvice "1" *--> "interceptors *" MockMethodInterceptor 
-MockMethodAdvice "1" *--> "interceptors 1" WeakConcurrentMap~K, V~ 
-
-MockMethodInterceptor  ..>  LocationImpl : «create»
-has been changed to: 
-MockMethodInterceptor  ..>  ByteBuddyCrossClassLoaderSerializationSupport : «create»
-MockMethodInterceptor "1" *--> "serializationSupport 1" ByteBuddyCrossClassLoaderSerializationSupport 
-MockMethodInterceptor "1" *--> "mockCreationSettings 1" MockCreationSettings~T~ 
-MockMethodInterceptor "1" *--> "handler 1" MockHandler~T~ 
-
-MockUtil "1" *--> "mockMaker 1" MockMaker 
-has been changed to: 
-MockUtil  ..>  LenientCopyTool : «create»
-MockUtil "1" *--> "defaultMockMaker 1" MockMaker 
-MockUtil  ..>  MockNameImpl : «create»
-MockUtil  ..>  NotAMockException : «create»
-
-MockedConstructionImpl~T~  ..>  LocationImpl : «create»
-has been changed to: 
-MockedConstructionImpl~T~ "1" *--> "location 1" Location 
-MockedConstructionImpl~T~  ..>  MockedConstruction~T~ 
-MockedConstructionImpl~T~  ..>  MockitoException : «create»
-
-MockedStaticImpl~T~  ..>  LocationImpl : «create»
-has been changed to: 
-MockedStaticImpl~T~ "1" *--> "location 1" Location 
-MockedStaticImpl~T~  ..>  MockAwareVerificationMode : «create»
-MockedStaticImpl~T~  ..>  MockedStatic~T~ 
-MockedStaticImpl~T~  ..>  MockitoException : «create»
-MockedStaticImpl~T~  ..>  VerificationDataImpl : «create»
-
-MockingProgressImpl  ..>  LocationImpl : «create»
-has been changed to: 
-MockingProgressImpl "1" *--> "argumentMatcherStorage 1" ArgumentMatcherStorage 
-MockingProgressImpl  ..>  ArgumentMatcherStorageImpl : «create»
-MockingProgressImpl  ..>  Localized~T~ : «create»
-MockingProgressImpl "1" *--> "verificationMode 1" Localized~T~ 
-MockingProgressImpl "1" *--> "stubbingInProgress 1" Location 
-MockingProgressImpl  ..>  MockingProgress 
-MockingProgressImpl "1" *--> "listeners *" MockitoListener 
-MockingProgressImpl "1" *--> "ongoingStubbing 1" OngoingStubbing~T~ 
-MockingProgressImpl "1" *--> "verificationStrategy 1" VerificationStrategy 
-
-PluginInitializer "1" *--> "plugins 1" DefaultMockitoPlugins 
-has been changed to: 
-PluginInitializer  ..>  PluginFinder : «create»
-PluginInitializer "1" *--> "pluginSwitch 1" PluginSwitch 
-
-Reporter  ..>  LocationImpl : «create»
-has been changed to: 
-Reporter  ..>  CannotStubVoidMethodWithReturnValue : «create»
-Reporter  ..>  CannotVerifyStubOnlyMock : «create»
-Reporter  ..>  FriendlyReminderException : «create»
-Reporter  ..>  InjectMocksException : «create»
-Reporter  ..>  InvalidUseOfMatchersException : «create»
-Reporter  ..>  MissingMethodInvocationException : «create»
-Reporter  ..>  MockitoException : «create»
-Reporter  ..>  MockitoInitializationException : «create»
-Reporter  ..>  MoreThanAllowedActualInvocations : «create»
-Reporter  ..>  NeverWantedButInvoked : «create»
-Reporter  ..>  NoInteractionsWanted : «create»
-Reporter  ..>  NotAMockException : «create»
-Reporter  ..>  NullInsteadOfMockException : «create»
-Reporter  ..>  PotentialStubbingProblem : «create»
-Reporter  ..>  RedundantListenerException : «create»
-Reporter  ..>  ScenarioPrinter : «create»
-Reporter  ..>  SmartNullPointerException : «create»
-Reporter  ..>  TooFewActualInvocations : «create»
-Reporter  ..>  TooManyActualInvocations : «create»
-Reporter  ..>  UnfinishedMockingSessionException : «create»
-Reporter  ..>  UnfinishedStubbingException : «create»
-Reporter  ..>  UnfinishedVerificationException : «create»
-Reporter  ..>  UnnecessaryStubbingException : «create»
-Reporter  ..>  VerificationInOrderFailure : «create»
-Reporter  ..>  WantedButNotInvoked : «create»
-Reporter  ..>  WrongTypeOfReturnValue : «create»
-
-RetrieveGenericsForDefaultAnswers  ..>  MockitoCore : «create»
-has been changed to: 
-RetrieveGenericsForDefaultAnswers  ..>  ReturnsEmptyValues : «create»
-RetrieveGenericsForDefaultAnswers  ..>  ReturnsMoreEmptyValues : «create»
-
-RetrieveGenericsForDefaultAnswers "1" *--> "MOCKITO_CORE 1" MockitoCore 
-has been changed to: 
-RetrieveGenericsForDefaultAnswers  ..>  ReturnsEmptyValues : «create»
-RetrieveGenericsForDefaultAnswers  ..>  ReturnsMoreEmptyValues : «create»
-
-ReturnsSmartNulls  ..>  LocationImpl : «create»
-has been changed to: 
-ReturnsSmartNulls  ..>  Answer~T~ 
-ReturnsSmartNulls "1" *--> "delegate 1" Answer~T~ 
-ReturnsSmartNulls  ..>  ReturnsMoreEmptyValues : «create»
-
-
+Removed methods:
+AndroidLogAdapter:
++ wtf(String, String) void
++ d(String, String) void
++ i(String, String) void
++ w(String, String) void
++ v(String, String) void
++ e(String, String) void
+LogAdapter:
++ d(String, String) void
++ w(String, String) void
++ e(String, String) void
++ i(String, String) void
++ v(String, String) void
++ wtf(String, String) void
+Logger:
++ init() Settings
++ resetSettings() void
++ init(String) Settings
+LoggerPrinter:
+- formatTag(String) String
+- logDivider(int, String) void
+- logTopBorder(int, String) void
+- logHeaderContent(int, String, int) void
+- logContent(int, String, String) void
++ getSettings() Settings
++ init(String) Settings
+- getMethodCount() int
++ resetSettings() void
+- logChunk(int, String, String) void
+- getStackOffset(StackTraceElement[]) int
+- logBottomBorder(int, String) void
+- getSimpleClassName(String) String
+Printer:
++ resetSettings() void
++ init(String) Settings
++ getSettings() Settings
