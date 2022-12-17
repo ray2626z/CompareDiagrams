@@ -129,3 +129,27 @@ Printer:
 + addAdapter(LogAdapter) void
 
 
+Altered methods:
+Logger:
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+
++ t(int) Printer
+has been changed to:
++ t(String) Printer
+
+LoggerPrinter:
+- getTag() String
+has been changed to:
+- getTag() String?
+
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+
+Printer:
++ t(String, int) Printer
+has been changed to:
++ t(String) Printer
+

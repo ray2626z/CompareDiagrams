@@ -280,3 +280,17 @@ if __name__ == '__main__':
                 output.write(m)
             output.write('\n')
         output.write('\n')
+
+        # altered methods
+        output.write("Altered methods:\n")
+        for alt in alt_class_methods.keys():
+            output.write(alt + ':\n')
+            # olds = alt_class_methods[alt].keys()
+            dicts = alt_class_methods[alt]
+            for old in dicts.keys():
+                output.write(old)
+                output.write('has been changed to:\n')
+                methods = dicts[old]
+                output.write(methods)
+                output.write('\n')
+            # output.write('\n')
