@@ -231,4 +231,14 @@ if __name__ == '__main__':
             output.write(line)
         output.write('\n')
 
+        # altered dependencies
+        output.write("Altered dependencies:\n")
+        for old in alt_ds.keys():
 
+            output.write(old + 'has been changed to: \n')
+            new_d_list = alt_ds[old]
+
+            for new in new_d_list:
+                output.write(new)
+            output.write('\n')
+        output.write('\n')
