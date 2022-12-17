@@ -130,7 +130,8 @@ if __name__ == '__main__':
                     # print(m1 + ' -> ' + m2)
                     alt_pairs.update({m1: m2})
 
-        alt_class_methods.update({key: alt_pairs})
+        if alt_pairs != {}:
+            alt_class_methods.update({key: alt_pairs})
 
     # print(alt_class_methods)
 
@@ -193,10 +194,19 @@ if __name__ == '__main__':
             if class1 == class2 and d1 != d2 and not exist:
                 changes.append(d2)
 
-        alt_ds.update({d1: changes})
+        if changes:
+            alt_ds.update({d1: changes})
 
     # for i in alt_ds.keys():
     #     if alt_ds[i]:
     #         print(i + ': ')
     #         print(alt_ds[i])
+
+    # Identify removed dependencies
+    rm_ds = []
+    for d in dependencies_1:
+        if d not in dependencies_2 and d not in alt_ds.keys():
+            rm_ds.append(d)
+    # print(rm_ds)
+
 
