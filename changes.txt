@@ -1,24 +1,8 @@
-Removed:
-class LocationImpl
-DefaultInvocationFactory  ..>  LocationImpl : «create»
-Localized~T~  ..>  LocationImpl : «create»
-LocalizedMatcher  ..>  LocationImpl : «create»
+Removed dependencies:
 LocationImpl  ..>  Location 
 LocationImpl  ..>  StackTraceFilter : «create»
 LocationImpl "1" *--> "stackTraceFilter 1" StackTraceFilter 
-MockMethodAdvice  ..>  LocationImpl : «create»
-MockMethodInterceptor  ..>  LocationImpl : «create»
-MockedConstructionImpl~T~  ..>  LocationImpl : «create»
-MockedStaticImpl~T~  ..>  LocationImpl : «create»
-MockingProgressImpl  ..>  LocationImpl : «create»
-PluginInitializer "1" *--> "plugins 1" DefaultMockitoPlugins 
-Reporter  ..>  LocationImpl : «create»
-RetrieveGenericsForDefaultAnswers  ..>  MockitoCore : «create»
-RetrieveGenericsForDefaultAnswers "1" *--> "MOCKITO_CORE 1" MockitoCore 
-ReturnsSmartNulls  ..>  LocationImpl : «create»
 
-Newly Added:
+New dependencies:
+MockUtil "1" *--> "defaultMockMaker 1" MockMaker 
 
-Changed:
-MockUtil "1" *--> "mockMaker 1" MockMaker 
- -> MockUtil "1" *--> "defaultMockMaker 1" MockMaker 

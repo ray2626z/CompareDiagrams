@@ -216,3 +216,19 @@ if __name__ == '__main__':
             new_ds.append(d)
     # print(new_ds)
 
+    # Write the results to a file
+    with open("changes.txt", 'w') as output:
+
+        # removed dependencies
+        output.write("Removed dependencies:\n")
+        for line in rm_ds:
+            output.write(line)
+        output.write('\n')
+
+        # new dependencies
+        output.write("New dependencies:\n")
+        for line in new_ds:
+            output.write(line)
+        output.write('\n')
+
+
