@@ -125,3 +125,22 @@ if __name__ == '__main__':
         alt_class_methods.update({key: alt_pairs})
 
     # print(alt_class_methods)
+
+    # Identify removed methods for classes in alt_classes
+    rm_class_methods = dict()
+    for key in alt_classes:
+        # initialize
+        methods_1 = classes1[key]
+        methods_2 = classes2[key]
+        alt_methods = alt_class_methods[key]
+        rm_methods = []
+
+        for m in methods_1:
+            if m not in methods_2 and m not in alt_methods.keys():
+                rm_methods.append(m)
+
+        rm_class_methods.update({key: rm_methods})
+
+    # print(rm_class_methods)
+
+
