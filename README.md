@@ -12,7 +12,7 @@ The output files of comparison is:
 ## Usage:
 python3 compare.py \<diagram1\> \<diagram2\> \<output_file\>
 
-Note: \<diagram1\> and \<diagram2\> are files in mermaid.md format, expoted from intelliJ class diagrams
+Note: \<diagram1\> and \<diagram2\> are files in mermaid.md format, exported from intelliJ class diagrams
 ## Example:
 python3 compare.py v470 v480 m_changes  (for mockito)
 
