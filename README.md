@@ -2,6 +2,9 @@
 This script automatically compares two class diagrams (exported in mermaid.md format). It identifies
 - removed, new, and altered dependencies, 
 - as well as removed, new, and atered methods in which classes.
+## Inputs
+- v470 and v480 for mockito
+- v1.15 and v2.0.0 for logger
 ## Outputs
 The output files of comparison is:
 - m_changes for mockito
