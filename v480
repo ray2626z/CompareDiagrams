@@ -1,0 +1,3863 @@
+classDiagram
+direction BT
+class AbstractAwareMethod {
+<<Interface>>
+  + isAbstract() boolean
+}
+class AbstractThrowsException {
+  + AbstractThrowsException() 
+  + answer(InvocationOnMock) Object
+  + validateFor(InvocationOnMock) void
+  # getThrowable() Throwable
+}
+class AdditionalAnswers {
+  - AdditionalAnswers() 
+  + returnsSecondArg() Answer~T~
+  + answerVoid(VoidAnswer2~A, B~) Answer~Void~
+  + returnsElementsOf(Collection~?~) Answer~T~
+  + delegatesTo(Object) Answer~T~
+  + answerVoid(VoidAnswer6~A, B, C, D, E, F~) Answer~Void~
+  + returnsArgAt(int) Answer~T~
+  + answer(Answer3~T, A, B, C~) Answer~T~
+  + answer(Answer6~T, A, B, C, D, E, F~) Answer~T~
+  + answerVoid(VoidAnswer3~A, B, C~) Answer~Void~
+  + answerVoid(VoidAnswer4~A, B, C, D~) Answer~Void~
+  + returnsFirstArg() Answer~T~
+  + answerVoid(VoidAnswer1~A~) Answer~Void~
+  + answer(Answer1~T, A~) Answer~T~
+  + answerVoid(VoidAnswer5~A, B, C, D, E~) Answer~Void~
+  + returnsLastArg() Answer~T~
+  + answer(Answer2~T, A, B~) Answer~T~
+  + answer(Answer5~T, A, B, C, D, E~) Answer~T~
+  + answersWithDelay(long, Answer~T~) Answer~T~
+  + answer(Answer4~T, A, B, C, D~) Answer~T~
+}
+class AdditionalMatchers {
+  - AdditionalMatchers() 
+  + not(long) long
+  + leq(float) float
+  + leq(byte) byte
+  + geq(long) long
+  + not(double) double
+  + geq(float) float
+  + or(float, float) float
+  + aryEq(boolean[]) boolean[]?
+  + and(int, int) int
+  + aryEq(int[]) int[]?
+  + not(short) short
+  + lt(byte) byte
+  + and(byte, byte) byte
+  + or(char, char) char
+  + lt(double) double
+  + not(T) T?
+  + and(float, float) float
+  + aryEq(T[]) T[]?
+  + or(byte, byte) byte
+  + lt(float) float
+  + aryEq(double[]) double[]?
+  + geq(double) double
+  + or(T, T) T?
+  + and(boolean, boolean) boolean
+  + or(long, long) long
+  + lt(int) int
+  + lt(long) long
+  + leq(double) double
+  + geq(short) short
+  + not(byte) byte
+  + or(int, int) int
+  + gt(float) float
+  + find(String) String?
+  + or(short, short) short
+  + not(char) char
+  + aryEq(char[]) char[]?
+  + gt(T) T?
+  + and(long, long) long
+  + leq(short) short
+  + and(short, short) short
+  + gt(long) long
+  - reportMatcher(ArgumentMatcher~?~) void
+  + and(double, double) double
+  + not(float) float
+  + or(boolean, boolean) boolean
+  + aryEq(byte[]) byte[]?
+  + eq(double, double) double
+  + gt(byte) byte
+  + lt(T) T?
+  + lt(short) short
+  + leq(int) int
+  + gt(double) double
+  + aryEq(float[]) float[]?
+  + geq(int) int
+  + or(double, double) double
+  + leq(long) long
+  + and(T, T) T?
+  + not(boolean) boolean
+  + cmpEq(T) T?
+  + aryEq(short[]) short[]?
+  + geq(T) T?
+  + gt(short) short
+  + eq(float, float) float
+  + leq(T) T?
+  + geq(byte) byte
+  + not(int) int
+  + gt(int) int
+  + aryEq(long[]) long[]?
+  + and(char, char) char
+}
+class After {
+  ~ After(VerificationOverTimeImpl) 
+  + After(long, VerificationMode) 
+  ~ After(long, long, VerificationMode) 
+  # copySelfWithNewVerificationMode(VerificationMode) VerificationMode
+  + toString() String
+}
+class AllInvocationsFinder {
+  - AllInvocationsFinder() 
+  + findStubbings(Iterable~?~) Set~Stubbing~
+  + find(Iterable~?~) List~Invocation~
+}
+class And {
+  + And(ArgumentMatcher~?~, ArgumentMatcher~?~) 
+  + toString() String
+  + matches(Object) boolean
+}
+class AnnotationEngine {
+<<Interface>>
+  + process(Class~?~, Object) AutoCloseable
+}
+class Answer1~T, A0~ {
+<<Interface>>
+  + answer(A0) T
+}
+class Answer2~T, A0, A1~ {
+<<Interface>>
+  + answer(A0, A1) T
+}
+class Answer3~T, A0, A1, A2~ {
+<<Interface>>
+  + answer(A0, A1, A2) T
+}
+class Answer4~T, A0, A1, A2, A3~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3) T
+}
+class Answer5~T, A0, A1, A2, A3, A4~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3, A4) T
+}
+class Answer6~T, A0, A1, A2, A3, A4, A5~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3, A4, A5) T
+}
+class Answer~T~ {
+<<Interface>>
+  + answer(InvocationOnMock) T
+}
+class AnswerFunctionalInterfaces {
+  - AnswerFunctionalInterfaces() 
+  + toAnswer(VoidAnswer4~A, B, C, D~) Answer~Void~
+  + toAnswer(Answer3~T, A, B, C~) Answer~T~
+  + toAnswer(Answer5~T, A, B, C, D, E~) Answer~T~
+  + toAnswer(VoidAnswer5~A, B, C, D, E~) Answer~Void~
+  - lastParameter(InvocationOnMock, Method, int) A
+  + toAnswer(VoidAnswer1~A~) Answer~Void~
+  + toAnswer(Answer2~T, A, B~) Answer~T~
+  + toAnswer(VoidAnswer6~A, B, C, D, E, F~) Answer~Void~
+  + toAnswer(VoidAnswer2~A, B~) Answer~Void~
+  + toAnswer(Answer1~T, A~) Answer~T~
+  + toAnswer(VoidAnswer3~A, B, C~) Answer~Void~
+  + toAnswer(Answer4~T, A, B, C, D~) Answer~T~
+  - findAnswerMethod(Class~?~, int) Method
+  + toAnswer(Answer6~T, A, B, C, D, E, F~) Answer~T~
+}
+class Answers {
+<<enumeration>>
+  - Answers(Answer~Object~) 
+  + values() Answers[]
+  + answer(InvocationOnMock) Object
+  + valueOf(String) Answers
+}
+class AnswersWithDelay {
+  + AnswersWithDelay(long, Answer~Object~) 
+  + answer(InvocationOnMock) Object
+  + validateFor(InvocationOnMock) void
+}
+class Any {
+  + Any() 
+  + matches(Object) boolean
+  + toString() String
+}
+class ArgMismatchFinder {
+  + ArgMismatchFinder() 
+  ~ getStubbingArgMismatches(Iterable~?~) StubbingArgMismatches
+}
+class ArgumentCaptor~T~ {
+  - ArgumentCaptor(Class~T~) 
+  + forClass(Class~S~) ArgumentCaptor~U~
+  + getAllValues() List~T~
+  + capture() T
+  + getValue() T
+}
+class ArgumentMatcher~T~ {
+<<Interface>>
+  + matches(T) boolean
+}
+class ArgumentMatcherAction {
+<<Interface>>
+  + apply(ArgumentMatcher~?~, Object) boolean
+}
+class ArgumentMatcherStorage {
+<<Interface>>
+  + reportAnd() void
+  + pullLocalizedMatchers() List~LocalizedMatcher~
+  + reportOr() void
+  + validateState() void
+  + reportNot() void
+  + reset() void
+  + reportMatcher(ArgumentMatcher~?~) void
+}
+class ArgumentMatcherStorageImpl {
+  + ArgumentMatcherStorageImpl() 
+  + pullLocalizedMatchers() List~LocalizedMatcher~
+  - assertStateFor(String, int) void
+  + reportOr() void
+  + reportNot() void
+  + reportMatcher(ArgumentMatcher~?~) void
+  + reportAnd() void
+  - popMatcher() ArgumentMatcher~?~
+  + validateState() void
+  + reset() void
+  - resetStack() List~LocalizedMatcher~
+}
+class ArgumentMatchers {
+  + ArgumentMatchers() 
+  + any(Class~T~) T
+  + anyFloat() float
+  + matches(String) String
+  + notNull() T?
+  + doubleThat(ArgumentMatcher~Double~) double
+  + argThat(ArgumentMatcher~T~) T?
+  + booleanThat(ArgumentMatcher~Boolean~) boolean
+  + anySet() Set~T~
+  + nullable(Class~T~) T
+  + anyString() String
+  + isNull() T?
+  + shortThat(ArgumentMatcher~Short~) short
+  + anyChar() char
+  + isA(Class~T~) T
+  + eq(T) T?
+  + eq(long) long
+  + same(T) T?
+  + endsWith(String) String
+  + eq(float) float
+  + anyList() List~T~
+  + intThat(ArgumentMatcher~Integer~) int
+  + eq(double) double
+  + anyInt() int
+  + matches(Pattern) String
+  + charThat(ArgumentMatcher~Character~) char
+  + eq(byte) byte
+  + isNotNull() T
+  + eq(int) int
+  + anyLong() long
+  + anyBoolean() boolean
+  + eq(boolean) boolean
+  + longThat(ArgumentMatcher~Long~) long
+  + anyShort() short
+  - reportMatcher(ArgumentMatcher~?~) void
+  + refEq(T, String[]) T?
+  + any() T?
+  + anyIterable() Iterable~T~
+  + anyDouble() double
+  + startsWith(String) String
+  + anyByte() byte
+  + eq(char) char
+  + contains(String) String
+  + byteThat(ArgumentMatcher~Byte~) byte
+  + floatThat(ArgumentMatcher~Float~) float
+  + eq(short) short
+  + anyMap() Map~K, V~
+  + anyCollection() Collection~T~
+}
+class ArgumentMatchingTool {
+  - ArgumentMatchingTool() 
+  + getSuspiciouslyNotMatchingArgsIndexes(List~ArgumentMatcher~, Object[]) Integer[]
+  + getNotMatchingArgsWithSameName(List~ArgumentMatcher~, Object[]) Set~String~
+  - safelyMatches(ArgumentMatcher, Object) boolean
+  - toStringEquals(ArgumentMatcher, Object) boolean
+}
+class ArgumentsAreDifferent {
+  + ArgumentsAreDifferent(String, String, String) 
+  + getUnfilteredStackTrace() StackTraceElement[]
+  + toString() String
+  + getMessage() String
+}
+class ArgumentsAreDifferent {
+  + ArgumentsAreDifferent(String) 
+  + ArgumentsAreDifferent(String, String, String) 
+  + getMessage() String
+}
+class ArgumentsAreDifferent {
+  + ArgumentsAreDifferent(String, String, String) 
+  + getUnfilteredStackTrace() StackTraceElement[]
+  + toString() String
+  + getMessage() String
+}
+class ArgumentsProcessor {
+  - ArgumentsProcessor() 
+  + argumentsToMatchers(Object[]) List~ArgumentMatcher~
+  + expandArgs(MockitoMethod, Object[]) Object[]
+  - expandVarArgs(boolean, Object[]) Object[]
+  - isNullOrEmpty(T[]) boolean
+}
+class ArrayEquals {
+  + ArrayEquals(Object) 
+  + toString() String
+  + createObjectArray(Object) Object[]
+  + matches(Object) boolean
+  - appendArray(Object[]) String
+}
+class AtLeast {
+  + AtLeast(int) 
+  + verifyInOrder(VerificationDataInOrder) void
+  + verify(VerificationData) void
+  + toString() String
+}
+class AtLeastDiscrepancy {
+  + AtLeastDiscrepancy(int, int) 
+  + getPluralizedWantedCount() String
+}
+class AtLeastXNumberOfInvocationsChecker {
+  - AtLeastXNumberOfInvocationsChecker() 
+  + checkAtLeastNumberOfInvocations(List~Invocation~, MatchableInvocation, int, InOrderContext) void
+  + checkAtLeastNumberOfInvocations(List~Invocation~, MatchableInvocation, int) void
+}
+class AtMost {
+  + AtMost(int) 
+  + verify(VerificationData) void
+  + toString() String
+  - removeAlreadyVerified(List~Invocation~) void
+}
+class AutoCleanableListener {
+<<Interface>>
+  + isListenerDirty() boolean
+}
+class BDDMockito {
+  + BDDMockito() 
+  + willThrow(Class~Throwable~) BDDStubber
+  + willAnswer(Answer~?~) BDDStubber
+  + willThrow(Throwable[]) BDDStubber
+  + willReturn(Object) BDDStubber
+  + willCallRealMethod() BDDStubber
+  + willThrow(Class~Throwable~, Class~Throwable~[]) BDDStubber
+  + willReturn(Object, Object[]) BDDStubber
+  + given(T) BDDMyOngoingStubbing~T~
+  + will(Answer~?~) BDDStubber
+  + willDoNothing() BDDStubber
+  + then(T) Then~T~
+}
+class BaseStubber {
+<<Interface>>
+  + doCallRealMethod() Stubber
+  + doThrow(Class~Throwable~) Stubber
+  + doNothing() Stubber
+  + doThrow(Class~Throwable~, Class~Throwable~[]) Stubber
+  + doThrow(Throwable[]) Stubber
+  + doAnswer(Answer) Stubber
+  + doReturn(Object) Stubber
+  + doReturn(Object, Object[]) Stubber
+}
+class BaseStubbing~T~ {
+  ~ BaseStubbing(Object) 
+  + thenThrow(Class~Throwable~, Class~Throwable~[]) OngoingStubbing~T~
+  - thenThrow(Throwable) OngoingStubbing~T~
+  + getMock() M
+  + thenReturn(T) OngoingStubbing~T~
+  + thenCallRealMethod() OngoingStubbing~T~
+  + then(Answer~?~) OngoingStubbing~T~
+  + thenReturn(T, T[]) OngoingStubbing~T~
+  + thenThrow(Class~Throwable~) OngoingStubbing~T~
+  + thenThrow(Throwable[]) OngoingStubbing~T~
+}
+class BeanPropertySetter {
+  + BeanPropertySetter(Object, Field, boolean) 
+  + BeanPropertySetter(Object, Field) 
+  + set(Object) boolean
+  - setterName(String) String
+  - reportNoSetterFound() void
+}
+class ByteBuddyCrossClassLoaderSerializationSupport {
+  + ByteBuddyCrossClassLoaderSerializationSupport() 
+  - mockIsCurrentlyBeingReplaced() boolean
+  - mockReplacementStarted() void
+  + writeReplace(Object) Object
+  - mockReplacementCompleted() void
+}
+class ByteBuddyMockMaker {
+  ~ ByteBuddyMockMaker(SubclassByteBuddyMockMaker) 
+  + ByteBuddyMockMaker() 
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+  + createMock(MockCreationSettings~T~, MockHandler) T
+  + createMockType(MockCreationSettings~T~) Class~T~
+  + createStaticMock(Class~T~, MockCreationSettings~T~, MockHandler) StaticMockControl~T~
+  + createConstructionMock(Class~T~, Function~Context, MockCreationSettings~T~~, Function~Context, MockHandler~T~~, MockInitializer~T~) ConstructionMockControl~T~
+  + clearAllCaches() void
+  + getHandler(Object) MockHandler
+  + createSpy(MockCreationSettings~T~, MockHandler, T) Optional~T~
+  + isTypeMockable(Class~?~) TypeMockability
+}
+class BytecodeGenerator {
+<<Interface>>
+  + mockClassStatic(Class~?~) void
+  + mockClass(MockFeatures~T~) Class~T~
+  + isGroovyMethod(boolean) ElementMatcher~MethodDescription~
+  + mockClassConstruction(Class~?~) void
+  + clearAllCaches() void
+}
+class Calls {
+  + Calls(int) 
+  + verifyInOrder(VerificationDataInOrder) void
+  + verify(VerificationData) void
+  + toString() String
+}
+class CallsRealMethods {
+  + CallsRealMethods() 
+  + validateFor(InvocationOnMock) void
+  + answer(InvocationOnMock) Object
+}
+class CannotStubVoidMethodWithReturnValue {
+  + CannotStubVoidMethodWithReturnValue(String) 
+}
+class CannotVerifyStubOnlyMock {
+  + CannotVerifyStubOnlyMock(String) 
+}
+class Captor
+class CaptorAnnotationProcessor {
+  + CaptorAnnotationProcessor() 
+  + process(Captor, Field) Object
+}
+class CapturesArguments {
+<<Interface>>
+  + captureFrom(Object) void
+}
+class CapturingMatcher~T~ {
+  + CapturingMatcher() 
+  + getAllValues() List~T~
+  + captureFrom(Object) void
+  + toString() String
+  + getLastValue() T
+  + matches(Object) boolean
+}
+class CheckReturnValue
+class Checks {
+  - Checks() 
+  + checkNotNull(T, String) T
+  + checkNotNull(T, String, String) T
+  + checkItemsNotNull(T, String) T
+}
+class ClassCreatingMockMaker {
+<<Interface>>
+  + createMockType(MockCreationSettings~T~) Class~T~
+}
+class ClassPathLoader {
+  + ClassPathLoader() 
+  + loadConfiguration() IMockitoConfiguration
+}
+class ClonesArguments {
+  + ClonesArguments() 
+  + answer(InvocationOnMock) Object
+}
+class CompareEqual~T~ {
+  + CompareEqual(T) 
+  # matchResult(int) boolean
+  # getName() String
+}
+class CompareTo~T~ {
+  + CompareTo(T) 
+  # getName() String
+  + toString() String
+  # matchResult(int) boolean
+  + matches(T) boolean
+}
+class ConditionalStackTraceFilter {
+  + ConditionalStackTraceFilter() 
+  + filter(Throwable) void
+}
+class ConsecutiveStubbing~T~ {
+  ~ ConsecutiveStubbing(InvocationContainerImpl) 
+  + thenAnswer(Answer~?~) OngoingStubbing~T~
+}
+class ConsoleMockitoLogger {
+  + ConsoleMockitoLogger() 
+  + log(Object) void
+}
+class ConstructionCallback {
+<<Interface>>
+  + apply(Class~?~, Object, Object[], String[]) Object
+}
+class ConstructorInjection {
+  + ConstructorInjection() 
+  + processInjection(Field, Object, Set~Object~) boolean
+}
+class ConstructorInstantiator {
+  + ConstructorInstantiator(boolean, Object[]) 
+  - evaluateConstructor(List~Constructor~?~~, Constructor~?~) void
+  - constructorArgsString() String
+  - multipleMatchingConstructors(Class~?~, List~Constructor~?~~) InstantiationException
+  + newInstance(Class~T~) T
+  - constructorArgTypes() String
+  - withParams(Class~T~, Object[]) T
+  - paramsException(Class~?~, Exception) InstantiationException
+  - noMatchingConstructor(Class~?~) InstantiationException
+  - invokeConstructor(Constructor~?~, Object[]) T
+  - paramsMatch(Class~?~[], Object[]) boolean
+}
+class Contains {
+  + Contains(String) 
+  + matches(String) boolean
+  + toString() String
+}
+class ContainsExtraTypeInfo {
+<<Interface>>
+  + toStringWithType(String) String
+  + getWanted() Object
+  + typeMatches(Object) boolean
+}
+class CreationSettings~T~ {
+  + CreationSettings() 
+  + CreationSettings(CreationSettings) 
+  + isUsingConstructor() boolean
+  + getSerializableMode() SerializableMode
+  + getDefaultAnswer() Answer~Object~
+  + getExtraInterfaces() Set~Class~?~~
+  + isStubOnly() boolean
+  + isSerializable() boolean
+  + getVerificationStartedListeners() List~VerificationStartedListener~
+  + getTypeToMock() Class~T~
+  + getName() String
+  + setTypeToMock(Class~T~) CreationSettings~T~
+  + setSerializableMode(SerializableMode) CreationSettings~T~
+  + isStripAnnotations() boolean
+  + getOuterClassInstance() Object
+  + isLenient() boolean
+  + setMockName(MockName) CreationSettings~T~
+  + getMockMaker() String
+  + getSpiedInstance() Object
+  + setExtraInterfaces(Set~Class~?~~) CreationSettings~T~
+  + getStrictness() Strictness
+  + getInvocationListeners() List~InvocationListener~
+  + getStubbingLookupListeners() List~StubbingLookupListener~
+  + getConstructorArgs() Object[]
+  + getMockName() MockName
+}
+class DefaultAnswerValidator {
+  + DefaultAnswerValidator() 
+  + validateReturnValueFor(InvocationOnMock, Object) void
+}
+class DefaultDoNotMockEnforcer {
+  + DefaultDoNotMockEnforcer() 
+  + checkTypeForDoNotMockViolation(Class~?~) String
+}
+class DefaultInjectionEngine {
+  + DefaultInjectionEngine() 
+  + injectMocksOnFields(Set~Field~, Set~Object~, Object) void
+}
+class DefaultInstantiatorProvider {
+  + DefaultInstantiatorProvider() 
+  + getInstantiator(MockCreationSettings~?~) Instantiator
+}
+class DefaultInternalRunner {
+  + DefaultInternalRunner(Class~?~, Supplier~MockitoTestListener~) 
+  + run(RunNotifier) void
+  + filter(Filter) void
+  + getDescription() Description
+}
+class DefaultInvocationFactory {
+  + DefaultInvocationFactory() 
+  - createInvocation(Object, Method, Object[], RealMethod, MockCreationSettings) InterceptedInvocation
+  + createInvocation(Object, MockCreationSettings, Method, Callable, Object[]) Invocation
+  + createInvocation(Object, Method, Object[], RealMethod, MockCreationSettings, Location) InterceptedInvocation
+  + createInvocation(Object, MockCreationSettings, Method, RealMethodBehavior, Object[]) Invocation
+  - createMockitoMethod(Method, MockCreationSettings) MockitoMethod
+  - createInvocation(Object, MockCreationSettings, Method, RealMethod, Object[]) Invocation
+}
+class DefaultLenientStubber {
+  + DefaultLenientStubber() 
+  + doReturn(Object, Object[]) Stubber
+  + doThrow(Class~Throwable~, Class~Throwable~[]) Stubber
+  + doThrow(Throwable[]) Stubber
+  + doNothing() Stubber
+  + doReturn(Object) Stubber
+  + doCallRealMethod() Stubber
+  + doThrow(Class~Throwable~) Stubber
+  + doAnswer(Answer) Stubber
+  - stubber() Stubber
+  + when(T) OngoingStubbing~T~
+}
+class DefaultMockingDetails {
+  + DefaultMockingDetails(Object) 
+  + getMock() Object
+  + getMockCreationSettings() MockCreationSettings~?~
+  - getInvocationContainer() InvocationContainerImpl
+  + getStubbings() Collection~Stubbing~
+  + getInvocations() Collection~Invocation~
+  + isMock() boolean
+  - assertGoodMock() void
+  + isSpy() boolean
+  + getMockHandler() MockHandler
+  + printInvocations() String
+  - mockHandler() MockHandler~?~
+}
+class DefaultMockitoConfiguration {
+  + DefaultMockitoConfiguration() 
+  + getDefaultAnswer() Answer~Object~
+  + cleansStackTrace() boolean
+  + enableClassCache() boolean
+}
+class DefaultMockitoFramework {
+  + DefaultMockitoFramework() 
+  + removeListener(MockitoListener) MockitoFramework
+  + clearInlineMock(Object) void
+  + getPlugins() MockitoPlugins
+  - getInlineMockMaker() InlineMockMaker?
+  + getInvocationFactory() InvocationFactory
+  + clearInlineMocks() void
+  + addListener(MockitoListener) MockitoFramework
+}
+class DefaultMockitoPlugins {
+  + DefaultMockitoPlugins() 
+  + getDefaultPlugin(Class~T~) T
+  - create(Class~T~, String) T
+  + getDefaultPluginClass(String) String
+  + getInlineMockMaker() MockMaker
+}
+class DefaultMockitoSession {
+  + DefaultMockitoSession(List~Object~, String, Strictness, MockitoLogger) 
+  + finishMocking() void
+  - release() void
+  + setStrictness(Strictness) void
+  + finishMocking(Throwable) void
+}
+class DefaultMockitoSessionBuilder {
+  + DefaultMockitoSessionBuilder() 
+  + initMocks(Object) MockitoSessionBuilder
+  + initMocks(Object[]) MockitoSessionBuilder
+  + name(String) MockitoSessionBuilder
+  + startMocking() MockitoSession
+  + strictness(Strictness) MockitoSessionBuilder
+  + logger(MockitoSessionLogger) MockitoSessionBuilder
+}
+class DefaultPluginSwitch {
+  + DefaultPluginSwitch() 
+  + isEnabled(String) boolean
+}
+class DefaultRegisteredInvocations {
+  + DefaultRegisteredInvocations() 
+  + add(Invocation) void
+  + getAll() List~Invocation~
+  + removeLast() void
+  + clear() void
+  + isEmpty() boolean
+}
+class DefaultStackTraceCleaner {
+  + DefaultStackTraceCleaner() 
+  - isFromMockitoRule(String) boolean
+  + isIn(StackTraceElement) boolean
+  - isIn(String) boolean
+  - isMockDispatcher(String) boolean
+  + isIn(StackFrameMetadata) boolean
+  - isFromMockito(String) boolean
+  - isFromMockitoRunner(String) boolean
+}
+class DefaultStackTraceCleanerProvider {
+  + DefaultStackTraceCleanerProvider() 
+  + getStackTraceCleaner(StackTraceCleaner) StackTraceCleaner
+}
+class DefaultStubbingLookupListener {
+  ~ DefaultStubbingLookupListener(Strictness) 
+  ~ isMismatchesReported() boolean
+  + onStubbingLookup(StubbingLookupEvent) void
+  ~ setCurrentStrictness(Strictness) void
+  - potentialArgMismatches(Invocation, Collection~Stubbing~) List~Invocation~
+}
+class DefaultTestFinishedEvent {
+  + DefaultTestFinishedEvent(Object, String, Throwable) 
+  + getFailure() Throwable
+  + getTestName() String
+}
+class DelegatingMethod {
+  + DelegatingMethod(Method) 
+  + getName() String
+  + getReturnType() Class~?~
+  + hashCode() int
+  + getExceptionTypes() Class~?~[]
+  + equals(Object) boolean
+  + getParameterTypes() Class~?~[]
+  + isVarArgs() boolean
+  + getJavaMethod() Method
+  + isAbstract() boolean
+}
+class DescribedInvocation {
+<<Interface>>
+  + toString() String
+  + getLocation() Location
+}
+class Description {
+  + Description(VerificationMode, String) 
+  + verify(VerificationData) void
+}
+class DetachedThreadLocal~T~ {
+  + DetachedThreadLocal(Cleaner) 
+  + define(Thread, T) void
+  + get() T
+  + pushTo(Thread) T
+  + getBackingMap() WeakConcurrentMap~Thread, T~
+  + run() void
+  + fetchFrom(Thread) T
+  + get(Thread) T
+  # initialValue(Thread) T
+  + set(T) void
+  # inheritValue(T) T
+  + clear() void
+  + clearAll() void
+}
+class Discrepancy {
+  + Discrepancy(int, int) 
+  + getPluralizedActualCount() String
+  + getWantedCount() int
+  + getPluralizedWantedCount() String
+  + getActualCount() int
+}
+class DoAnswerStyleStubbing {
+  + DoAnswerStyleStubbing() 
+  ~ clear() void
+  ~ getAnswers() List~Answer~?~~
+  ~ getStubbingStrictness() Strictness
+  ~ setAnswers(List~Answer~?~~, Strictness) void
+  ~ isSet() boolean
+}
+class DoNotMock {
+  + reason() String
+}
+class DoNotMockEnforcer {
+<<Interface>>
+  + checkTypeForDoNotMockViolation(Class~?~) String
+}
+class DoNotMockException {
+  + DoNotMockException(String) 
+}
+class DoesNothing {
+  - DoesNothing() 
+  + doesNothing() DoesNothing
+  + answer(InvocationOnMock) Object
+  + validateFor(InvocationOnMock) void
+}
+class DriverBonus {
+  + DriverBonus() 
+  + runTest(String, Object, Object, boolean, Method) void
+  + main(String[]) void
+}
+class EndsWith {
+  + EndsWith(String) 
+  + toString() String
+  + matches(String) boolean
+}
+class Equality {
+  - Equality() 
+  ~ areArraysEqual(Object, Object) boolean
+  ~ areArrayLengthsEqual(Object, Object) boolean
+  + areEqual(Object, Object) boolean
+  ~ areArrayElementsEqual(Object, Object) boolean
+  ~ isArray(Object) boolean
+}
+class Equals {
+  + Equals(Object) 
+  + toStringWithType(String) String
+  + toString() String
+  + getWanted() Object
+  + hashCode() int
+  + equals(Object) boolean
+  + matches(Object) boolean
+  - describe(Object) String
+  + typeMatches(Object) boolean
+}
+class EqualsBuilder {
+  + EqualsBuilder() 
+  + append(boolean, boolean) EqualsBuilder
+  + append(char, char) EqualsBuilder
+  + append(float, float) EqualsBuilder
+  + append(Object[], Object[]) EqualsBuilder
+  + append(float[], float[]) EqualsBuilder
+  + isEquals() boolean
+  + append(boolean[], boolean[]) EqualsBuilder
+  + append(long, long) EqualsBuilder
+  + append(double, double) EqualsBuilder
+  + append(long[], long[]) EqualsBuilder
+  + reflectionEquals(Object, Object) boolean
+  + append(double[], double[]) EqualsBuilder
+  + appendSuper(boolean) EqualsBuilder
+  + reflectionEquals(Object, Object, boolean, Class~?~, String[]) boolean
+  + reflectionEquals(Object, Object, boolean, Class~?~) boolean
+  + append(char[], char[]) EqualsBuilder
+  + append(Object, Object) EqualsBuilder
+  + append(int, int) EqualsBuilder
+  + reflectionEquals(Object, Object, boolean) boolean
+  + append(byte[], byte[]) EqualsBuilder
+  + append(short[], short[]) EqualsBuilder
+  + reflectionEquals(Object, Object, String[]) boolean
+  + append(short, short) EqualsBuilder
+  # setEquals(boolean) void
+  + append(int[], int[]) EqualsBuilder
+  + append(byte, byte) EqualsBuilder
+  - reflectionAppend(Object, Object, Class~?~, EqualsBuilder, boolean, String[]) boolean
+}
+class EqualsWithDelta {
+  + EqualsWithDelta(Number, Number) 
+  + matches(Number) boolean
+  + toString() String
+}
+class ExceptionFactory {
+  - ExceptionFactory() 
+  + createArgumentsAreDifferentException(String, String, String) AssertionError
+}
+class ExceptionIncludingMockitoWarnings {
+  + ExceptionIncludingMockitoWarnings(String, Throwable) 
+}
+class FailureDetector {
+  + FailureDetector() 
+  + isSuccessful() boolean
+  + testFailure(Failure) void
+}
+class FieldAnnotationProcessor~A~ {
+<<Interface>>
+  + process(A, Field) Object
+}
+class FieldInitializationReport {
+  + FieldInitializationReport(Object, boolean, boolean) 
+  + fieldWasInitialized() boolean
+  + fieldInstance() Object
+  + fieldWasInitializedUsingContructorArgs() boolean
+  + fieldClass() Class~?~
+}
+class FieldInitializer {
+  - FieldInitializer(Object, Field, ConstructorInstantiator) 
+  + FieldInitializer(Object, Field, ConstructorArgumentResolver) 
+  + FieldInitializer(Object, Field) 
+  - acquireFieldInstance() FieldInitializationReport
+  - checkNotInterface(Field) void
+  - checkNotAbstract(Field) void
+  + initialize() FieldInitializationReport
+  - checkNotLocal(Field) void
+  - checkNotInner(Field) void
+  - checkNotEnum(Field) void
+}
+class FieldReader {
+  + FieldReader(Object, Field) 
+  + read() Object
+  + isNull() boolean
+}
+class Find {
+  + Find(String) 
+  + matches(String) boolean
+  + toString() String
+}
+class FindingsListener {
+<<Interface>>
+  + foundUnusedStub(Invocation) void
+  + foundStubCalledWithDifferentArgs(Invocation, InvocationMatcher) void
+  + foundUnstubbed(InvocationMatcher) void
+}
+class FormattedText {
+  + FormattedText(String) 
+  + getText() String
+}
+class ForwardsInvocations {
+  + ForwardsInvocations(Object) 
+  - getDelegateMethod(Method) Method
+  + answer(InvocationOnMock) Object
+  - compatibleReturnTypes(Class~?~, Class~?~) boolean
+}
+class FriendlyReminderException {
+  + FriendlyReminderException(String) 
+}
+class GenericMaster {
+  + GenericMaster() 
+  + getGenericType(Field) Class~?~
+}
+class GenericMetadataSupport {
+  + GenericMetadataSupport() 
+  + resolveGenericReturnType(Method) GenericMetadataSupport
+  + actualTypeArguments() Map~TypeVariable~?~, Type~
+  # getActualTypeArgumentFor(TypeVariable~?~) Type
+  - registerTypeVariableIfNotPresent(TypeVariable~?~) void
+  + inferFrom(Type) GenericMetadataSupport
+  - resolveGenericType(Type, Method) GenericMetadataSupport
+  + rawType() Class~?~
+  # extractRawTypeOf(Type) Class~?~
+  + rawExtraInterfaces() Class~?~[]
+  - boundsOf(TypeVariable~?~) BoundedType
+  + extraInterfaces() List~Type~
+  # registerAllTypeVariables(Type) void
+  - boundsOf(WildcardType) BoundedType
+  # registerTypeParametersOn(TypeVariable~?~[]) void
+  + hasRawExtraInterfaces() boolean
+  # registerTypeVariablesOn(Type) void
+}
+class GenericTypeExtractor {
+  - GenericTypeExtractor() 
+  + genericTypeOf(Class~?~, Class~?~, Class~?~) Class~?~
+  - findGenericInterface(Class~?~, Class~?~) Type?
+  - extractGeneric(Type) Class~?~
+}
+class GlobalConfiguration {
+  + GlobalConfiguration() 
+  + tryGetPluginAnnotationEngine() AnnotationEngine
+  ~ getIt() IMockitoConfiguration
+  + validate() void
+  + getDefaultAnswer() Answer~Object~
+  + enableClassCache() boolean
+  - createConfig() IMockitoConfiguration
+  + cleansStackTrace() boolean
+}
+class GloballyConfiguredAnswer {
+  + GloballyConfiguredAnswer() 
+  + answer(InvocationOnMock) Object
+}
+class GreaterOrEqual~T~ {
+  + GreaterOrEqual(T) 
+  # getName() String
+  # matchResult(int) boolean
+}
+class GreaterThan~T~ {
+  + GreaterThan(T) 
+  # getName() String
+  # matchResult(int) boolean
+}
+class HamcrestArgumentMatcher~T~ {
+  + HamcrestArgumentMatcher(Matcher~T~) 
+  + toString() String
+  + matches(Object) boolean
+  + isVarargMatcher() boolean
+}
+class HashCodeAndEqualsMockWrapper {
+  + HashCodeAndEqualsMockWrapper(Object) 
+  + equals(Object) boolean
+  + get() Object
+  + toString() String
+  + hashCode() int
+  + of(Object) HashCodeAndEqualsMockWrapper
+  - typeInstanceString() String
+}
+class HashCodeAndEqualsSafeSet {
+  + HashCodeAndEqualsSafeSet() 
+  + addAll(Collection~?~) boolean
+  + of(Object[]) HashCodeAndEqualsSafeSet
+  - unwrapTo(T[]) T[]
+  + add(Object) boolean
+  + toArray() Object[]
+  - asWrappedMocks(Collection~?~) HashSet~HashCodeAndEqualsMockWrapper~
+  + size() int
+  + iterator() Iterator~Object~
+  + containsAll(Collection~?~) boolean
+  + retainAll(Collection~?~) boolean
+  + toArray(T[]) T[]
+  + of(Iterable~Object~) HashCodeAndEqualsSafeSet
+  + contains(Object) boolean
+  + toString() String
+  + isEmpty() boolean
+  + clone() Object
+  + remove(Object) boolean
+  + hashCode() int
+  + removeAll(Collection~?~) boolean
+  + clear() void
+  + equals(Object) boolean
+}
+class IMockitoConfiguration {
+<<Interface>>
+  + enableClassCache() boolean
+  + cleansStackTrace() boolean
+  + getDefaultAnswer() Answer~Object~
+}
+class IOUtil {
+  - IOUtil() 
+  + readLines(InputStream) Collection~String~
+  + closeQuietly(Closeable) void
+  + close(Closeable) void
+  + writeText(String, File) void
+}
+class IdentitySet {
+  + IdentitySet() 
+  + contains(Object) boolean
+  + add(Object) void
+}
+class InOrder {
+<<Interface>>
+  + verify(MockedStatic~?~, Verification, VerificationMode) void
+  + verifyNoMoreInteractions() void
+  + verify(T, VerificationMode) T
+  + verify(MockedStatic~?~, Verification) void
+  + verify(T) T
+}
+class InOrderContext {
+<<Interface>>
+  + isVerified(Invocation) boolean
+  + markVerified(Invocation) void
+}
+class InOrderContextImpl {
+  + InOrderContextImpl() 
+  + markVerified(Invocation) void
+  + isVerified(Invocation) boolean
+}
+class InOrderImpl {
+  + InOrderImpl(List~?~) 
+  + isVerified(Invocation) boolean
+  + markVerified(Invocation) void
+  + verifyNoMoreInteractions() void
+  + verify(T, VerificationMode) T
+  + verify(MockedStatic~?~, Verification, VerificationMode) void
+  + getMocksToBeVerifiedInOrder() List~Object~
+  - objectIsMockToBeVerified(Object) boolean
+  + verify(T) T
+}
+class InOrderWrapper {
+  + InOrderWrapper(VerificationInOrderMode, InOrderImpl) 
+  + verify(VerificationData) void
+}
+class Incubating
+class IndependentAnnotationEngine {
+  + IndependentAnnotationEngine() 
+  - createMockFor(Annotation, Field) Object
+  - forAnnotation(A) FieldAnnotationProcessor~A~
+  - registerAnnotationProcessor(Class~A~, FieldAnnotationProcessor~A~) void
+  ~ throwIfAlreadyAssigned(Field, boolean) void
+  + process(Class~?~, Object) AutoCloseable
+}
+class InjectMocks
+class InjectMocksException {
+  + InjectMocksException(String, Throwable) 
+}
+class InjectMocksScanner {
+  + InjectMocksScanner(Class~?~) 
+  + addTo(Set~Field~) void
+  - scan() Set~Field~
+  - assertNoAnnotations(Field, Class~Annotation~[]) void
+}
+class InjectingAnnotationEngine {
+  + InjectingAnnotationEngine() 
+  - processIndependentAnnotations(Class~?~, Object) List~AutoCloseable~
+  - processInjectMocks(Class~?~, Object) List~AutoCloseable~
+  - injectCloseableMocks(Object) AutoCloseable
+  + injectMocks(Object) void
+  # onInjection(Object, Class~?~, Set~Field~, Set~Object~) void
+  + process(Class~?~, Object) AutoCloseable
+}
+class InjectionBase {
+  - InjectionBase() 
+}
+class InlineByteBuddyMockMaker {
+  ~ InlineByteBuddyMockMaker(InlineDelegateByteBuddyMockMaker) 
+  + InlineByteBuddyMockMaker() 
+  + createStaticMock(Class~T~, MockCreationSettings~T~, MockHandler) StaticMockControl~T~
+  + newInstance(Class~T~) T
+  + clearAllMocks() void
+  + createMockType(MockCreationSettings~T~) Class~T~
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+  + clearMock(Object) void
+  + createSpy(MockCreationSettings~T~, MockHandler, T) Optional~T~
+  + getHandler(Object) MockHandler
+  + clearAllCaches() void
+  + createConstructionMock(Class~T~, Function~Context, MockCreationSettings~T~~, Function~Context, MockHandler~T~~, MockInitializer~T~) ConstructionMockControl~T~
+  + isTypeMockable(Class~?~) TypeMockability
+  + createMock(MockCreationSettings~T~, MockHandler) T
+}
+class InlineBytecodeGenerator {
+  + InlineBytecodeGenerator(Instrumentation, WeakConcurrentMap~Object, MockMethodInterceptor~, DetachedThreadLocal~Map~Class~?~, MockMethodInterceptor~~, Predicate~Class~?~~, ConstructionCallback) 
+  + mockClassConstruction(Class~?~) void
+  - assureInitialization(Class~?~) void
+  + mockClassStatic(Class~?~) void
+  - triggerRetransformation(Set~Class~?~~, boolean) void
+  - assureCanReadMockito(Set~Class~?~~) void
+  + mockClass(MockFeatures~T~) Class~T~
+  + clearAllCaches() void
+  - addInterfaces(Set~Class~?~~, Class~?~[]) void
+  - checkSupportedCombination(boolean, MockFeatures~T~) void
+  - preload() void
+  + transform(ClassLoader, String, Class~?~, ProtectionDomain, byte[]) byte[]
+}
+class InlineDelegateByteBuddyMockMaker {
+  ~ InlineDelegateByteBuddyMockMaker() 
+  + createSpy(MockCreationSettings~T~, MockHandler, T) Optional~T~
+  + createMock(MockCreationSettings~T~, MockHandler) T
+  + clearMock(Object) void
+  + clearAllMocks() void
+  - prettifyFailure(MockCreationSettings~T~, Exception) RuntimeException
+  + createMockType(MockCreationSettings~T~) Class~T~
+  - makeStandardArgument(Class~?~) Object?
+  + getHandler(Object) MockHandler
+  + createConstructionMock(Class~T~, Function~Context, MockCreationSettings~T~~, Function~Context, MockHandler~T~~, MockInitializer~T~) ConstructionMockControl~T~
+  + isTypeMockable(Class~?~) TypeMockability
+  + clearAllCaches() void
+  + createStaticMock(Class~T~, MockCreationSettings~T~, MockHandler) StaticMockControl~T~
+  + newInstance(Class~T~) T
+  - doCreateMock(MockCreationSettings~T~, MockHandler, boolean) T?
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+}
+class InlineMockMaker {
+<<Interface>>
+  + clearMock(Object) void
+  + clearAllMocks() void
+}
+class Inspector {
+  + Inspector() 
+  - handleArray(Class, Object, boolean, String, boolean, int) void
+  - inspectClass(Class, Object, boolean, int) void
+  + inspect(Object, boolean) void
+}
+class InstanceField {
+  + InstanceField(Field, Object) 
+  - reader() FieldReader
+  + name() String
+  + isAnnotatedBy(Class~Annotation~) boolean
+  + jdkField() Field
+  + toString() String
+  + set(Object) void
+  + annotation(Class~A~) A
+  + read() Object
+  + equals(Object) boolean
+  + isNull() boolean
+  + hashCode() int
+  + isSynthetic() boolean
+}
+class InstanceOf {
+  + InstanceOf(Class~?~, String) 
+  + InstanceOf(Class~?~) 
+  + matches(Object) boolean
+  + toString() String
+}
+class InstantiationException {
+  + InstantiationException(String) 
+  + InstantiationException(String, Throwable) 
+}
+class Instantiator {
+<<Interface>>
+  + newInstance(Class~T~) T
+}
+class InstantiatorProvider2 {
+<<Interface>>
+  + getInstantiator(MockCreationSettings~?~) Instantiator
+}
+class InstrumentationMemberAccessor {
+  ~ InstrumentationMemberAccessor() 
+  + set(Field, Object, Object) void
+  - assureArguments(AccessibleObject, Object, Class~?~, Object[], Class~?~[]) void
+  + invoke(Method, Object, Object[]) Object
+  + newInstance(Constructor~?~, OnConstruction, Object[]) Object
+  + get(Field, Object) Object
+  + newInstance(Constructor~?~, Object[]) Object
+  - assureOpen(Object, String) void
+}
+class InterceptedInvocation {
+  + InterceptedInvocation(MockReference~Object~, MockitoMethod, Object[], RealMethod, Location, int) 
+  + getRawArguments() Object[]
+  + callRealMethod() Object
+  + getLocation() Location
+  + getMethod() Method
+  + ignoreForVerification() void
+  + getMockRef() MockReference~Object~
+  + markVerified() void
+  + equals(Object) boolean
+  - equalArguments(Object[]) boolean
+  + getRawReturnType() Class~?~
+  + getSequenceNumber() int
+  + stubInfo() StubInfo
+  + getArgument(int, Class~T~) T
+  + getMockitoMethod() MockitoMethod
+  + toString() String
+  + markStubbed(StubInfo) void
+  + getMock() Object
+  + getArgument(int) T
+  + getArgumentsAsMatchers() List~ArgumentMatcher~
+  + hashCode() int
+  + isIgnoredForVerification() boolean
+  + isVerified() boolean
+  + getArguments() Object[]
+  + getRealMethod() RealMethod
+}
+class InternalRunner {
+<<Interface>>
+  + run(RunNotifier) void
+  + getDescription() Description
+}
+class InvalidUseOfMatchersException {
+  + InvalidUseOfMatchersException() 
+  + InvalidUseOfMatchersException(String) 
+}
+class Invocation {
+<<Interface>>
+  + markStubbed(StubInfo) void
+  + getLocation() Location
+  + ignoreForVerification() void
+  + getArgumentsAsMatchers() List~ArgumentMatcher~
+  + isVerified() boolean
+  + getSequenceNumber() int
+  + stubInfo() StubInfo
+  + isIgnoredForVerification() boolean
+  + getRawReturnType() Class~?~
+  + markVerified() void
+}
+class InvocationComparator {
+  + InvocationComparator() 
+  + compare(Invocation, Invocation) int
+}
+class InvocationContainer {
+<<Interface>>
+
+}
+class InvocationContainerImpl {
+  + InvocationContainerImpl(MockCreationSettings) 
+  + setAnswersForStubbing(List~Answer~?~~, Strictness) void
+  + resetInvocationForPotentialStubbing(MatchableInvocation) void
+  + getInvocations() List~Invocation~
+  + findAnswerFor(Invocation) StubbedInvocationMatcher
+  + invokedMock() Object
+  + addAnswer(Answer, Strictness) void
+  + clearInvocations() void
+  - createRegisteredInvocations(MockCreationSettings) RegisteredInvocations
+  + hasAnswersForStubbing() boolean
+  + setMethodForStubbing(MatchableInvocation) void
+  ~ answerTo(Invocation) Object
+  + hasInvocationForPotentialStubbing() boolean
+  + getStubbingsDescending() List~Stubbing~
+  + findStubbedAnswer() Answer
+  + addAnswer(Answer, boolean, Strictness) StubbedInvocationMatcher
+  + toString() String
+  + getStubbingsAscending() Collection~Stubbing~
+  + setInvocationForPotentialStubbing(MatchableInvocation) void
+  + addConsecutiveAnswer(Answer) void
+}
+class InvocationFactory {
+<<Interface>>
+  + createInvocation(Object, MockCreationSettings, Method, RealMethodBehavior, Object[]) Invocation
+}
+class InvocationInfo {
+  + InvocationInfo(InvocationOnMock) 
+  + isValidException(Throwable) boolean
+  + getMethodName() String
+  - isValidExceptionForParents(Class~?~, Throwable) boolean
+  + isDeclaredOnInterface() boolean
+  + isAbstract() boolean
+  - isValidException(Method, Throwable) boolean
+  + isVoid() boolean
+  + printMethodReturnType() String
+  + returnsPrimitive() boolean
+  + isValidReturnType(Class~?~) boolean
+  - isValidExceptionForClass(Class~?~, Throwable) boolean
+  + getMethod() Method
+}
+class InvocationListener {
+<<Interface>>
+  + reportInvocation(MethodInvocationReport) void
+}
+class InvocationMarker {
+  - InvocationMarker() 
+  + markVerifiedInOrder(List~Invocation~, MatchableInvocation, InOrderContext) void
+  + markVerified(Invocation, MatchableInvocation) void
+  + markVerified(List~Invocation~, MatchableInvocation) void
+}
+class InvocationMatcher {
+  + InvocationMatcher(Invocation) 
+  + InvocationMatcher(Invocation, List~ArgumentMatcher~) 
+  + captureArgumentsFrom(Invocation) void
+  + hasSameMethod(Invocation) boolean
+  + toString() String
+  + getMatchers() List~ArgumentMatcher~
+  + getInvocation() Invocation
+  - argumentsMatch(Invocation) boolean
+  + createFrom(List~Invocation~) List~InvocationMatcher~
+  + getMethod() Method
+  + hasSimilarMethod(Invocation) boolean
+  - captureArgument() ArgumentMatcherAction
+  + matches(Invocation) boolean
+  + getLocation() Location
+}
+class InvocationNotifierHandler~T~ {
+  + InvocationNotifierHandler(MockHandler~T~, MockCreationSettings~T~) 
+  + getInvocationContainer() InvocationContainer
+  + handle(Invocation) Object
+  - notifyMethodCallException(Invocation, Throwable) void
+  + getMockSettings() MockCreationSettings~T~
+  - notifyMethodCall(Invocation, Object) void
+}
+class InvocationOnMock {
+<<Interface>>
+  + getArguments() Object[]
+  + getArgument(int) T
+  + getMock() Object
+  + callRealMethod() Object
+  + getArgument(int, Class~T~) T
+  + getRawArguments() Object[]
+  + getMethod() Method
+}
+class InvocationsFinder {
+  - InvocationsFinder() 
+  + findFirstUnverifiedInOrder(InOrderContext, List~Invocation~) Invocation
+  + findInvocations(List~Invocation~, MatchableInvocation) List~Invocation~
+  + findSimilarInvocation(List~Invocation~, MatchableInvocation) Invocation
+  + getAllLocations(List~Invocation~) List~Location~
+  + findAllMatchingUnverifiedChunks(List~Invocation~, MatchableInvocation, InOrderContext) List~Invocation~
+  + findMatchingChunk(List~Invocation~, MatchableInvocation, int, InOrderContext) List~Invocation~
+  - getFirstMatchingChunk(MatchableInvocation, List~Invocation~) List~Invocation~
+  ~ findFirstUnverified(List~Invocation~, Object) Invocation?
+  + findFirstMatchingUnverifiedInvocation(List~Invocation~, MatchableInvocation, InOrderContext) Invocation?
+  + findPreviousVerifiedInOrder(List~Invocation~, InOrderContext) Invocation?
+  + getLastLocation(List~Invocation~) Location?
+  - removeVerifiedInOrder(List~Invocation~, InOrderContext) List~Invocation~
+  + findFirstUnverified(List~Invocation~) Invocation
+}
+class InvocationsPrinter {
+  + InvocationsPrinter() 
+  + printInvocations(Object) String
+}
+class InvokeDefaultProxy {
+  ~ InvokeDefaultProxy() 
+  + resolve(Object, Method, Object[]) RealMethod
+}
+class Iterables {
+  - Iterables() 
+  + toIterable(Enumeration~T~) Iterable~T~
+  + firstOf(Iterable~T~) T
+}
+class JUnitRule {
+  + JUnitRule(MockitoLogger, Strictness) 
+  + strictness(Strictness) MockitoRule
+  + apply(Statement, FrameworkMethod, Object) Statement
+  + silent() MockitoRule
+}
+class JUnitSessionStore {
+  ~ JUnitSessionStore(MockitoLogger, Strictness) 
+  ~ createStatement(Statement, String, Object) Statement
+  ~ setStrictness(Strictness) void
+}
+class JUnitTestRule {
+  + JUnitTestRule(MockitoLogger, Strictness, Object) 
+  + apply(Statement, Description) Statement
+  + silent() MockitoTestRule
+  + strictness(Strictness) MockitoTestRule
+}
+class JavaEightUtil {
+  - JavaEightUtil() 
+  + emptyOptional() Object
+  + emptyOptionalDouble() Object
+  + emptyOptionalLong() Object
+  + emptyPeriod() Object
+  - invokeNullaryFactoryMethod(String, String) Object
+  - getStaticFieldValue(String, String) Object
+  + emptyDoubleStream() Object
+  - getClass(String) Class~?~
+  + emptyDuration() Object
+  + emptyIntStream() Object
+  + emptyOptionalInt() Object
+  + emptyLongStream() Object
+  + emptyStream() Object
+  - getMethod(String, String, Class~?~[]) Method
+}
+class KotlinInlineClassUtil {
+  + KotlinInlineClassUtil() 
+  - unboxInlineClassIfPossible(Object) Object
+  + isInlineClassWithAssignableUnderlyingType(Class~?~, Class~?~) boolean
+  + unboxUnderlyingValueIfNeeded(InvocationOnMock, Object) Object
+}
+class LenientCopyTool {
+  + LenientCopyTool() 
+  - copy(T, T, Class~?~) void
+  + copyToMock(T, T) void
+  + copyToRealObject(T, T) void
+  - copyValues(T, T, Class~?~) void
+}
+class LenientStubber {
+<<Interface>>
+  + when(T) OngoingStubbing~T~
+}
+class LessOrEqual~T~ {
+  + LessOrEqual(T) 
+  # getName() String
+  # matchResult(int) boolean
+}
+class LessThan~T~ {
+  + LessThan(T) 
+  # matchResult(int) boolean
+  # getName() String
+}
+class Localized~T~ {
+  + Localized(T) 
+  + getObject() T
+  + getLocation() Location
+}
+class LocalizedMatcher {
+  + LocalizedMatcher(ArgumentMatcher~?~) 
+  + getLocation() Location
+  + getMatcher() ArgumentMatcher~?~
+}
+class Location {
+<<Interface>>
+  + toString() String
+  + getSourceFile() String
+}
+class LoggingListener {
+  + LoggingListener(boolean) 
+  + getStubbingInfo() String
+  + foundUnusedStub(Invocation) void
+  + foundUnstubbed(InvocationMatcher) void
+  - addOrderedList(List~String~, List~String~) void
+  + foundStubCalledWithDifferentArgs(Invocation, InvocationMatcher) void
+  ~ indexOfNextPair(int) int
+}
+class MatchableInvocation {
+<<Interface>>
+  + getInvocation() Invocation
+  + captureArgumentsFrom(Invocation) void
+  + matches(Invocation) boolean
+  + hasSameMethod(Invocation) boolean
+  + getMatchers() List~ArgumentMatcher~
+  + hasSimilarMethod(Invocation) boolean
+}
+class MatcherApplicationStrategy {
+  - MatcherApplicationStrategy(Invocation, List~ArgumentMatcher~?~~, MatcherApplicationType) 
+  - lastMatcher(List~ArgumentMatcher~?~~) ArgumentMatcher~?~
+  + forEachMatcherAndArgument(ArgumentMatcherAction) boolean
+  - appendLastMatcherNTimes(List~ArgumentMatcher~?~~, int) List~ArgumentMatcher~?~~
+  + getMatcherApplicationStrategyFor(Invocation, List~ArgumentMatcher~?~~) MatcherApplicationStrategy
+  - getMatcherApplicationType(Invocation, List~ArgumentMatcher~?~~) MatcherApplicationType
+  - varargLength(Invocation) int
+  - isLastMatcherVarargMatcher(List~ArgumentMatcher~?~~) boolean
+}
+class MatcherGenericTypeExtractor {
+  - MatcherGenericTypeExtractor() 
+  + genericTypeOfMatcher(Class~?~) Class~?~
+}
+class MatcherToString {
+  - MatcherToString() 
+  ~ toString(ArgumentMatcher~?~) String
+}
+class MatchersBinder {
+  + MatchersBinder() 
+  + bindMatchers(ArgumentMatcherStorage, Invocation) InvocationMatcher
+  - validateMatchers(Invocation, List~LocalizedMatcher~) void
+}
+class MatchersPrinter {
+  + MatchersPrinter() 
+  + getArgumentsBlock(List~ArgumentMatcher~, PrintSettings) String
+  + getArgumentsLine(List~ArgumentMatcher~, PrintSettings) String
+  - applyPrintSettings(List~ArgumentMatcher~, PrintSettings) Iterator~FormattedText~
+}
+class Matches {
+  + Matches(Pattern) 
+  + Matches(String) 
+  + matches(Object) boolean
+  + toString() String
+}
+class MemberAccessor {
+<<Interface>>
+  + newInstance(Constructor~?~, Object[]) Object
+  + invoke(Method, Object, Object[]) Object
+  + get(Field, Object) Object
+  + newInstance(Constructor~?~, OnConstruction, Object[]) Object
+  + set(Field, Object, Object) void
+}
+class MethodHandleProxy {
+  ~ MethodHandleProxy() 
+  + resolve(Object, Method, Object[]) RealMethod
+}
+class MethodInvocationReport {
+<<Interface>>
+  + getReturnedValue() Object
+  + getThrowable() Throwable
+  + getLocationOfStubbing() String
+  + threwException() boolean
+  + getInvocation() DescribedInvocation
+}
+class MismatchReportingTestListener {
+  + MismatchReportingTestListener(MockitoLogger) 
+  + testFinished(TestFinishedEvent) void
+  + onMockCreated(Object, MockCreationSettings) void
+}
+class MissingInvocationChecker {
+  - MissingInvocationChecker() 
+  + checkMissingInvocation(List~Invocation~, MatchableInvocation) void
+  + checkMissingInvocation(List~Invocation~, MatchableInvocation, InOrderContext) void
+}
+class MissingMethodInvocationException {
+  + MissingMethodInvocationException(String) 
+}
+class Mock {
+  + extraInterfaces() Class~?~[]
+  + serializable() boolean
+  + lenient() boolean
+  + answer() Answers
+  + stubOnly() boolean
+  + name() String
+  + mockMaker() String
+  + strictness() Strictness
+}
+class MockAccess {
+<<Interface>>
+  + getMockitoInterceptor() MockMethodInterceptor
+  + setMockitoInterceptor(MockMethodInterceptor) void
+}
+class MockAnnotationProcessor {
+  + MockAnnotationProcessor() 
+  + process(Mock, Field) Object
+  + processAnnotationForMock(Mock, Class~?~, Supplier~Type~, String) Object
+  ~ inferParameterizedType(Type, String, String) Class~?~
+}
+class MockAwareVerificationMode {
+  + MockAwareVerificationMode(Object, VerificationMode, Set~VerificationListener~) 
+  + verify(VerificationData) void
+  - notifyListeners(VerificationEvent) void
+  + getMock() Object
+}
+class MockCandidateFilter {
+<<Interface>>
+  + filterCandidate(Collection~Object~, Field, List~Field~, Object) OngoingInjector
+}
+class MockCreationListener {
+<<Interface>>
+  + onMockCreated(Object, MockCreationSettings) void
+  + onStaticMockCreated(Class~?~, MockCreationSettings) void
+}
+class MockCreationSettings~T~ {
+<<Interface>>
+  + getVerificationStartedListeners() List~VerificationStartedListener~
+  + getDefaultAnswer() Answer~?~
+  + getStrictness() Strictness
+  + getStubbingLookupListeners() List~StubbingLookupListener~
+  + getInvocationListeners() List~InvocationListener~
+  + getOuterClassInstance() Object
+  + getTypeToMock() Class~T~
+  + isUsingConstructor() boolean
+  + getMockMaker() String
+  + getSerializableMode() SerializableMode
+  + isStubOnly() boolean
+  + isLenient() boolean
+  + isSerializable() boolean
+  + getSpiedInstance() Object
+  + getMockName() MockName
+  + getExtraInterfaces() Set~Class~?~~
+  + getConstructorArgs() Object[]
+  + isStripAnnotations() boolean
+}
+class MockCreationValidator {
+  + MockCreationValidator() 
+  + validateType(Class~?~, String) void
+  + validateMockedType(Class~?~, Object) void
+  + validateConstructorUse(boolean, SerializableMode) void
+  + validateDelegatedInstance(Class~?~, Object) void
+  + validateExtraInterfaces(Class~?~, Collection~Class~?~~) void
+}
+class MockFeatures~T~ {
+  - MockFeatures(Class~T~, Set~Class~?~~, SerializableMode, boolean, Answer) 
+  + withMockFeatures(Class~T~, Set~Class~?~~, SerializableMode, boolean, Answer) MockFeatures~T~
+}
+class MockHandler~T~ {
+<<Interface>>
+  + getMockSettings() MockCreationSettings~T~
+  + getInvocationContainer() InvocationContainer
+  + handle(Invocation) Object
+}
+class MockHandlerFactory {
+  - MockHandlerFactory() 
+  + createMockHandler(MockCreationSettings~T~) MockHandler~T~
+}
+class MockHandlerImpl~T~ {
+  + MockHandlerImpl(MockCreationSettings~T~) 
+  + getMockSettings() MockCreationSettings~T~
+  + handle(Invocation) Object
+  + getInvocationContainer() InvocationContainer
+}
+class MockInjection {
+  - MockInjection() 
+  + onFields(Set~Field~, Object) OngoingMockInjection
+  + onField(Field, Object) OngoingMockInjection
+}
+class MockInjectionStrategy {
+  + MockInjectionStrategy() 
+  + thenTry(MockInjectionStrategy) MockInjectionStrategy
+  - relayProcessToNextStrategy(Field, Object, Set~Object~) boolean
+  + nop() MockInjectionStrategy
+  + process(Field, Object, Set~Object~) boolean
+  # processInjection(Field, Object, Set~Object~) boolean
+}
+class MockMaker {
+<<Interface>>
+  + createConstructionMock(Class~T~, Function~Context, MockCreationSettings~T~~, Function~Context, MockHandler~T~~, MockInitializer~T~) ConstructionMockControl~T~
+  + createMock(MockCreationSettings~T~, MockHandler) T
+  + createSpy(MockCreationSettings~T~, MockHandler, T) Optional~T~
+  + clearAllCaches() void
+  + getHandler(Object) MockHandler
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+  + createStaticMock(Class~T~, MockCreationSettings~T~, MockHandler) StaticMockControl~T~
+  + isTypeMockable(Class~?~) TypeMockability
+}
+class MockMethodAdvice {
+  + MockMethodAdvice(WeakConcurrentMap~Object, MockMethodInterceptor~, DetachedThreadLocal~Map~Class~?~, MockMethodInterceptor~~, String, Predicate~Class~?~~, ConstructionCallback) 
+  + isOverridden(Object, Method) boolean
+  - enter(String, Object, Method, Object[]) Callable~?~?
+  + handle(Object, Method, Object[]) Callable~?~
+  + isConstructorMock(Class~?~) boolean
+  + handleStatic(Class~?~, Method, Object[]) Callable~?~
+  + isMock(Object) boolean
+  + isMockedStatic(Class~?~) boolean
+  ~ removeRecursiveCalls(Throwable, Class~?~) Throwable
+  - tryInvoke(Method, Object, Object[]) Object
+  + isMocked(Object) boolean
+  + handleConstruction(Class~?~, Object, Object[], String[]) Object
+  - exit(Object, Callable~?~) void
+}
+class MockMethodDispatcher {
+  + MockMethodDispatcher() 
+  + handleConstruction(Class~?~, Object, Object[], String[]) Object
+  + handleConstruction(String, Class~?~, Object, Object[], String[]) Object
+  + isOverridden(Object, Method) boolean
+  + handle(Object, Method, Object[]) Callable~?~
+  + handleStatic(Class~?~, Method, Object[]) Callable~?~
+  + get(String, Object) MockMethodDispatcher?
+  + set(String, MockMethodDispatcher) void
+  + isMockedStatic(Class~?~) boolean
+  + getStatic(String, Class~?~) MockMethodDispatcher?
+  + isMock(Object) boolean
+  + isMocked(Object) boolean
+  + isConstructorMock(String, Class~?~) boolean
+  + isConstructorMock(Class~?~) boolean
+}
+class MockMethodInterceptor {
+  + MockMethodInterceptor(MockHandler, MockCreationSettings) 
+  + getSerializationSupport() ByteBuddyCrossClassLoaderSerializationSupport
+  + getMockHandler() MockHandler
+  ~ doIntercept(Object, Method, Object[], RealMethod, Location) Object
+  ~ doIntercept(Object, Method, Object[], RealMethod) Object
+  - readObject(ObjectInputStream) void
+}
+class MockName {
+<<Interface>>
+  + isDefault() boolean
+  + toString() String
+}
+class MockNameImpl {
+  + MockNameImpl(String, Class~?~, boolean) 
+  + MockNameImpl(String) 
+  - toInstanceName(Class~?~) String
+  - toClassName(Class~?~) String
+  + toString() String
+  + isDefault() boolean
+}
+class MockReference~T~ {
+<<Interface>>
+  + get() T
+}
+class MockResolver {
+<<Interface>>
+  + resolve(Object) Object
+}
+class MockScanner {
+  + MockScanner(Object, Class~?~) 
+  + addPreparedMocks(Set~Object~) void
+  - scan() Set~Object~
+  - preparedMock(Object, Field) Object?
+  - isMockOrSpy(Object) boolean
+  - isAnnotatedByMockOrSpy(Field) boolean
+}
+class MockSettings {
+<<Interface>>
+  + strictness(Strictness) MockSettings
+  + name(String) MockSettings
+  + serializable(SerializableMode) MockSettings
+  + mockMaker(String) MockSettings
+  + verboseLogging() MockSettings
+  + spiedInstance(Object) MockSettings
+  + outerInstance(Object) MockSettings
+  + verificationStartedListeners(VerificationStartedListener[]) MockSettings
+  + stubbingLookupListeners(StubbingLookupListener[]) MockSettings
+  + serializable() MockSettings
+  + buildStatic(Class~T~) MockCreationSettings~T~
+  + extraInterfaces(Class~?~[]) MockSettings
+  + defaultAnswer(Answer) MockSettings
+  + invocationListeners(InvocationListener[]) MockSettings
+  + withoutAnnotations() MockSettings
+  + stubOnly() MockSettings
+  + lenient() MockSettings
+  + useConstructor(Object[]) MockSettings
+  + build(Class~T~) MockCreationSettings~T~
+}
+class MockSettingsImpl~T~ {
+  + MockSettingsImpl() 
+  + getTypeToMock() Class~T~
+  + buildStatic(Class~T2~) MockCreationSettings~T2~
+  + stubOnly() MockSettingsImpl~T~
+  + withoutAnnotations() MockSettings
+  + invocationListeners(InvocationListener[]) MockSettings
+  + useConstructor(Object[]) MockSettings
+  + defaultAnswer(Answer) MockSettings
+  + lenient() MockSettings
+  + extraInterfaces(Class~?~[]) MockSettings
+  + strictness(Strictness) MockSettings
+  + hasInvocationListeners() boolean
+  - validatedSettings(Class~T~, CreationSettings~T~) CreationSettings~T~
+  - validatedStaticSettings(Class~T~, CreationSettings~T~) CreationSettings~T~
+  + mockMaker(String) MockSettings
+  + getExtraInterfaces() Set~Class~?~~
+  + getDefaultAnswer() Answer~Object~
+  + verboseLogging() MockSettings
+  + getConstructorArgs() Object[]
+  + getSpiedInstance() Object
+  + outerInstance(Object) MockSettings
+  + getOuterClassInstance() Object
+  + getMockName() MockName
+  + serializable(SerializableMode) MockSettings
+  + name(String) MockSettings
+  + verificationStartedListeners(VerificationStartedListener[]) MockSettings
+  + spiedInstance(Object) MockSettings
+  + isUsingConstructor() boolean
+  + stubbingLookupListeners(StubbingLookupListener[]) MockSettings
+  + serializable() MockSettings
+  - prepareExtraInterfaces(CreationSettings) Set~Class~?~~
+  - invocationListenersContainsType(Class~?~) boolean
+  + build(Class~T2~) MockCreationSettings~T2~
+  ~ addListeners(T[], List~T~, String) void
+  + isStubOnly() boolean
+}
+class MockStrongReference~T~ {
+  + MockStrongReference(T, boolean) 
+  + get() T
+  - readResolve() Object
+}
+class MockUtil {
+  - MockUtil() 
+  + getMockHandler(Object) MockHandler~?~
+  + createConstructionMock(Class~T~, Function~Context, MockCreationSettings~T~~, MockInitializer~T~) ConstructionMockControl~T~
+  + maybeRedefineMockName(Object, String) void
+  + clearAllCaches() void
+  + typeMockabilityOf(Class~?~, String) TypeMockability
+  - getMockMaker(String) MockMaker
+  + areSameMocks(Object, Object) boolean
+  - resolve(Object) Object
+  - getMockHandlerOrNull(Object) MockHandler~?~?
+  + createStaticMock(Class~T~, MockCreationSettings~T~) StaticMockControl~T~
+  + getInvocationContainer(Object) InvocationContainerImpl
+  + createMock(MockCreationSettings~T~) T
+  + getMockName(Object) MockName
+  + resetMock(Object) void
+  + isSpy(Object) boolean
+  + getMockSettings(Object) MockCreationSettings
+  + isMock(Object) boolean
+}
+class MockWeakReference~T~ {
+  + MockWeakReference(T) 
+  + get() T
+  - writeReplace() Object
+}
+class MockedConstruction~T~ {
+<<Interface>>
+  + constructed() List~T~
+}
+class MockedConstructionImpl~T~ {
+  # MockedConstructionImpl(ConstructionMockControl~T~) 
+  + closeOnDemand() void
+  + isClosed() boolean
+  + constructed() List~T~
+  + close() void
+  - assertNotClosed() void
+}
+class MockedStatic~T~ {
+<<Interface>>
+  + reset() void
+  + clearInvocations() void
+  + verifyNoInteractions() void
+  + when(Verification) OngoingStubbing~S~
+  + verify(Verification) void
+  + verifyNoMoreInteractions() void
+  + verify(Verification, VerificationMode) void
+}
+class MockedStaticImpl~T~ {
+  # MockedStaticImpl(StaticMockControl~T~) 
+  + reset() void
+  + verifyNoMoreInteractions() void
+  - assertNotClosed() void
+  + when(Verification) OngoingStubbing~S~
+  + isClosed() boolean
+  + toString() String
+  + verifyNoInteractions() void
+  + closeOnDemand() void
+  + close() void
+  + verify(Verification, VerificationMode) void
+  + clearInvocations() void
+}
+class MockingDetails {
+<<Interface>>
+  + getMock() Object
+  + getMockCreationSettings() MockCreationSettings~?~
+  + isSpy() boolean
+  + printInvocations() String
+  + getMockHandler() MockHandler
+  + getStubbings() Collection~Stubbing~
+  + getInvocations() Collection~Invocation~
+  + isMock() boolean
+}
+class MockingProgress {
+<<Interface>>
+  + stubbingStarted() void
+  + removeListener(MockitoListener) void
+  + reportOngoingStubbing(OngoingStubbing~?~) void
+  + clearListeners() void
+  + pullOngoingStubbing() OngoingStubbing~?~
+  + setVerificationStrategy(VerificationStrategy) void
+  + verificationStarted(VerificationMode) void
+  + mockingStarted(Class~?~, MockCreationSettings) void
+  + maybeVerifyLazily(VerificationMode) VerificationMode
+  + resetOngoingStubbing() void
+  + mockingStarted(Object, MockCreationSettings) void
+  + pullVerificationMode() VerificationMode
+  + stubbingCompleted() void
+  + reset() void
+  + validateState() void
+  + getArgumentMatcherStorage() ArgumentMatcherStorage
+  + addListener(MockitoListener) void
+  + verificationListeners() Set~VerificationListener~
+}
+class MockingProgressImpl {
+  + MockingProgressImpl() 
+  + reportOngoingStubbing(OngoingStubbing) void
+  + reset() void
+  + pullVerificationMode() VerificationMode
+  + resetOngoingStubbing() void
+  + verificationStarted(VerificationMode) void
+  + stubbingStarted() void
+  + addListener(MockitoListener) void
+  + maybeVerifyLazily(VerificationMode) VerificationMode
+  + setVerificationStrategy(VerificationStrategy) void
+  + validateState() void
+  + stubbingCompleted() void
+  + verificationListeners() Set~VerificationListener~
+  - validateMostStuff() void
+  + mockingStarted(Class~?~, MockCreationSettings) void
+  + toString() String
+  + mockingStarted(Object, MockCreationSettings) void
+  + getArgumentMatcherStorage() ArgumentMatcherStorage
+  + clearListeners() void
+  + removeListener(MockitoListener) void
+  + pullOngoingStubbing() OngoingStubbing~?~
+  ~ addListener(MockitoListener, Set~MockitoListener~) void
+  + getDefaultVerificationStrategy() VerificationStrategy
+}
+class Mockito {
+  + Mockito() 
+  + atMost(int) VerificationMode
+  + mockitoSession() MockitoSessionBuilder
+  + atLeast(int) VerificationMode
+  + reset(T[]) void
+  + inOrder(Object[]) InOrder
+  + atMostOnce() VerificationMode
+  + doAnswer(Answer) Stubber
+  + mock(Class~T~) T
+  + doReturn(Object, Object[]) Stubber
+  + timeout(long) VerificationWithTimeout
+  + withSettings() MockSettings
+  + after(long) VerificationAfterDelay
+  + mockConstruction(Class~T~, MockSettings) MockedConstruction~T~
+  + mockStatic(Class~T~, Answer) MockedStatic~T~
+  + framework() MockitoFramework
+  + verify(T) T
+  + verifyNoMoreInteractions(Object[]) void
+  + mockConstruction(Class~T~, Function~Context, MockSettings~, MockInitializer~T~) MockedConstruction~T~
+  + mockConstruction(Class~T~, MockSettings, MockInitializer~T~) MockedConstruction~T~
+  + only() VerificationMode
+  + mock(Class~T~, String) T
+  + mockConstruction(Class~T~, Function~Context, MockSettings~) MockedConstruction~T~
+  + spy(T) T
+  + mockConstruction(Class~T~) MockedConstruction~T~
+  + doCallRealMethod() Stubber
+  + mock(Class~T~, MockSettings) T
+  + mockConstructionWithAnswer(Class~T~, Answer, Answer[]) MockedConstruction~T~
+  + clearAllCaches() void
+  + atLeastOnce() VerificationMode
+  + doThrow(Class~Throwable~) Stubber
+  + verify(T, VerificationMode) T
+  + mock(Class~T~, Answer) T
+  + validateMockitoUsage() void
+  + times(int) VerificationMode
+  + spy(Class~T~) T
+  + lenient() LenientStubber
+  + description(String) VerificationMode
+  + verifyNoInteractions(Object[]) void
+  + ignoreStubs(Object[]) Object[]
+  + mockStatic(Class~T~) MockedStatic~T~
+  + mockStatic(Class~T~, MockSettings) MockedStatic~T~
+  + mockingDetails(Object) MockingDetails
+  + doThrow(Class~Throwable~, Class~Throwable~[]) Stubber
+  + mockConstruction(Class~T~, MockInitializer~T~) MockedConstruction~T~
+  + doNothing() Stubber
+  + doReturn(Object) Stubber
+  + when(T) OngoingStubbing~T~
+  + clearInvocations(T[]) void
+  + calls(int) VerificationMode
+  + never() VerificationMode
+  + doThrow(Throwable[]) Stubber
+  + mockStatic(Class~T~, String) MockedStatic~T~
+}
+class MockitoAnnotations {
+  - MockitoAnnotations() 
+  + openMocks(Object) AutoCloseable
+  + initMocks(Object) void
+}
+class MockitoAssertionError {
+  + MockitoAssertionError(MockitoAssertionError, String) 
+  + MockitoAssertionError(AssertionError, String) 
+  + MockitoAssertionError(String) 
+  + getUnfilteredStackTrace() StackTraceElement[]
+}
+class MockitoConfigurationException {
+  + MockitoConfigurationException(String, Exception) 
+  + MockitoConfigurationException(String) 
+}
+class MockitoCore {
+  + MockitoCore() 
+  + mockStatic(Class~T~, MockSettings) MockedStatic~T~
+  - assertMocksNotEmpty(Object[]) void
+  + reset(T[]) void
+  + verifyNoMoreInteractionsInOrder(List~Object~, InOrderContext) void
+  + getLastInvocation() Invocation
+  + mockConstruction(Class~T~, Function~Context, MockSettings~, MockInitializer~T~) MockedConstruction~T~
+  + mock(Class~T~, MockSettings) T
+  + when(T) OngoingStubbing~T~
+  + ignoreStubs(Object[]) Object[]
+  + validateMockitoUsage() void
+  + mockingDetails(Object) MockingDetails
+  + stubber() Stubber
+  + verify(T, VerificationMode) T
+  + verifyNoInteractions(Object[]) void
+  + lenient() LenientStubber
+  + verifyNoMoreInteractions(Object[]) void
+  - checkDoNotMockAnnotation(Class~?~, MockCreationSettings~?~) void
+  - checkDoNotMockAnnotationForType(Class~?~) void
+  + clearInvocations(T[]) void
+  - assertNotStubOnlyMock(Object) void
+  + stubber(Strictness) Stubber
+  + clearAllCaches() void
+  + inOrder(Object[]) InOrder
+}
+class MockitoException {
+  + MockitoException(String) 
+  + MockitoException(String, Throwable) 
+  - filterStackTrace() void
+  + getUnfilteredStackTrace() StackTraceElement[]
+}
+class MockitoFramework {
+<<Interface>>
+  + getPlugins() MockitoPlugins
+  + clearInlineMock(Object) void
+  + removeListener(MockitoListener) MockitoFramework
+  + addListener(MockitoListener) MockitoFramework
+  + clearInlineMocks() void
+  + getInvocationFactory() InvocationFactory
+}
+class MockitoHamcrest {
+  - MockitoHamcrest() 
+  + intThat(Matcher~Integer~) int
+  + floatThat(Matcher~Float~) float
+  + charThat(Matcher~Character~) char
+  - reportMatcher(Matcher~T~) void
+  + booleanThat(Matcher~Boolean~) boolean
+  + longThat(Matcher~Long~) long
+  + doubleThat(Matcher~Double~) double
+  + argThat(Matcher~T~) T
+  + byteThat(Matcher~Byte~) byte
+  + shortThat(Matcher~Short~) short
+}
+class MockitoHint {
+<<Interface>>
+
+}
+class MockitoInitializationException {
+  + MockitoInitializationException(String) 
+  + MockitoInitializationException(String, Throwable) 
+}
+class MockitoJUnit {
+  - MockitoJUnit() 
+  + rule() MockitoRule
+  + testRule(Object) MockitoTestRule
+  + collector() VerificationCollector
+}
+class MockitoJUnitRunner {
+  + MockitoJUnitRunner(Class~?~) 
+  ~ MockitoJUnitRunner(InternalRunner) 
+  + run(RunNotifier) void
+  + filter(Filter) void
+  + getDescription() Description
+}
+class MockitoListener {
+<<Interface>>
+
+}
+class MockitoLogger {
+<<Interface>>
+  + log(Object) void
+}
+class MockitoLoggerAdapter {
+  ~ MockitoLoggerAdapter(MockitoSessionLogger) 
+  + log(Object) void
+}
+class MockitoMethod {
+<<Interface>>
+  + getParameterTypes() Class~?~[]
+  + isVarArgs() boolean
+  + getExceptionTypes() Class~?~[]
+  + getJavaMethod() Method
+  + getName() String
+  + getReturnType() Class~?~
+}
+class MockitoMethodProxy {
+<<Interface>>
+  + invokeSuper(Object, Object[]) Object
+}
+class MockitoPlugins {
+<<Interface>>
+  + getDefaultPlugin(Class~T~) T
+  + getInlineMockMaker() MockMaker
+}
+class MockitoRule {
+<<Interface>>
+  + strictness(Strictness) MockitoRule
+  + silent() MockitoRule
+}
+class MockitoSerializationIssue {
+  + MockitoSerializationIssue(String, Exception) 
+  + getUnfilteredStackTrace() StackTraceElement[]
+  - filterStackTrace() void
+}
+class MockitoSession {
+<<Interface>>
+  + finishMocking() void
+  + finishMocking(Throwable) void
+  + setStrictness(Strictness) void
+}
+class MockitoSessionBuilder {
+<<Interface>>
+  + logger(MockitoSessionLogger) MockitoSessionBuilder
+  + startMocking() MockitoSession
+  + initMocks(Object[]) MockitoSessionBuilder
+  + name(String) MockitoSessionBuilder
+  + initMocks(Object) MockitoSessionBuilder
+  + strictness(Strictness) MockitoSessionBuilder
+}
+class MockitoSessionLogger {
+<<Interface>>
+  + log(String) void
+}
+class MockitoSessionLoggerAdapter {
+  + MockitoSessionLoggerAdapter(MockitoLogger) 
+  + log(String) void
+}
+class MockitoTestListener {
+<<Interface>>
+  + testFinished(TestFinishedEvent) void
+}
+class MockitoTestRule {
+<<Interface>>
+  + silent() MockitoTestRule
+  + strictness(Strictness) MockitoTestRule
+}
+class ModuleHandler {
+  + ModuleHandler() 
+  ~ isExported(Class~?~, Class~?~) boolean
+  ~ make(ByteBuddy, SubclassLoader) ModuleHandler
+  ~ isOpened(Class~?~, Class~?~) boolean
+  ~ injectionBase(ClassLoader, String) Class~?~
+  ~ isExported(Class~?~) boolean
+  ~ adjustModuleGraph(Class~?~, Class~?~, boolean, boolean) void
+  ~ canRead(Class~?~, Class~?~) boolean
+}
+class ModuleMemberAccessor {
+  + ModuleMemberAccessor() 
+  + set(Field, Object, Object) void
+  + invoke(Method, Object, Object[]) Object
+  - delegate() MemberAccessor
+  + newInstance(Constructor~?~, OnConstruction, Object[]) Object
+  + newInstance(Constructor~?~, Object[]) Object
+  + get(Field, Object) Object
+}
+class MoreThanAllowedActualInvocations {
+  + MoreThanAllowedActualInvocations(String) 
+}
+class NameBasedCandidateFilter {
+  + NameBasedCandidateFilter(MockCandidateFilter) 
+  - tooMany(Collection~Object~) boolean
+  - selectMatchingName(Collection~Object~, Field) List~Object~
+  + filterCandidate(Collection~Object~, Field, List~Field~, Object) OngoingInjector
+  - anotherCandidateMatchesMockName(Collection~Object~, Field, List~Field~) boolean
+}
+class NeverWantedButInvoked {
+  + NeverWantedButInvoked(String) 
+}
+class NoInteractions {
+  + NoInteractions() 
+  + verify(VerificationData) void
+}
+class NoInteractionsWanted {
+  + NoInteractionsWanted(String) 
+}
+class NoMoreInteractions {
+  + NoMoreInteractions() 
+  + verify(VerificationData) void
+  + verifyInOrder(VerificationDataInOrder) void
+}
+class NoOpTestListener {
+  + NoOpTestListener() 
+  + testFinished(TestFinishedEvent) void
+  + onMockCreated(Object, MockCreationSettings) void
+}
+class Not {
+  + Not(ArgumentMatcher~?~) 
+  + matches(Object) boolean
+  + toString() String
+}
+class NotAMockException {
+  + NotAMockException(String) 
+}
+class NotExtensible
+class NotNull {
+  - NotNull() 
+  + matches(Object) boolean
+  + toString() String
+}
+class NotifiedMethodInvocationReport {
+  + NotifiedMethodInvocationReport(Invocation, Object) 
+  + NotifiedMethodInvocationReport(Invocation, Throwable) 
+  + getInvocation() DescribedInvocation
+  + getReturnedValue() Object
+  + getLocationOfStubbing() String
+  + hashCode() int
+  + threwException() boolean
+  + getThrowable() Throwable
+  + equals(Object) boolean
+}
+class Null {
+  - Null() 
+  + toString() String
+  + matches(Object) boolean
+}
+class NullInsteadOfMockException {
+  + NullInsteadOfMockException(String) 
+}
+class NullResultGuardian~T~ {
+  + NullResultGuardian(MockHandler~T~) 
+  + handle(Invocation) Object
+  + getInvocationContainer() InvocationContainer
+  + getMockSettings() MockCreationSettings~T~
+}
+class NumberOfInvocationsChecker {
+  - NumberOfInvocationsChecker() 
+  + checkNumberOfInvocations(List~Invocation~, MatchableInvocation, int) void
+  + checkNumberOfInvocationsNonGreedy(List~Invocation~, MatchableInvocation, int, InOrderContext) void
+  + checkNumberOfInvocations(List~Invocation~, MatchableInvocation, int, InOrderContext) void
+}
+class ObjectMethodsGuru {
+  - ObjectMethodsGuru() 
+  + isCompareToMethod(Method) boolean
+  + isToStringMethod(Method) boolean
+}
+class ObjenesisInstantiator {
+  + ObjenesisInstantiator() 
+  + newInstance(Class~T~) T
+}
+class OngoingInjector {
+<<Interface>>
+  + thenInject() Object
+}
+class OngoingStubbing~T~ {
+<<Interface>>
+  + then(Answer~?~) OngoingStubbing~T~
+  + thenThrow(Class~Throwable~) OngoingStubbing~T~
+  + thenAnswer(Answer~?~) OngoingStubbing~T~
+  + thenReturn(T) OngoingStubbing~T~
+  + getMock() M
+  + thenReturn(T, T[]) OngoingStubbing~T~
+  + thenThrow(Class~Throwable~, Class~Throwable~[]) OngoingStubbing~T~
+  + thenCallRealMethod() OngoingStubbing~T~
+  + thenThrow(Throwable[]) OngoingStubbing~T~
+}
+class OngoingStubbingImpl~T~ {
+  + OngoingStubbingImpl(InvocationContainerImpl) 
+  + thenAnswer(Answer~?~) OngoingStubbing~T~
+  + setStrictness(Strictness) void
+  + getRegisteredInvocations() List~Invocation~
+}
+class Only {
+  + Only() 
+  + verify(VerificationData) void
+  + toString() String
+}
+class Or {
+  + Or(ArgumentMatcher~?~, ArgumentMatcher~?~) 
+  + toString() String
+  + matches(Object) boolean
+}
+class Platform {
+  - Platform() 
+  + isJava8BelowUpdate45() boolean
+  + warnForVM(String, String, String, String) String
+  + isAndroidMockMakerRequired() boolean
+  ~ isJava8BelowUpdate45(String) boolean
+  + describe() String
+  + isAndroid() boolean
+  ~ warnForVM(String, String, String, String, String) String
+}
+class PluginFileReader {
+  + PluginFileReader() 
+  ~ readPluginClass(InputStream) String
+  - stripCommentAndWhitespace(String) String
+}
+class PluginFinder {
+  + PluginFinder(PluginSwitch) 
+  ~ findPluginClass(Iterable~URL~) String
+  ~ findPluginClasses(Iterable~URL~) List~String~
+}
+class PluginInitializer {
+  ~ PluginInitializer(PluginSwitch, Set~String~) 
+  + loadImpl(Class~T~) T
+  + loadImpls(Class~T~) List~T~
+}
+class PluginLoader {
+  ~ PluginLoader(PluginSwitch) 
+  ~ PluginLoader(PluginSwitch, String[]) 
+  ~ PluginLoader(DefaultMockitoPlugins, PluginInitializer) 
+  ~ loadPlugin(Class~T~) T
+  ~ loadPlugins(Class~T~) List~T~
+  ~ loadPlugin(Class~PreferredT~, Class~AlternateType~) Object
+}
+class PluginRegistry {
+  ~ PluginRegistry() 
+  ~ getMockitoLogger() MockitoLogger
+  ~ getMockMaker() MockMaker
+  ~ getMemberAccessor() MemberAccessor
+  ~ getAnnotationEngine() AnnotationEngine
+  ~ getInstantiatorProvider() InstantiatorProvider2
+  ~ getMockResolvers() List~MockResolver~
+  ~ getDoNotMockEnforcer() DoNotMockEnforcer
+  ~ getStackTraceCleanerProvider() StackTraceCleanerProvider
+}
+class PluginSwitch {
+<<Interface>>
+  + isEnabled(String) boolean
+}
+class Plugins {
+  - Plugins() 
+  + getMockMaker() MockMaker
+  + getMockResolvers() List~MockResolver~
+  + getDoNotMockEnforcer() DoNotMockEnforcer
+  + getMockitoLogger() MockitoLogger
+  + getPlugins() MockitoPlugins
+  + getAnnotationEngine() AnnotationEngine
+  + getStackTraceCleanerProvider() StackTraceCleanerProvider
+  + getMemberAccessor() MemberAccessor
+  + getInstantiatorProvider() InstantiatorProvider2
+}
+class Pluralizer {
+  - Pluralizer() 
+  + were_exactly_x_interactions(int) String
+  + pluralize(int) String
+}
+class PotentialStubbingProblem {
+  + PotentialStubbingProblem(String) 
+}
+class Primitives {
+  - Primitives() 
+  + primitiveTypeOf(Class~T~) Class~T~
+  + isPrimitiveOrWrapper(Class~?~) boolean
+  + isAssignableFromWrapper(Class~?~, Class~?~) boolean
+  + defaultValue(Class~T~) T
+}
+class PrintSettings {
+  + PrintSettings() 
+  + print(List~ArgumentMatcher~, Invocation) String
+  + extraTypeInfoFor(int) boolean
+  + isMultiline() boolean
+  + fullyQualifiedNameFor(String) boolean
+  + print(MatchableInvocation) String
+  + setMultiline(boolean) void
+  + verboseMatchers(Integer[]) PrintSettings
+  + setMatchersToBeDescribedWithFullName(Set~String~) void
+  + print(Invocation) String
+  + setMatchersToBeDescribedWithExtraTypeInfo(Integer[]) void
+}
+class PropertyAndSetterInjection {
+  + PropertyAndSetterInjection() 
+  + processInjection(Field, Object, Set~Object~) boolean
+  - initializeInjectMocksField(Field, Object) FieldInitializationReport
+  - injectMockCandidates(Class~?~, Object, Set~Object~) boolean
+  - injectMockCandidatesOnFields(Set~Object~, Object, boolean, List~Field~) boolean
+  - orderedInstanceFieldsFrom(Class~?~) List~Field~
+}
+class ProxyMockMaker {
+  + ProxyMockMaker() 
+  + getHandler(Object) MockHandler
+  + createMock(MockCreationSettings~T~, MockHandler) T
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+  + isTypeMockable(Class~?~) TypeMockability
+  - resolveCommonClassLoader(ClassLoader, Class~?~) ClassLoader
+}
+class ProxyRealMethod {
+<<Interface>>
+  + resolve(Object, Method, Object[]) RealMethod
+  + make() ProxyRealMethod
+}
+class RealMethod {
+<<Interface>>
+  + isInvokable() boolean
+  + invoke() Object
+}
+class RedundantListenerException {
+  + RedundantListenerException(String) 
+}
+class ReflectionEquals {
+  + ReflectionEquals(Object, String[]) 
+  + matches(Object) boolean
+  + toString() String
+}
+class ReflectionMemberAccessor {
+  + ReflectionMemberAccessor() 
+  - silentSetAccessible(AccessibleObject, boolean) void
+  + newInstance(Constructor~?~, Object[]) Object
+  + newInstance(Constructor~?~, OnConstruction, Object[]) Object
+  + invoke(Method, Object, Object[]) Object
+  + get(Field, Object) Object
+  + set(Field, Object, Object) void
+}
+class RegisteredInvocations {
+<<Interface>>
+  + clear() void
+  + isEmpty() boolean
+  + add(Invocation) void
+  + getAll() List~Invocation~
+  + removeLast() void
+}
+class Reporter {
+  - Reporter() 
+  + reportNoSubMatchersFound(String) MockitoException
+  - createAllLocationsArgsMessage(List~Invocation~) String
+  + tooFewActualInvocations(Discrepancy, DescribedInvocation, List~Location~) MockitoAssertionError
+  + requiresAtLeastOneListener(String) MockitoException
+  + wantedButNotInvokedInOrder(DescribedInvocation, DescribedInvocation) MockitoAssertionError
+  + extraInterfacesDoesNotAcceptNullParameters() MockitoException
+  + noMoreInteractionsWantedInOrder(Invocation) MockitoAssertionError
+  + wrongTypeReturnedByDefaultAnswer(Object, String, String, String) MockitoException
+  + notAnException() MockitoException
+  + moreThanOneAnnotationNotAllowed(String) MockitoException
+  - exceptionCauseMessageIfAvailable(Exception) String
+  + misplacedArgumentMatcher(List~LocalizedMatcher~) MockitoException
+  + usingConstructorWithFancySerializable(SerializableMode) MockitoException
+  + mockedTypeIsInconsistentWithDelegatedInstanceType(Class~?~, Object) MockitoException
+  + formatUnncessaryStubbingException(Class~?~, Collection~Invocation~) UnnecessaryStubbingException
+  + unfinishedVerificationException(Location) MockitoException
+  + atMostAndNeverShouldNotBeUsedWithTimeout() MockitoException
+  + argumentsAreDifferent(String, List~String~, List~Location~) AssertionError
+  + invocationListenerThrewException(InvocationListener, Throwable) MockitoException
+  + stubPassedToVerify(Object) MockitoException
+  + cannotStubVoidMethodWithAReturnValue(String) MockitoException
+  + invalidArgumentPositionRangeAtInvocationTime(InvocationOnMock, boolean, int) MockitoException
+  - possibleArgumentTypesOf(InvocationOnMock) StringBuilder
+  - createTooManyInvocationsMessage(int, int, DescribedInvocation, List~Location~) String
+  + notAMockPassedToVerifyNoMoreInteractions() MockitoException
+  + cannotInitializeForInjectMocksAnnotation(String, String) MockitoException
+  + incorrectUseOfApi() MockitoException
+  + cannotCreateTimerWithNegativeDurationTime(long) MockitoException
+  + delegatedMethodDoesNotExistOnDelegate(Method, Object, Object) MockitoException
+  + extraInterfacesRequiresAtLeastOneInterface() MockitoException
+  + checkedExceptionInvalid(Throwable) MockitoException
+  + extraInterfacesCannotContainMockedType(Class~?~) MockitoException
+  + unncessaryStubbingException(List~Invocation~) void
+  + notAMockPassedToWhenMethod() MockitoException
+  + defaultAnswerDoesNotAcceptNullParameter() MockitoException
+  + smartNullPointerException(String, Location) MockitoException
+  + wrongTypeOfArgumentToReturn(InvocationOnMock, String, Class~?~, int) MockitoException
+  + delegatedMethodHasWrongReturnType(Method, Method, Object, Object) MockitoException
+  + methodDoesNotAcceptParameter(String, String) MockitoException
+  + missingMethodInvocation() MockitoException
+  + tooFewActualInvocationsInOrder(Discrepancy, DescribedInvocation, List~Location~) MockitoAssertionError
+  + unsupportedCombinationOfAnnotations(String, String) MockitoException
+  + wantedButNotInvoked(DescribedInvocation, List~DescribedInvocation~) MockitoAssertionError
+  + cannotInitializeForSpyAnnotation(String, Exception) MockitoException
+  + unfinishedMockingSession() void
+  + notAMockPassedWhenCreatingInOrder() MockitoException
+  + potentialStubbingProblem(Invocation, Collection~Invocation~) void
+  + nullPassedWhenCreatingInOrder() MockitoException
+  + missingByteBuddyDependency(Throwable) void
+  - locationsOf(Collection~LocalizedMatcher~) Object
+  + neverWantedButInvoked(DescribedInvocation, List~Invocation~) MockitoAssertionError
+  + invalidArgumentRangeAtIdentityAnswerCreationTime() MockitoException
+  + notAMockPassedToVerify(Class~?~) MockitoException
+  - createAllLocationsMessage(List~Location~) String
+  + wantedAtMostX(int, int) MoreThanAllowedActualInvocations
+  + inlineClassWithoutUnboxImpl(Class~?~, Exception) MockitoException
+  + noInteractionsWanted(Object, List~VerificationAwareInvocation~) MockitoAssertionError
+  + nullPassedToWhenMethod() MockitoException
+  + cannotStubWithNullThrowable() MockitoException
+  + wantedButNotInvoked(DescribedInvocation) MockitoAssertionError
+  + extraInterfacesAcceptsOnlyInterfaces(Class~?~) MockitoException
+  + redundantMockitoListener(String) void
+  + nullPassedToVerify() MockitoException
+  + unfinishedStubbing(Location) MockitoException
+  + cannotMockClass(Class~?~, String) MockitoException
+  + wrongTypeOfReturnValue(String, String, String) MockitoException
+  - createWantedButNotInvokedMessage(DescribedInvocation) String
+  + cannotCallAbstractRealMethod() MockitoException
+  + mockedTypeIsInconsistentWithSpiedInstanceType(Class~?~, Object) MockitoException
+  + spyAndDelegateAreMutuallyExclusive() MockitoException
+  + noArgumentValueWasCaptured() MockitoException
+  - createTooFewInvocationsMessage(Discrepancy, DescribedInvocation, List~Location~) String
+  + onlyVoidMethodsCanBeSetToDoNothing() MockitoException
+  + cannotInjectDependency(Field, Object, Exception) MockitoException
+  + strictnessDoesNotAcceptNullParameter() MockitoException
+  + tooManyActualInvocations(int, int, DescribedInvocation, List~Location~) MockitoAssertionError
+  + cannotVerifyToString() MockitoException
+  + mocksHaveToBePassedWhenCreatingInOrder() MockitoException
+  + mocksHaveToBePassedToVerifyNoMoreInteractions() MockitoException
+  + nullPassedToVerifyNoMoreInteractions() MockitoException
+  + inOrderRequiresFamiliarMock() MockitoException
+  + incorrectUseOfAdditionalMatchers(String, int, Collection~LocalizedMatcher~) MockitoException
+  + tooManyActualInvocationsInOrder(int, int, DescribedInvocation, List~Location~) MockitoAssertionError
+  + noMoreInteractionsWanted(Invocation, List~VerificationAwareInvocation~) MockitoAssertionError
+  + fieldInitialisationThrewException(Field, Throwable) MockitoException
+  + invalidUseOfMatchers(int, List~LocalizedMatcher~) MockitoException
+  + serializableWontWorkForObjectsThatDontImplementSerializable(Class~?~) MockitoException
+}
+class RetrieveGenericsForDefaultAnswers {
+  - RetrieveGenericsForDefaultAnswers() 
+  - findTypeFromGenericInArguments(InvocationOnMock, TypeVariable) Class~?~?
+  ~ returnTypeForMockWithCorrectGenerics(InvocationOnMock, AnswerCallback) Object?
+  - delegateChains(Class~?~) Object
+  - findTypeFromGeneric(InvocationOnMock, TypeVariable) Class~?~
+}
+class Returns {
+  + Returns(Object) 
+  + validateFor(InvocationOnMock) void
+  + answer(InvocationOnMock) Object
+  + toString() String
+  - returnsNull() boolean
+  - returnType() Class~?~
+  - printReturnType() String
+}
+class ReturnsArgumentAt {
+  + ReturnsArgumentAt(int) 
+  - inferArgumentType(Invocation, int) Class~?~
+  - inferWantedArgumentPosition(InvocationOnMock) int
+  - validateIndexWithinTheoreticalInvocationRange(InvocationOnMock, int) void
+  + validateFor(InvocationOnMock) void
+  - validateIndexWithinInvocationRange(InvocationOnMock, int) void
+  - validateArgumentTypeCompatibility(Invocation, int) void
+  - inferWantedRawArgumentPosition(InvocationOnMock) int
+  - wantedArgumentPositionIsValidForTheoreticalInvocation(InvocationOnMock, int) boolean
+  - wantedArgIndexIsVarargAndSameTypeAsReturnType(InvocationOnMock) boolean
+  + answer(InvocationOnMock) Object
+}
+class ReturnsDeepStubs {
+  + ReturnsDeepStubs() 
+  - returnsDeepStubsAnswerUsing(GenericMetadataSupport) ReturnsDeepStubs
+  + answer(InvocationOnMock) Object
+  # actualParameterizedType(Object) GenericMetadataSupport
+  - newDeepStubMock(GenericMetadataSupport, Object) Object
+  - mockitoCore() MockitoCore
+  - propagateSerializationSettings(MockSettings, MockCreationSettings) MockSettings
+  - recordDeepStubAnswer(Object, InvocationContainerImpl) StubbedInvocationMatcher
+  - delegate() ReturnsEmptyValues
+  - withSettingsUsing(GenericMetadataSupport, MockCreationSettings~?~) MockSettings
+  - deepStub(InvocationOnMock, GenericMetadataSupport) Object
+}
+class ReturnsElementsOf {
+  + ReturnsElementsOf(Collection~?~) 
+  + answer(InvocationOnMock) Object
+}
+class ReturnsEmptyValues {
+  + ReturnsEmptyValues() 
+  + answer(InvocationOnMock) Object
+  ~ returnValueFor(Class~?~) Object
+}
+class ReturnsMocks {
+  + ReturnsMocks() 
+  + answer(InvocationOnMock) Object
+}
+class ReturnsMoreEmptyValues {
+  + ReturnsMoreEmptyValues() 
+  ~ returnValueFor(Class~?~) Object
+  + answer(InvocationOnMock) Object
+}
+class ReturnsSmartNulls {
+  + ReturnsSmartNulls() 
+  + answer(InvocationOnMock) Object
+}
+class RunnerFactory {
+  + RunnerFactory() 
+  + create(Class~?~) InternalRunner
+  + createStrict(Class~?~) InternalRunner
+  + createStrictStubs(Class~?~) InternalRunner
+  + create(Class~?~, Supplier~MockitoTestListener~) InternalRunner
+}
+class RunnerProvider {
+  + RunnerProvider() 
+  + newInstance(String, Object[]) InternalRunner
+}
+class Same {
+  + Same(Object) 
+  + toString() String
+  + matches(Object) boolean
+}
+class ScenarioPrinter {
+  + ScenarioPrinter() 
+  + print(List~VerificationAwareInvocation~) String
+}
+class ScopedMock {
+<<Interface>>
+  + isClosed() boolean
+  + close() void
+  + closeOnDemand() void
+}
+class SequenceNumber {
+  - SequenceNumber() 
+  + next() int
+}
+class SerializableMethod {
+  + SerializableMethod(Method) 
+  + isVarArgs() boolean
+  + equals(Object) boolean
+  + getExceptionTypes() Class~?~[]
+  + getReturnType() Class~?~
+  + hashCode() int
+  + getName() String
+  + getJavaMethod() Method
+  + isAbstract() boolean
+  + getParameterTypes() Class~?~[]
+}
+class SerializableMode {
+<<enumeration>>
+  + SerializableMode() 
+  + valueOf(String) SerializableMode
+  + values() SerializableMode[]
+}
+class Sets {
+  + Sets() 
+  + newMockSafeHashSet(Object[]) Set~Object~
+  + newMockSafeHashSet(Iterable~Object~) Set~Object~
+  + newSet(T[]) Set~T~
+}
+class SingleRegisteredInvocation {
+  + SingleRegisteredInvocation() 
+  + add(Invocation) void
+  + clear() void
+  + isEmpty() boolean
+  + removeLast() void
+  + getAll() List~Invocation~
+}
+class SmartNullPointerException {
+  + SmartNullPointerException(String) 
+}
+class SmartPrinter {
+  + SmartPrinter(MatchableInvocation, List~Invocation~, Integer[], Set~String~) 
+  + SmartPrinter(MatchableInvocation, Invocation, Integer[]) 
+  - isMultiLine(MatchableInvocation, List~Invocation~) boolean
+  + getActuals() List~String~
+  + getWanted() String
+}
+class Spy
+class SpyAnnotationEngine {
+  + SpyAnnotationEngine() 
+  - spyNewInstance(Object, Field) Object
+  - typeIsNonStaticInnerClass(Class~?~, int) boolean
+  - assertNoIncompatibleAnnotations(Class~Annotation~, Field, Class~Annotation~[]) void
+  - noArgConstructorOf(Class~?~) Constructor~?~
+  + process(Class~?~, Object) AutoCloseable
+  - spyInstance(Field, Object) Object
+  - typeIsPrivateAbstractInnerClass(Class~?~, int) boolean
+}
+class SpyOnInjectedFieldsHandler {
+  + SpyOnInjectedFieldsHandler() 
+  # processInjection(Field, Object, Set~Object~) boolean
+}
+class StackTraceChecker {
+  + StackTraceChecker() 
+  + test(Class~?~) boolean
+}
+class StackTraceCleaner {
+<<Interface>>
+  + isIn(StackFrameMetadata) boolean
+  + isIn(StackTraceElement) boolean
+}
+class StackTraceCleanerProvider {
+<<Interface>>
+  + getStackTraceCleaner(StackTraceCleaner) StackTraceCleaner
+}
+class StackTraceFilter {
+  + StackTraceFilter() 
+  + filter(StackTraceElement[], boolean) StackTraceElement[]
+  + filterFirst(Throwable, boolean) StackTraceElement
+  + findSourceFile(StackTraceElement[], String) String
+}
+class StackWalkerChecker {
+  ~ StackWalkerChecker() 
+  + test(Class~?~) boolean
+  ~ orFallback() Predicate~Class~?~~
+}
+class StartsWith {
+  + StartsWith(String) 
+  + matches(String) boolean
+  + toString() String
+}
+class StrictRunner {
+  + StrictRunner(InternalRunner, Class~?~) 
+  + filter(Filter) void
+  + getDescription() Description
+  + run(RunNotifier) void
+}
+class StrictStubsRunnerTestListener {
+  + StrictStubsRunnerTestListener() 
+  + onMockCreated(Object, MockCreationSettings) void
+  + testFinished(TestFinishedEvent) void
+}
+class Strictness {
+<<enumeration>>
+  + Strictness() 
+  + values() Strictness[]
+  + valueOf(String) Strictness
+}
+class StrictnessSelector {
+  - StrictnessSelector() 
+  + determineStrictness(Stubbing, MockCreationSettings, Strictness) Strictness
+}
+class StringUtil {
+  - StringUtil() 
+  + join(Object[]) String
+  + join(String, Collection~?~) String
+  + removeFirstLine(String) String
+  + join(String, String, Collection~?~) String
+  - decamelizeClassName(String) String
+  + decamelizeMatcherName(String) String
+}
+class StubInfo {
+<<Interface>>
+  + stubbedAt() Location
+}
+class StubInfoImpl {
+  + StubInfoImpl(DescribedInvocation) 
+  + stubbedAt() Location
+}
+class StubbedInvocationMatcher {
+  + StubbedInvocationMatcher(Answer, MatchableInvocation, Strictness) 
+  + addAnswer(Answer) void
+  + markStubUsed(DescribedInvocation) void
+  + answer(InvocationOnMock) Object
+  + toString() String
+  + wasUsed() boolean
+  + getStrictness() Strictness
+}
+class Stubber {
+<<Interface>>
+  + when(T) T
+}
+class StubberImpl {
+  + StubberImpl(Strictness) 
+  + doAnswer(Answer) Stubber
+  + when(T) T
+  + doReturn(Object) Stubber
+  + doReturn(Object, Object[]) Stubber
+  - doReturnValues(Object[]) StubberImpl
+  + doThrow(Class~Throwable~) Stubber
+  + doCallRealMethod() Stubber
+  + doThrow(Class~Throwable~, Class~Throwable~[]) Stubber
+  + doThrow(Throwable[]) Stubber
+  + doNothing() Stubber
+}
+class Stubbing {
+<<Interface>>
+  + getInvocation() Invocation
+  + wasUsed() boolean
+  + getStrictness() Strictness
+}
+class StubbingArgMismatches {
+  + StubbingArgMismatches() 
+  + format(String, MockitoLogger) void
+  + add(Invocation, Invocation) void
+  + size() int
+  + toString() String
+}
+class StubbingComparator {
+  + StubbingComparator() 
+  + compare(Stubbing, Stubbing) int
+}
+class StubbingHint {
+  ~ StubbingHint(String) 
+  + toString() String
+  ~ appendLine(Object[]) void
+}
+class StubbingLookupEvent {
+<<Interface>>
+  + getStubbingFound() Stubbing
+  + getInvocation() Invocation
+  + getMockSettings() MockCreationSettings
+  + getAllStubbings() Collection~Stubbing~
+}
+class StubbingLookupListener {
+<<Interface>>
+  + onStubbingLookup(StubbingLookupEvent) void
+}
+class StubbingLookupNotifier {
+  - StubbingLookupNotifier() 
+  + notifyStubbedAnswerLookup(Invocation, Stubbing, Collection~Stubbing~, CreationSettings) void
+}
+class SubclassByteBuddyMockMaker {
+  + SubclassByteBuddyMockMaker() 
+  + SubclassByteBuddyMockMaker(SubclassLoader) 
+  + getHandler(Object) MockHandler
+  + clearAllCaches() void
+  - prettifyFailure(MockCreationSettings~T~, Exception) RuntimeException
+  + createMockType(MockCreationSettings~T~) Class~T~
+  - ensureMockIsAssignableToMockedType(MockCreationSettings~T~, T) T
+  + createMock(MockCreationSettings~T~, MockHandler) T
+  - describeClass(Object) String
+  + resetMock(Object, MockHandler, MockCreationSettings) void
+  + isTypeMockable(Class~?~) TypeMockability
+  - describeClass(Class~?~) String
+}
+class SubclassBytecodeGenerator {
+  + SubclassBytecodeGenerator() 
+  + SubclassBytecodeGenerator(Implementation, ElementMatcher~MethodDescription~) 
+  + SubclassBytecodeGenerator(SubclassLoader) 
+  # SubclassBytecodeGenerator(SubclassLoader, Implementation, ElementMatcher~MethodDescription~) 
+  - suffix(MockFeatures~?~) CharSequence
+  + mockClass(MockFeatures~T~) Class~T~
+  - needsSamePackageClassLoader(MockFeatures~?~) boolean
+  - sortedSerializable(Collection~Class~?~~, Class~?~) Collection~Type~
+  - hasNonPublicTypeReference(Class~?~) boolean
+  - assertVisibility(Class~?~) void
+  + mockClassStatic(Class~?~) void
+  - isComingFromJDK(Class~?~) boolean
+  + mockClassConstruction(Class~?~) void
+}
+class SubclassInjectionLoader {
+  ~ SubclassInjectionLoader() 
+  + isDisrespectingOpenness() boolean
+  + resolveStrategy(Class~?~, ClassLoader, boolean) ClassLoadingStrategy~ClassLoader~
+  - tryLookup() SubclassLoader
+}
+class SubclassLoader {
+<<Interface>>
+  + isDisrespectingOpenness() boolean
+  + resolveStrategy(Class~?~, ClassLoader, boolean) ClassLoadingStrategy~ClassLoader~
+}
+class SuperTypesLastSorter {
+  - SuperTypesLastSorter() 
+  + sortSuperTypesLast(Collection~Field~) List~Field~
+}
+class Supplier~T~ {
+<<Interface>>
+  + get() T
+}
+class SuppressSignatureCheck
+class SuspendMethod {
+  - SuspendMethod() 
+  + trimSuspendParameterTypes(Class~?~[]) Class~?~[]
+  - isContinuationType(Class~?~) boolean
+}
+class TerminalMockCandidateFilter {
+  + TerminalMockCandidateFilter() 
+  + filterCandidate(Collection~Object~, Field, List~Field~, Object) OngoingInjector
+}
+class TestFinishedEvent {
+<<Interface>>
+  + getFailure() Throwable
+  + getTestName() String
+}
+class TestMethodsFinder {
+  - TestMethodsFinder() 
+  + hasTestMethods(Class~?~) boolean
+}
+class ThreadSafeMockingProgress {
+  - ThreadSafeMockingProgress() 
+  + mockingProgress() MockingProgress
+}
+class ThrowsException {
+  + ThrowsException(Throwable) 
+  # getThrowable() Throwable
+}
+class ThrowsExceptionForClassType {
+  + ThrowsExceptionForClassType(Class~Throwable~) 
+  # getThrowable() Throwable
+}
+class Timeout {
+  ~ Timeout(long, VerificationMode, Timer) 
+  ~ Timeout(VerificationOverTimeImpl) 
+  + Timeout(long, VerificationMode) 
+  ~ Timeout(long, long, VerificationMode) 
+  # copySelfWithNewVerificationMode(VerificationMode) VerificationMode
+  + toString() String
+  + never() VerificationMode
+  + atMost(int) VerificationMode
+}
+class Timer {
+  + Timer(long) 
+  + start() void
+  + duration() long
+  + isCounting() boolean
+  - validateInput(long) void
+}
+class Times {
+  + Times(int) 
+  + toString() String
+  + verifyInOrder(VerificationDataInOrder) void
+  + verify(VerificationData) void
+  + description(String) VerificationMode
+}
+class TooFewActualInvocations {
+  + TooFewActualInvocations(String) 
+}
+class TooManyActualInvocations {
+  + TooManyActualInvocations(String) 
+}
+class TriesToReturnSelf {
+  + TriesToReturnSelf() 
+  + answer(InvocationOnMock) Object
+}
+class TypeBasedCandidateFilter {
+  + TypeBasedCandidateFilter(MockCandidateFilter) 
+  + filterCandidate(Collection~Object~, Field, List~Field~, Object) OngoingInjector
+}
+class TypeCachingBytecodeGenerator {
+  + TypeCachingBytecodeGenerator(BytecodeGenerator, boolean) 
+  + mockClass(MockFeatures~T~) Class~T~
+  + mockClassStatic(Class~?~) void
+  + mockClassConstruction(Class~?~) void
+  + clearAllCaches() void
+}
+class TypeSafeMatching {
+  - TypeSafeMatching() 
+  - getArgumentType(ArgumentMatcher~?~) Class~?~
+  - isCompatible(ArgumentMatcher~?~, Object) boolean
+  - isMatchesMethod(Method) boolean
+  + matchesTypeSafe() ArgumentMatcherAction
+  - getArgumentTypeUncached(ArgumentMatcher~?~) Class~?~
+  + apply(ArgumentMatcher, Object) boolean
+}
+class TypeSupport {
+  - TypeSupport(Method) 
+  ~ isSealed(Class~?~) boolean
+}
+class UnfinishedMockingSessionException {
+  + UnfinishedMockingSessionException(String) 
+}
+class UnfinishedStubbingException {
+  + UnfinishedStubbingException(String) 
+}
+class UnfinishedVerificationException {
+  + UnfinishedVerificationException(String) 
+}
+class UniversalTestListener {
+  + UniversalTestListener(Strictness, MockitoLogger) 
+  + onMockCreated(Object, MockCreationSettings) void
+  + setStrictness(Strictness) void
+  + setListenerDirty() void
+  + isListenerDirty() boolean
+  - reportUnusedStubs(TestFinishedEvent, Collection~Object~) void
+  - emitWarnings(MockitoLogger, TestFinishedEvent, Collection~Object~) void
+  + testFinished(TestFinishedEvent) void
+}
+class UnnecessaryStubbingException {
+  + UnnecessaryStubbingException(String) 
+}
+class UnnecessaryStubbingsReporter {
+  + UnnecessaryStubbingsReporter() 
+  + onMockCreated(Object, MockCreationSettings) void
+  + validateUnusedStubs(Class~?~, RunNotifier) void
+}
+class UnusedStubbingReporting {
+  - UnusedStubbingReporting() 
+  + shouldBeReported(Stubbing) boolean
+}
+class UnusedStubbings {
+  ~ UnusedStubbings(Collection~Stubbing~) 
+  ~ format(String, MockitoLogger) void
+  + toString() String
+  + size() int
+  ~ reportUnused() void
+}
+class UnusedStubbingsFinder {
+  + UnusedStubbingsFinder() 
+  + getUnusedStubbingsByLocation(Iterable~Object~) Collection~Invocation~
+  + getUnusedStubbings(Iterable~Object~) UnusedStubbings
+}
+class ValidableAnswer {
+<<Interface>>
+  + validateFor(InvocationOnMock) void
+}
+class ValuePrinter {
+  - ValuePrinter() 
+  - descriptionOf(Object) String
+  - printChar(char) String
+  - printMap(Map~?, ?~) String
+  + print(Object) String
+  + printValues(String, String, String, Iterator~?~) String
+}
+class VarargMatcher {
+<<Interface>>
+
+}
+class VerboseMockInvocationLogger {
+  + VerboseMockInvocationLogger() 
+  + VerboseMockInvocationLogger(PrintStream) 
+  - printStubInfo(MethodInvocationReport) void
+  + reportInvocation(MethodInvocationReport) void
+  - printHeader() void
+  - printReturnedValueOrThrowable(MethodInvocationReport) void
+  - printFooter() void
+  - printlnIndented(String) void
+  - printInvocation(DescribedInvocation) void
+}
+class VerifiableInvocationsFinder {
+  - VerifiableInvocationsFinder() 
+  + find(List~?~) List~Invocation~
+}
+class VerificationAfterDelay {
+<<Interface>>
+  + atLeast(int) VerificationMode
+  + atMost(int) VerificationMode
+  + atMostOnce() VerificationMode
+  + atLeastOnce() VerificationMode
+  + never() VerificationMode
+  + only() VerificationMode
+  + times(int) VerificationMode
+}
+class VerificationAwareInvocation {
+<<Interface>>
+  + isVerified() boolean
+}
+class VerificationCollector {
+<<Interface>>
+  + collectAndReport() void
+  + assertLazily() VerificationCollector
+}
+class VerificationCollectorImpl {
+  + VerificationCollectorImpl() 
+  - append(String) void
+  + collectAndReport() void
+  + apply(Statement, Description) Statement
+  - resetBuilder() void
+  + assertLazily() VerificationCollector
+}
+class VerificationData {
+<<Interface>>
+  + getAllInvocations() List~Invocation~
+  + getTarget() MatchableInvocation
+}
+class VerificationDataImpl {
+  + VerificationDataImpl(InvocationContainerImpl, InvocationMatcher) 
+  + getAllInvocations() List~Invocation~
+  - assertWantedIsVerifiable() void
+  + getTarget() MatchableInvocation
+}
+class VerificationDataInOrder {
+<<Interface>>
+  + getWanted() MatchableInvocation
+  + getAllInvocations() List~Invocation~
+  + getOrderingContext() InOrderContext
+}
+class VerificationDataInOrderImpl {
+  + VerificationDataInOrderImpl(InOrderContext, List~Invocation~, MatchableInvocation) 
+  + getAllInvocations() List~Invocation~
+  + getOrderingContext() InOrderContext
+  + getWanted() MatchableInvocation
+}
+class VerificationEvent {
+<<Interface>>
+  + getMode() VerificationMode
+  + getMock() Object
+  + getData() VerificationData
+  + getVerificationError() Throwable
+}
+class VerificationEventImpl {
+  + VerificationEventImpl(Object, VerificationMode, VerificationData, Throwable) 
+  + getVerificationError() Throwable
+  + getData() VerificationData
+  + getMock() Object
+  + getMode() VerificationMode
+}
+class VerificationInOrderFailure {
+  + VerificationInOrderFailure(String) 
+}
+class VerificationInOrderMode {
+<<Interface>>
+  + verifyInOrder(VerificationDataInOrder) void
+}
+class VerificationListener {
+<<Interface>>
+  + onVerification(VerificationEvent) void
+}
+class VerificationMode {
+<<Interface>>
+  + description(String) VerificationMode
+  + verify(VerificationData) void
+}
+class VerificationModeFactory {
+  - VerificationModeFactory() 
+  + atLeast(int) VerificationMode
+  + noMoreInteractions() NoMoreInteractions
+  + noInteractions() NoInteractions
+  + description(VerificationMode, String) VerificationMode
+  + only() VerificationMode
+  + times(int) Times
+  + atMostOnce() VerificationMode
+  + atLeastOnce() VerificationMode
+  + calls(int) Calls
+  + atMost(int) VerificationMode
+}
+class VerificationOverTimeImpl {
+  + VerificationOverTimeImpl(long, long, VerificationMode, boolean) 
+  + VerificationOverTimeImpl(long, VerificationMode, boolean, Timer) 
+  + getTimer() Timer
+  # canRecoverFromFailure(VerificationMode) boolean
+  + isReturnOnSuccess() boolean
+  + getPollingPeriodMillis() long
+  + verify(VerificationData) void
+  + copyWithVerificationMode(VerificationMode) VerificationOverTimeImpl
+  - handleVerifyException(AssertionError) AssertionError
+  + getDelegate() VerificationMode
+  - sleep(long) void
+}
+class VerificationStartedEvent {
+<<Interface>>
+  + getMock() Object
+  + setMock(Object) void
+}
+class VerificationStartedListener {
+<<Interface>>
+  + onVerificationStarted(VerificationStartedEvent) void
+}
+class VerificationStartedNotifier {
+  - VerificationStartedNotifier() 
+  ~ assertCompatibleTypes(Object, MockCreationSettings) void
+  + notifyVerificationStarted(List~VerificationStartedListener~, MockingDetails) Object
+}
+class VerificationStrategy {
+<<Interface>>
+  + maybeVerifyLazily(VerificationMode) VerificationMode
+}
+class VerificationWithTimeout {
+<<Interface>>
+  + times(int) VerificationMode
+  + atLeastOnce() VerificationMode
+  + atLeast(int) VerificationMode
+  + only() VerificationMode
+}
+class VerificationWrapper~WrapperT~ {
+  + VerificationWrapper(WrapperT) 
+  + atMostOnce() VerificationMode
+  + verify(VerificationData) void
+  + atLeast(int) VerificationMode
+  + only() VerificationMode
+  # copySelfWithNewVerificationMode(VerificationMode) VerificationMode
+  + times(int) VerificationMode
+  + atLeastOnce() VerificationMode
+  + never() VerificationMode
+  + atMost(int) VerificationMode
+}
+class VerificationWrapperInOrderWrapper {
+  + VerificationWrapperInOrderWrapper(VerificationWrapper~?~, InOrderImpl) 
+  - wrapInOrder(VerificationWrapper~?~, VerificationMode, InOrderImpl) VerificationMode
+  + verify(VerificationData) void
+}
+class VoidAnswer1~A0~ {
+<<Interface>>
+  + answer(A0) void
+}
+class VoidAnswer2~A0, A1~ {
+<<Interface>>
+  + answer(A0, A1) void
+}
+class VoidAnswer3~A0, A1, A2~ {
+<<Interface>>
+  + answer(A0, A1, A2) void
+}
+class VoidAnswer4~A0, A1, A2, A3~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3) void
+}
+class VoidAnswer5~A0, A1, A2, A3, A4~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3, A4) void
+}
+class VoidAnswer6~A0, A1, A2, A3, A4, A5~ {
+<<Interface>>
+  + answer(A0, A1, A2, A3, A4, A5) void
+}
+class WantedButNotInvoked {
+  + WantedButNotInvoked(String) 
+  + toString() String
+}
+class WarningsFinder {
+  + WarningsFinder(List~Invocation~, List~InvocationMatcher~) 
+  + find(FindingsListener) void
+}
+class WarningsPrinterImpl {
+  ~ WarningsPrinterImpl(boolean, WarningsFinder) 
+  + WarningsPrinterImpl(List~Invocation~, List~InvocationMatcher~, boolean) 
+  + print() String
+}
+class WeakConcurrentMap~K, V~ {
+  + WeakConcurrentMap(boolean) 
+  + approximateSize() int
+  + remove(K) V
+  + run() void
+  + clear() void
+  + containsKey(K) boolean
+  + iterator() Iterator~Entry~K, V~~
+  + getCleanerThread() Thread
+  + expungeStaleEntries() void
+  # defaultValue(K) V
+  + put(K, V) V
+  + get(K) V
+}
+class WeakConcurrentSet~V~ {
+  + WeakConcurrentSet(Cleaner) 
+  + expungeStaleEntries() void
+  + approximateSize() int
+  + add(V) boolean
+  + remove(V) boolean
+  + getCleanerThread() Thread
+  + iterator() Iterator~V~
+  + contains(V) boolean
+  + clear() void
+  + run() void
+}
+class WrongTypeOfReturnValue {
+  + WrongTypeOfReturnValue(String) 
+}
+
+AbstractThrowsException  ..>  Answer~T~ 
+AbstractThrowsException  ..>  ConditionalStackTraceFilter : «create»
+AbstractThrowsException "1" *--> "filter 1" ConditionalStackTraceFilter 
+AbstractThrowsException  ..>  InvocationInfo : «create»
+AbstractThrowsException  ..>  ValidableAnswer 
+AdditionalAnswers  ..>  AnswersWithDelay : «create»
+AdditionalAnswers  ..>  ForwardsInvocations : «create»
+AdditionalAnswers  ..>  ReturnsArgumentAt : «create»
+AdditionalAnswers  ..>  ReturnsElementsOf : «create»
+AdditionalMatchers  ..>  ArrayEquals : «create»
+AdditionalMatchers  ..>  CompareEqual~T~ : «create»
+AdditionalMatchers  ..>  EqualsWithDelta : «create»
+AdditionalMatchers  ..>  Find : «create»
+AdditionalMatchers  ..>  GreaterOrEqual~T~ : «create»
+AdditionalMatchers  ..>  GreaterThan~T~ : «create»
+AdditionalMatchers  ..>  LessOrEqual~T~ : «create»
+AdditionalMatchers  ..>  LessThan~T~ : «create»
+After  ..>  VerificationAfterDelay 
+After  ..>  VerificationOverTimeImpl : «create»
+After  -->  VerificationWrapper~WrapperT~ 
+AllInvocationsFinder  ..>  DefaultMockingDetails : «create»
+AllInvocationsFinder  ..>  InvocationComparator : «create»
+AllInvocationsFinder  ..>  StubbingComparator : «create»
+And  ..>  ArgumentMatcher~T~ 
+And "1" *--> "m1 1" ArgumentMatcher~T~ 
+Answers  ..>  Answer~T~ 
+Answers "1" *--> "implementation 1" Answer~T~ 
+Answers  ..>  CallsRealMethods : «create»
+Answers  ..>  GloballyConfiguredAnswer : «create»
+Answers  ..>  ReturnsDeepStubs : «create»
+Answers  ..>  ReturnsMocks : «create»
+Answers  ..>  ReturnsSmartNulls : «create»
+Answers  ..>  TriesToReturnSelf : «create»
+AnswersWithDelay  ..>  Answer~T~ 
+AnswersWithDelay "1" *--> "answer 1" Answer~T~ 
+AnswersWithDelay  ..>  ValidableAnswer 
+Any  ..>  ArgumentMatcher~T~ 
+Any  ..>  VarargMatcher 
+ArgMismatchFinder  ..>  StubbingArgMismatches : «create»
+ArgumentCaptor~T~  ..>  CapturingMatcher~T~ : «create»
+ArgumentCaptor~T~ "1" *--> "capturingMatcher 1" CapturingMatcher~T~ 
+CheckReturnValue  ..  ArgumentCaptor~T~ 
+ArgumentMatcherStorageImpl  ..>  And : «create»
+ArgumentMatcherStorageImpl  ..>  ArgumentMatcherStorage 
+ArgumentMatcherStorageImpl  ..>  LocalizedMatcher : «create»
+ArgumentMatcherStorageImpl  ..>  Not : «create»
+ArgumentMatcherStorageImpl  ..>  Or : «create»
+CheckReturnValue  ..  ArgumentMatchers 
+ArgumentMatchers  ..>  Contains : «create»
+ArgumentMatchers  ..>  EndsWith : «create»
+ArgumentMatchers  ..>  Equals : «create»
+ArgumentMatchers  ..>  InstanceOf : «create»
+ArgumentMatchers  ..>  Matches : «create»
+ArgumentMatchers  ..>  ReflectionEquals : «create»
+ArgumentMatchers  ..>  Same : «create»
+ArgumentMatchers  ..>  StartsWith : «create»
+ArgumentsAreDifferent  ..>  ConditionalStackTraceFilter : «create»
+ArgumentsAreDifferent  ..>  ConditionalStackTraceFilter : «create»
+ArgumentsAreDifferent  -->  MockitoAssertionError 
+ArgumentsProcessor  ..>  ArrayEquals : «create»
+ArgumentsProcessor  ..>  Equals : «create»
+ArrayEquals  -->  Equals 
+ArrayEquals  ..>  Equals : «create»
+AtLeast  ..>  MockitoException : «create»
+AtLeast  ..>  VerificationInOrderMode 
+AtLeast  ..>  VerificationMode 
+AtLeastDiscrepancy  -->  Discrepancy 
+AtLeastXNumberOfInvocationsChecker  ..>  AtLeastDiscrepancy : «create»
+AtMost  ..>  MockitoException : «create»
+AtMost  ..>  VerificationMode 
+BDDMockito  -->  Mockito 
+NotExtensible  ..  BaseStubber 
+BaseStubbing~T~  ..>  CallsRealMethods : «create»
+BaseStubbing~T~  ..>  OngoingStubbing~T~ 
+BaseStubbing~T~  ..>  Returns : «create»
+BaseStubbing~T~  ..>  ThrowsException : «create»
+BaseStubbing~T~  ..>  ThrowsExceptionForClassType : «create»
+ByteBuddyCrossClassLoaderSerializationSupport  ..>  MockitoSerializationIssue : «create»
+ByteBuddyMockMaker  ..>  ClassCreatingMockMaker 
+ByteBuddyMockMaker "1" *--> "subclassByteBuddyMockMaker 1" SubclassByteBuddyMockMaker 
+ByteBuddyMockMaker  ..>  SubclassByteBuddyMockMaker : «create»
+Calls  ..>  MockitoException : «create»
+Calls  ..>  VerificationInOrderMode 
+Calls  ..>  VerificationMode 
+CallsRealMethods  ..>  Answer~T~ 
+CallsRealMethods  ..>  InvocationInfo : «create»
+CallsRealMethods  ..>  ValidableAnswer 
+CannotStubVoidMethodWithReturnValue  -->  MockitoException 
+CannotVerifyStubOnlyMock  -->  MockitoException 
+CaptorAnnotationProcessor  ..>  FieldAnnotationProcessor~A~ 
+CaptorAnnotationProcessor  ..>  GenericMaster : «create»
+CaptorAnnotationProcessor  ..>  MockitoException : «create»
+CapturingMatcher~T~  ..>  ArgumentMatcher~T~ 
+CapturingMatcher~T~  ..>  CapturesArguments 
+CapturingMatcher~T~  ..>  VarargMatcher 
+ClassCreatingMockMaker  -->  MockMaker 
+ClassPathLoader  ..>  MockitoConfigurationException : «create»
+ClonesArguments  ..>  Answer~T~ 
+ClonesArguments  ..>  LenientCopyTool : «create»
+ClonesArguments  ..>  ReturnsEmptyValues : «create»
+CompareEqual~T~  -->  CompareTo~T~ 
+CompareTo~T~  ..>  ArgumentMatcher~T~ 
+ConditionalStackTraceFilter  ..>  GlobalConfiguration : «create»
+ConditionalStackTraceFilter "1" *--> "config 1" IMockitoConfiguration 
+ConditionalStackTraceFilter  ..>  StackTraceFilter : «create»
+ConditionalStackTraceFilter "1" *--> "filter 1" StackTraceFilter 
+ConsecutiveStubbing~T~  -->  BaseStubbing~T~ 
+ConsecutiveStubbing~T~ "1" *--> "invocationContainer 1" InvocationContainerImpl 
+ConsoleMockitoLogger  ..>  MockitoLogger 
+ConstructorInjection  ..>  FieldInitializer : «create»
+ConstructorInjection  -->  MockInjectionStrategy 
+ConstructorInstantiator  ..>  InstantiationException : «create»
+ConstructorInstantiator  ..>  Instantiator 
+Contains  ..>  ArgumentMatcher~T~ 
+CreationSettings~T~ "1" *--> "defaultAnswer 1" Answer~T~ 
+CreationSettings~T~ "1" *--> "invocationListeners *" InvocationListener 
+CreationSettings~T~  ..>  MockCreationSettings~T~ 
+CreationSettings~T~ "1" *--> "mockName 1" MockName 
+CreationSettings~T~ "1" *--> "serializableMode 1" SerializableMode 
+CreationSettings~T~ "1" *--> "strictness 1" Strictness 
+CreationSettings~T~ "1" *--> "stubbingLookupListeners *" StubbingLookupListener 
+CreationSettings~T~ "1" *--> "verificationStartedListeners *" VerificationStartedListener 
+DefaultAnswerValidator  ..>  InvocationInfo : «create»
+DefaultDoNotMockEnforcer  ..>  DoNotMockEnforcer 
+DefaultInstantiatorProvider  ..>  ConstructorInstantiator : «create»
+DefaultInstantiatorProvider "1" *--> "INSTANCE 1" Instantiator 
+DefaultInstantiatorProvider  ..>  InstantiatorProvider2 
+DefaultInstantiatorProvider  ..>  ObjenesisInstantiator : «create»
+DefaultInternalRunner  ..>  DefaultTestFinishedEvent : «create»
+DefaultInternalRunner  ..>  InternalRunner 
+DefaultInternalRunner "1" *--> "mockitoTestListener 1" MockitoTestListener 
+DefaultInvocationFactory  ..>  DelegatingMethod : «create»
+DefaultInvocationFactory  ..>  InterceptedInvocation : «create»
+DefaultInvocationFactory  ..>  InvocationFactory 
+DefaultInvocationFactory  ..>  MockWeakReference~T~ : «create»
+DefaultInvocationFactory  ..>  SerializableMethod : «create»
+DefaultLenientStubber  ..>  LenientStubber 
+DefaultLenientStubber  ..>  MockitoCore : «create»
+DefaultLenientStubber "1" *--> "MOCKITO_CORE 1" MockitoCore 
+DefaultMockingDetails  ..>  InvocationsPrinter : «create»
+DefaultMockingDetails  ..>  MockingDetails 
+DefaultMockingDetails  ..>  NotAMockException : «create»
+DefaultMockitoConfiguration  ..>  IMockitoConfiguration 
+DefaultMockitoConfiguration  ..>  ReturnsEmptyValues : «create»
+DefaultMockitoFramework  ..>  DefaultInvocationFactory : «create»
+DefaultMockitoFramework  ..>  MockitoFramework 
+DefaultMockitoPlugins  ..>  MockitoPlugins 
+DefaultMockitoSession  ..>  MockitoException : «create»
+DefaultMockitoSession  ..>  MockitoSession 
+DefaultMockitoSession  ..>  UniversalTestListener : «create»
+DefaultMockitoSession "1" *--> "listener 1" UniversalTestListener 
+DefaultMockitoSessionBuilder  ..>  DefaultMockitoSession : «create»
+DefaultMockitoSessionBuilder  ..>  MockitoLoggerAdapter : «create»
+DefaultMockitoSessionBuilder  ..>  MockitoSessionBuilder 
+DefaultMockitoSessionBuilder "1" *--> "logger 1" MockitoSessionLogger 
+DefaultMockitoSessionBuilder "1" *--> "strictness 1" Strictness 
+DefaultPluginSwitch  ..>  PluginSwitch 
+DefaultRegisteredInvocations "1" *--> "invocations *" Invocation 
+DefaultRegisteredInvocations  ..>  RegisteredInvocations 
+DefaultStackTraceCleaner  ..>  StackTraceCleaner 
+DefaultStackTraceCleanerProvider  ..>  StackTraceCleanerProvider 
+DefaultStubbingLookupListener "1" *--> "currentStrictness 1" Strictness 
+DefaultStubbingLookupListener  ..>  StubbingLookupListener 
+DefaultTestFinishedEvent  ..>  TestFinishedEvent 
+DelegatingMethod  ..>  MockitoMethod 
+Description  ..>  MockitoAssertionError : «create»
+Description  ..>  VerificationMode 
+Description "1" *--> "verification 1" VerificationMode 
+DetachedThreadLocal~T~ "1" *--> "map 1" WeakConcurrentMap~K, V~ 
+DoAnswerStyleStubbing "1" *--> "answers *" Answer~T~ 
+DoAnswerStyleStubbing "1" *--> "stubbingStrictness 1" Strictness 
+DoNotMockException  -->  MockitoException 
+DoesNothing  ..>  Answer~T~ 
+DoesNothing  ..>  InvocationInfo : «create»
+DoesNothing  ..>  ValidableAnswer 
+EndsWith  ..>  ArgumentMatcher~T~ 
+Equals  ..>  ArgumentMatcher~T~ 
+Equals  ..>  ContainsExtraTypeInfo 
+EqualsWithDelta  ..>  ArgumentMatcher~T~ 
+FieldInitializer  ..>  FieldInitializationReport : «create»
+FieldInitializer  ..>  FieldReader : «create»
+FieldInitializer  ..>  MockitoException : «create»
+FieldReader "1" *--> "accessor 1" MemberAccessor 
+FieldReader  ..>  MockitoException : «create»
+Find  ..>  ArgumentMatcher~T~ 
+ForwardsInvocations  ..>  Answer~T~ 
+FriendlyReminderException  -->  MockitoException 
+GenericMetadataSupport  ..>  MockitoException : «create»
+GlobalConfiguration  ..>  ClassPathLoader : «create»
+GlobalConfiguration  ..>  DefaultMockitoConfiguration : «create»
+GlobalConfiguration  ..>  IMockitoConfiguration 
+GloballyConfiguredAnswer  ..>  Answer~T~ 
+GloballyConfiguredAnswer  ..>  GlobalConfiguration : «create»
+GreaterOrEqual~T~  -->  CompareTo~T~ 
+GreaterThan~T~  -->  CompareTo~T~ 
+HamcrestArgumentMatcher~T~  ..>  ArgumentMatcher~T~ 
+HashCodeAndEqualsSafeSet "1" *--> "backingHashSet *" HashCodeAndEqualsMockWrapper 
+IOUtil  ..>  MockitoException : «create»
+InOrderContextImpl  ..>  IdentitySet : «create»
+InOrderContextImpl "1" *--> "verified 1" IdentitySet 
+InOrderContextImpl  ..>  InOrderContext 
+InOrderImpl  ..>  InOrder 
+InOrderImpl  ..>  InOrderContext 
+InOrderImpl "1" *--> "inOrderContext 1" InOrderContext 
+InOrderImpl  ..>  InOrderContextImpl : «create»
+InOrderImpl  ..>  InOrderWrapper : «create»
+InOrderImpl "1" *--> "mockitoCore 1" MockitoCore 
+InOrderImpl  ..>  MockitoCore : «create»
+InOrderImpl  ..>  MockitoException : «create»
+InOrderImpl  ..>  VerificationWrapperInOrderWrapper : «create»
+InOrderWrapper "1" *--> "inOrder 1" InOrderImpl 
+InOrderWrapper  ..>  VerificationDataInOrderImpl : «create»
+InOrderWrapper "1" *--> "mode 1" VerificationInOrderMode 
+InOrderWrapper  ..>  VerificationMode 
+IndependentAnnotationEngine  ..>  AnnotationEngine 
+IndependentAnnotationEngine  ..>  CaptorAnnotationProcessor : «create»
+IndependentAnnotationEngine "1" *--> "annotationProcessorMap *" FieldAnnotationProcessor~A~ 
+IndependentAnnotationEngine  ..>  MockAnnotationProcessor : «create»
+IndependentAnnotationEngine  ..>  MockitoException : «create»
+InjectMocksException  -->  MockitoException 
+InjectingAnnotationEngine  ..>  AnnotationEngine 
+InjectingAnnotationEngine "1" *--> "delegate 1" AnnotationEngine 
+InjectingAnnotationEngine  ..>  DefaultInjectionEngine : «create»
+InjectingAnnotationEngine  ..>  IndependentAnnotationEngine : «create»
+InjectingAnnotationEngine  ..>  InjectMocksScanner : «create»
+InjectingAnnotationEngine  ..>  MockScanner : «create»
+InjectingAnnotationEngine  ..>  SpyAnnotationEngine : «create»
+InlineByteBuddyMockMaker  ..>  ClassCreatingMockMaker 
+InlineByteBuddyMockMaker  ..>  InlineDelegateByteBuddyMockMaker : «create»
+InlineByteBuddyMockMaker "1" *--> "inlineDelegateByteBuddyMockMaker 1" InlineDelegateByteBuddyMockMaker 
+InlineByteBuddyMockMaker  ..>  InlineMockMaker 
+InlineByteBuddyMockMaker  ..>  Instantiator 
+InlineBytecodeGenerator  ..>  BytecodeGenerator 
+InlineBytecodeGenerator "1" *--> "subclassEngine 1" BytecodeGenerator 
+InlineBytecodeGenerator  ..>  MockMethodAdvice : «create»
+InlineBytecodeGenerator  ..>  MockitoException : «create»
+InlineBytecodeGenerator  ..>  SubclassBytecodeGenerator : «create»
+SuppressSignatureCheck  ..  InlineBytecodeGenerator 
+InlineBytecodeGenerator  ..>  TypeCachingBytecodeGenerator : «create»
+InlineBytecodeGenerator "1" *--> "mocked 1" WeakConcurrentSet~V~ 
+InlineBytecodeGenerator  ..>  WeakConcurrentSet~V~ : «create»
+InlineDelegateByteBuddyMockMaker "1" *--> "bytecodeGenerator 1" BytecodeGenerator 
+InlineDelegateByteBuddyMockMaker  ..>  ClassCreatingMockMaker 
+InlineDelegateByteBuddyMockMaker  ..>  ConstructorInstantiator : «create»
+InlineDelegateByteBuddyMockMaker "1" *--> "mockedStatics 1" DetachedThreadLocal~T~ 
+InlineDelegateByteBuddyMockMaker  ..>  DetachedThreadLocal~T~ : «create»
+InlineDelegateByteBuddyMockMaker  ..>  InlineBytecodeGenerator : «create»
+InlineDelegateByteBuddyMockMaker  ..>  InlineMockMaker 
+InlineDelegateByteBuddyMockMaker  ..>  InstantiationException : «create»
+InlineDelegateByteBuddyMockMaker  ..>  Instantiator 
+InlineDelegateByteBuddyMockMaker  ..>  MockMethodInterceptor : «create»
+InlineDelegateByteBuddyMockMaker "1" *--> "mocks *" MockMethodInterceptor 
+InlineDelegateByteBuddyMockMaker  ..>  MockitoConfigurationException : «create»
+InlineDelegateByteBuddyMockMaker  ..>  MockitoException : «create»
+InlineDelegateByteBuddyMockMaker  ..>  MockitoInitializationException : «create»
+SuppressSignatureCheck  ..  InlineDelegateByteBuddyMockMaker 
+InlineDelegateByteBuddyMockMaker  ..>  TypeCachingBytecodeGenerator : «create»
+InlineDelegateByteBuddyMockMaker "1" *--> "mocks 1" WeakConcurrentMap~K, V~ 
+InlineMockMaker  -->  MockMaker 
+InstanceField "1" *--> "fieldReader 1" FieldReader 
+InstanceField  ..>  FieldReader : «create»
+InstanceField  ..>  MockitoException : «create»
+InstanceOf  ..>  ArgumentMatcher~T~ 
+InstantiationException  -->  MockitoException 
+InstrumentationMemberAccessor  ..>  MemberAccessor 
+InstrumentationMemberAccessor  ..>  MockitoInitializationException : «create»
+SuppressSignatureCheck  ..  InstrumentationMemberAccessor 
+InterceptedInvocation  ..>  Invocation 
+InterceptedInvocation "1" *--> "location 1" Location 
+InterceptedInvocation "1" *--> "mockRef 1" MockReference~T~ 
+InterceptedInvocation "1" *--> "mockitoMethod 1" MockitoMethod 
+InterceptedInvocation  ..>  PrintSettings : «create»
+InterceptedInvocation "1" *--> "realMethod 1" RealMethod 
+InterceptedInvocation "1" *--> "stubInfo 1" StubInfo 
+InterceptedInvocation  ..>  VerificationAwareInvocation 
+InvalidUseOfMatchersException  -->  MockitoException 
+Invocation  -->  DescribedInvocation 
+Invocation  -->  InvocationOnMock 
+NotExtensible  ..  Invocation 
+NotExtensible  ..  InvocationContainer 
+InvocationContainerImpl  ..>  DefaultRegisteredInvocations : «create»
+InvocationContainerImpl "1" *--> "doAnswerStyleStubbing 1" DoAnswerStyleStubbing 
+InvocationContainerImpl  ..>  DoAnswerStyleStubbing : «create»
+InvocationContainerImpl  ..>  InvocationContainer 
+InvocationContainerImpl "1" *--> "invocationForStubbing 1" MatchableInvocation 
+InvocationContainerImpl "1" *--> "registeredInvocations 1" RegisteredInvocations 
+InvocationContainerImpl  ..>  SingleRegisteredInvocation : «create»
+InvocationContainerImpl "1" *--> "mockStrictness 1" Strictness 
+InvocationContainerImpl  ..>  StubInfoImpl : «create»
+InvocationContainerImpl "1" *--> "stubbed *" StubbedInvocationMatcher 
+InvocationContainerImpl  ..>  StubbedInvocationMatcher : «create»
+InvocationInfo  ..>  AbstractAwareMethod 
+InvocationInfo "1" *--> "invocation 1" InvocationOnMock 
+InvocationMatcher "1" *--> "matchers *" ArgumentMatcher~T~ 
+InvocationMatcher  ..>  DescribedInvocation 
+InvocationMatcher "1" *--> "invocation 1" Invocation 
+InvocationMatcher  ..>  MatchableInvocation 
+InvocationMatcher  ..>  PrintSettings : «create»
+InvocationNotifierHandler~T~ "1" *--> "invocationListeners *" InvocationListener 
+InvocationNotifierHandler~T~  ..>  MockHandler~T~ 
+InvocationNotifierHandler~T~ "1" *--> "mockHandler 1" MockHandler~T~ 
+InvocationNotifierHandler~T~  ..>  NotifiedMethodInvocationReport : «create»
+NotExtensible  ..  InvocationOnMock 
+InvokeDefaultProxy  ..>  ProxyRealMethod 
+JUnitRule  ..>  JUnitSessionStore : «create»
+JUnitRule "1" *--> "sessionStore 1" JUnitSessionStore 
+JUnitRule  ..>  MockitoRule 
+JUnitSessionStore "1" *--> "logger 1" MockitoLogger 
+JUnitSessionStore "1" *--> "session 1" MockitoSession 
+JUnitSessionStore  ..>  MockitoSessionLoggerAdapter : «create»
+JUnitSessionStore "1" *--> "strictness 1" Strictness 
+JUnitTestRule "1" *--> "sessionStore 1" JUnitSessionStore 
+JUnitTestRule  ..>  JUnitSessionStore : «create»
+JUnitTestRule  ..>  MockitoTestRule 
+JavaEightUtil  ..>  InstantiationException : «create»
+KotlinInlineClassUtil  ..>  InvocationInfo : «create»
+LenientCopyTool "1" *--> "accessor 1" MemberAccessor 
+LenientStubber  -->  BaseStubber 
+NotExtensible  ..  LenientStubber 
+LessOrEqual~T~  -->  CompareTo~T~ 
+LessThan~T~  -->  CompareTo~T~ 
+Localized~T~ "1" *--> "location 1" Location 
+LocalizedMatcher "1" *--> "matcher 1" ArgumentMatcher~T~ 
+LocalizedMatcher "1" *--> "location 1" Location 
+NotExtensible  ..  Location 
+LoggingListener  ..>  FindingsListener 
+MatchableInvocation  -->  DescribedInvocation 
+MatcherApplicationStrategy "1" *--> "matchers *" ArgumentMatcher~T~ 
+MatcherApplicationStrategy "1" *--> "invocation 1" Invocation 
+MatchersBinder  ..>  InvocationMatcher : «create»
+MatchersPrinter  ..>  FormattedText : «create»
+Matches  ..>  ArgumentMatcher~T~ 
+MethodHandleProxy  ..>  ProxyRealMethod 
+SuppressSignatureCheck  ..  MethodHandleProxy 
+MismatchReportingTestListener  ..>  ArgMismatchFinder : «create»
+MismatchReportingTestListener "1" *--> "logger 1" MockitoLogger 
+MismatchReportingTestListener  ..>  MockitoTestListener 
+MissingInvocationChecker  ..>  SmartPrinter : «create»
+MissingMethodInvocationException  -->  MockitoException 
+MockAnnotationProcessor  ..>  FieldAnnotationProcessor~A~ 
+MockAnnotationProcessor  ..>  MockitoException : «create»
+MockAwareVerificationMode  ..>  VerificationEventImpl : «create»
+MockAwareVerificationMode "1" *--> "listeners *" VerificationListener 
+MockAwareVerificationMode  ..>  VerificationMode 
+MockAwareVerificationMode "1" *--> "mode 1" VerificationMode 
+MockCreationListener  -->  MockitoListener 
+NotExtensible  ..  MockCreationSettings~T~ 
+MockFeatures~T~ "1" *--> "defaultAnswer 1" Answer~T~ 
+MockFeatures~T~ "1" *--> "serializableMode 1" SerializableMode 
+MockHandlerFactory  ..>  InvocationNotifierHandler~T~ : «create»
+MockHandlerFactory  ..>  MockHandlerImpl~T~ : «create»
+MockHandlerFactory  ..>  NullResultGuardian~T~ : «create»
+MockHandlerImpl~T~ "1" *--> "invocationContainer 1" InvocationContainerImpl 
+MockHandlerImpl~T~  ..>  InvocationContainerImpl : «create»
+MockHandlerImpl~T~  ..>  MatchersBinder : «create»
+MockHandlerImpl~T~ "1" *--> "matchersBinder 1" MatchersBinder 
+MockHandlerImpl~T~ "1" *--> "mockSettings 1" MockCreationSettings~T~ 
+MockHandlerImpl~T~  ..>  MockHandler~T~ 
+MockHandlerImpl~T~  ..>  OngoingStubbingImpl~T~ : «create»
+MockHandlerImpl~T~  ..>  VerificationDataImpl : «create»
+MockMaker  ..>  MockitoException : «create»
+MockMethodAdvice  ..>  ConditionalStackTraceFilter : «create»
+MockMethodAdvice "1" *--> "onConstruction 1" ConstructionCallback 
+MockMethodAdvice "1" *--> "mockedStatics 1" DetachedThreadLocal~T~ 
+MockMethodAdvice  -->  MockMethodDispatcher 
+MockMethodAdvice "1" *--> "interceptors *" MockMethodInterceptor 
+MockMethodAdvice "1" *--> "interceptors 1" WeakConcurrentMap~K, V~ 
+MockMethodInterceptor "1" *--> "serializationSupport 1" ByteBuddyCrossClassLoaderSerializationSupport 
+MockMethodInterceptor  ..>  ByteBuddyCrossClassLoaderSerializationSupport : «create»
+MockMethodInterceptor "1" *--> "mockCreationSettings 1" MockCreationSettings~T~ 
+MockMethodInterceptor "1" *--> "handler 1" MockHandler~T~ 
+MockNameImpl  ..>  MockName 
+MockScanner  ..>  FieldReader : «create»
+NotExtensible  ..  MockSettings 
+MockSettingsImpl~T~  -->  CreationSettings~T~ 
+MockSettingsImpl~T~  ..>  CreationSettings~T~ : «create»
+MockSettingsImpl~T~  ..>  MockCreationSettings~T~ 
+MockSettingsImpl~T~  ..>  MockCreationValidator : «create»
+MockSettingsImpl~T~  ..>  MockNameImpl : «create»
+MockSettingsImpl~T~  ..>  MockSettings 
+MockSettingsImpl~T~  ..>  MockitoException : «create»
+MockSettingsImpl~T~  ..>  VerboseMockInvocationLogger : «create»
+MockStrongReference~T~  ..>  MockReference~T~ 
+MockStrongReference~T~  ..>  MockWeakReference~T~ : «create»
+MockUtil  ..>  LenientCopyTool : «create»
+MockUtil "1" *--> "defaultMockMaker 1" MockMaker 
+MockUtil  ..>  MockNameImpl : «create»
+MockUtil  ..>  NotAMockException : «create»
+MockWeakReference~T~  ..>  MockReference~T~ 
+MockWeakReference~T~  ..>  MockStrongReference~T~ : «create»
+MockedConstruction~T~  -->  ScopedMock 
+MockedConstructionImpl~T~ "1" *--> "location 1" Location 
+MockedConstructionImpl~T~  ..>  MockedConstruction~T~ 
+MockedConstructionImpl~T~  ..>  MockitoException : «create»
+MockedStatic~T~  -->  ScopedMock 
+MockedStaticImpl~T~ "1" *--> "location 1" Location 
+MockedStaticImpl~T~  ..>  MockAwareVerificationMode : «create»
+MockedStaticImpl~T~  ..>  MockedStatic~T~ 
+MockedStaticImpl~T~  ..>  MockitoException : «create»
+MockedStaticImpl~T~  ..>  VerificationDataImpl : «create»
+MockingProgressImpl "1" *--> "argumentMatcherStorage 1" ArgumentMatcherStorage 
+MockingProgressImpl  ..>  ArgumentMatcherStorageImpl : «create»
+MockingProgressImpl  ..>  Localized~T~ : «create»
+MockingProgressImpl "1" *--> "verificationMode 1" Localized~T~ 
+MockingProgressImpl "1" *--> "stubbingInProgress 1" Location 
+MockingProgressImpl  ..>  MockingProgress 
+MockingProgressImpl "1" *--> "listeners *" MockitoListener 
+MockingProgressImpl "1" *--> "ongoingStubbing 1" OngoingStubbing~T~ 
+MockingProgressImpl "1" *--> "verificationStrategy 1" VerificationStrategy 
+Mockito  ..>  After : «create»
+Mockito "1" *--> "RETURNS_DEFAULTS 1" Answer~T~ 
+Mockito  -->  ArgumentMatchers 
+CheckReturnValue  ..  Mockito 
+Mockito  ..>  DefaultMockitoFramework : «create»
+Mockito  ..>  DefaultMockitoSessionBuilder : «create»
+Mockito  ..>  MockSettingsImpl~T~ : «create»
+Mockito  ..>  MockitoCore : «create»
+Mockito "1" *--> "MOCKITO_CORE 1" MockitoCore 
+Mockito  ..>  Timeout : «create»
+MockitoAnnotations  ..>  GlobalConfiguration : «create»
+MockitoAnnotations  ..>  MockitoException : «create»
+MockitoAssertionError  ..>  ConditionalStackTraceFilter : «create»
+MockitoConfigurationException  -->  MockitoException 
+MockitoCore  ..>  DefaultLenientStubber : «create»
+MockitoCore  ..>  DefaultMockingDetails : «create»
+MockitoCore "1" *--> "DO_NOT_MOCK_ENFORCER 1" DoNotMockEnforcer 
+MockitoCore  ..>  DoNotMockException : «create»
+MockitoCore  ..>  InOrderImpl : «create»
+MockitoCore  ..>  MockAwareVerificationMode : «create»
+MockitoCore  ..>  MockedConstructionImpl~T~ : «create»
+MockitoCore  ..>  MockedStaticImpl~T~ : «create»
+MockitoCore  ..>  StubberImpl : «create»
+MockitoCore  ..>  VerificationDataImpl : «create»
+MockitoCore  ..>  VerificationDataInOrderImpl : «create»
+MockitoException  ..>  ConditionalStackTraceFilter : «create»
+NotExtensible  ..  MockitoFramework 
+MockitoHamcrest  ..>  HamcrestArgumentMatcher~T~ : «create»
+MockitoJUnit  ..>  JUnitRule : «create»
+MockitoJUnit  ..>  JUnitTestRule : «create»
+MockitoJUnit  ..>  VerificationCollectorImpl : «create»
+MockitoJUnitRunner "1" *--> "runner 1" InternalRunner 
+MockitoJUnitRunner  ..>  RunnerFactory : «create»
+MockitoJUnitRunner  ..>  StrictRunner : «create»
+MockitoLoggerAdapter  ..>  MockitoLogger 
+MockitoLoggerAdapter "1" *--> "logger 1" MockitoSessionLogger 
+MockitoMethod  -->  AbstractAwareMethod 
+MockitoSerializationIssue  ..>  ConditionalStackTraceFilter : «create»
+NotExtensible  ..  MockitoSession 
+NotExtensible  ..  MockitoSessionBuilder 
+NotExtensible  ..  MockitoSessionLogger 
+MockitoSessionLoggerAdapter "1" *--> "logger 1" MockitoLogger 
+MockitoSessionLoggerAdapter  ..>  MockitoSessionLogger 
+MockitoTestListener  -->  MockCreationListener 
+ModuleMemberAccessor  ..>  InstrumentationMemberAccessor : «create»
+ModuleMemberAccessor  ..>  MemberAccessor 
+ModuleMemberAccessor "1" *--> "delegate 1" MemberAccessor 
+ModuleMemberAccessor  ..>  ReflectionMemberAccessor : «create»
+MoreThanAllowedActualInvocations  -->  MockitoAssertionError 
+NameBasedCandidateFilter  ..>  MockCandidateFilter 
+NameBasedCandidateFilter "1" *--> "next 1" MockCandidateFilter 
+NeverWantedButInvoked  -->  MockitoAssertionError 
+NoInteractions  ..>  VerificationMode 
+NoInteractionsWanted  -->  MockitoAssertionError 
+NoMoreInteractions  ..>  VerificationInOrderMode 
+NoMoreInteractions  ..>  VerificationMode 
+NoOpTestListener  ..>  MockitoTestListener 
+Not  ..>  ArgumentMatcher~T~ 
+Not "1" *--> "matcher 1" ArgumentMatcher~T~ 
+NotAMockException  -->  MockitoException 
+NotNull  ..>  ArgumentMatcher~T~ 
+NotifiedMethodInvocationReport "1" *--> "invocation 1" Invocation 
+NotifiedMethodInvocationReport  ..>  MethodInvocationReport 
+Null  ..>  ArgumentMatcher~T~ 
+NullInsteadOfMockException  -->  MockitoException 
+NullResultGuardian~T~  ..>  MockHandler~T~ 
+NullResultGuardian~T~ "1" *--> "delegate 1" MockHandler~T~ 
+NumberOfInvocationsChecker  ..>  Discrepancy : «create»
+ObjectMethodsGuru  ..>  DelegatingMethod : «create»
+ObjenesisInstantiator  ..>  GlobalConfiguration : «create»
+ObjenesisInstantiator  ..>  Instantiator 
+NotExtensible  ..  OngoingStubbing~T~ 
+OngoingStubbingImpl~T~  -->  BaseStubbing~T~ 
+OngoingStubbingImpl~T~  ..>  ConsecutiveStubbing~T~ : «create»
+OngoingStubbingImpl~T~ "1" *--> "invocationContainer 1" InvocationContainerImpl 
+OngoingStubbingImpl~T~ "1" *--> "strictness 1" Strictness 
+Only  ..>  VerificationMode 
+Or  ..>  ArgumentMatcher~T~ 
+Or "1" *--> "m1 1" ArgumentMatcher~T~ 
+PluginFinder  ..>  MockitoException : «create»
+PluginFinder  ..>  PluginFileReader : «create»
+PluginFinder "1" *--> "pluginSwitch 1" PluginSwitch 
+PluginInitializer  ..>  PluginFinder : «create»
+PluginInitializer "1" *--> "pluginSwitch 1" PluginSwitch 
+PluginLoader  ..>  DefaultMockitoPlugins : «create»
+PluginLoader "1" *--> "plugins 1" DefaultMockitoPlugins 
+PluginLoader "1" *--> "initializer 1" PluginInitializer 
+PluginLoader  ..>  PluginInitializer : «create»
+PluginRegistry "1" *--> "annotationEngine 1" AnnotationEngine 
+PluginRegistry  ..>  DefaultPluginSwitch : «create»
+PluginRegistry "1" *--> "doNotMockEnforcer 1" DoNotMockEnforcer 
+PluginRegistry "1" *--> "instantiatorProvider 1" InstantiatorProvider2 
+PluginRegistry "1" *--> "memberAccessor 1" MemberAccessor 
+PluginRegistry "1" *--> "mockMaker 1" MockMaker 
+PluginRegistry "1" *--> "mockResolvers *" MockResolver 
+PluginRegistry "1" *--> "mockitoLogger 1" MockitoLogger 
+PluginRegistry  ..>  PluginLoader : «create»
+PluginRegistry "1" *--> "pluginSwitch 1" PluginSwitch 
+PluginRegistry "1" *--> "stackTraceCleanerProvider 1" StackTraceCleanerProvider 
+Plugins  ..>  DefaultMockitoPlugins : «create»
+Plugins  ..>  PluginRegistry : «create»
+Plugins "1" *--> "registry 1" PluginRegistry 
+PotentialStubbingProblem  -->  MockitoException 
+PrintSettings  ..>  MatchersPrinter : «create»
+PropertyAndSetterInjection  ..>  FieldInitializer : «create»
+PropertyAndSetterInjection "1" *--> "mockCandidateFilter 1" MockCandidateFilter 
+PropertyAndSetterInjection  -->  MockInjectionStrategy 
+PropertyAndSetterInjection  ..>  NameBasedCandidateFilter : «create»
+PropertyAndSetterInjection  ..>  TerminalMockCandidateFilter : «create»
+PropertyAndSetterInjection  ..>  TypeBasedCandidateFilter : «create»
+ProxyMockMaker  ..>  MockMaker 
+ProxyMockMaker "1" *--> "proxyRealMethod 1" ProxyRealMethod 
+ProxyRealMethod  ..>  InvokeDefaultProxy : «create»
+ProxyRealMethod  ..>  MethodHandleProxy : «create»
+RedundantListenerException  -->  MockitoException 
+ReflectionEquals  ..>  ArgumentMatcher~T~ 
+ReflectionMemberAccessor  ..>  MemberAccessor 
+Reporter  ..>  CannotStubVoidMethodWithReturnValue : «create»
+Reporter  ..>  CannotVerifyStubOnlyMock : «create»
+Reporter  ..>  FriendlyReminderException : «create»
+Reporter  ..>  InjectMocksException : «create»
+Reporter  ..>  InvalidUseOfMatchersException : «create»
+Reporter  ..>  MissingMethodInvocationException : «create»
+Reporter  ..>  MockitoException : «create»
+Reporter  ..>  MockitoInitializationException : «create»
+Reporter  ..>  MoreThanAllowedActualInvocations : «create»
+Reporter  ..>  NeverWantedButInvoked : «create»
+Reporter  ..>  NoInteractionsWanted : «create»
+Reporter  ..>  NotAMockException : «create»
+Reporter  ..>  NullInsteadOfMockException : «create»
+Reporter  ..>  PotentialStubbingProblem : «create»
+Reporter  ..>  RedundantListenerException : «create»
+Reporter  ..>  ScenarioPrinter : «create»
+Reporter  ..>  SmartNullPointerException : «create»
+Reporter  ..>  TooFewActualInvocations : «create»
+Reporter  ..>  TooManyActualInvocations : «create»
+Reporter  ..>  UnfinishedMockingSessionException : «create»
+Reporter  ..>  UnfinishedStubbingException : «create»
+Reporter  ..>  UnfinishedVerificationException : «create»
+Reporter  ..>  UnnecessaryStubbingException : «create»
+Reporter  ..>  VerificationInOrderFailure : «create»
+Reporter  ..>  WantedButNotInvoked : «create»
+Reporter  ..>  WrongTypeOfReturnValue : «create»
+RetrieveGenericsForDefaultAnswers  ..>  ReturnsEmptyValues : «create»
+RetrieveGenericsForDefaultAnswers  ..>  ReturnsMoreEmptyValues : «create»
+Returns  ..>  Answer~T~ 
+Returns  ..>  InvocationInfo : «create»
+Returns  ..>  ValidableAnswer 
+ReturnsArgumentAt  ..>  Answer~T~ 
+ReturnsArgumentAt  ..>  InvocationInfo : «create»
+ReturnsArgumentAt  ..>  ValidableAnswer 
+ReturnsDeepStubs  ..>  Answer~T~ 
+ReturnsElementsOf  ..>  Answer~T~ 
+ReturnsElementsOf  ..>  MockitoException : «create»
+ReturnsEmptyValues  ..>  Answer~T~ 
+ReturnsMocks  ..>  Answer~T~ 
+ReturnsMocks "1" *--> "delegate 1" Answer~T~ 
+ReturnsMocks  ..>  MockSettingsImpl~T~ : «create»
+ReturnsMocks  ..>  ReturnsMoreEmptyValues : «create»
+ReturnsMoreEmptyValues  ..>  Answer~T~ 
+ReturnsMoreEmptyValues "1" *--> "delegate 1" Answer~T~ 
+ReturnsMoreEmptyValues  ..>  ReturnsEmptyValues : «create»
+ReturnsSmartNulls  ..>  Answer~T~ 
+ReturnsSmartNulls "1" *--> "delegate 1" Answer~T~ 
+ReturnsSmartNulls  ..>  ReturnsMoreEmptyValues : «create»
+RunnerFactory  ..>  MismatchReportingTestListener : «create»
+RunnerFactory  ..>  MockitoException : «create»
+RunnerFactory  ..>  NoOpTestListener : «create»
+RunnerFactory  ..>  RunnerProvider : «create»
+RunnerFactory  ..>  StrictStubsRunnerTestListener : «create»
+Same  ..>  ArgumentMatcher~T~ 
+SerializableMethod  ..>  MockitoException : «create»
+SerializableMethod  ..>  MockitoMethod 
+SingleRegisteredInvocation "1" *--> "invocation 1" Invocation 
+SingleRegisteredInvocation  ..>  RegisteredInvocations 
+SmartNullPointerException  -->  MockitoException 
+SmartPrinter  ..>  PrintSettings : «create»
+SpyAnnotationEngine  ..>  AnnotationEngine 
+SpyAnnotationEngine  ..>  MockitoException : «create»
+SpyOnInjectedFieldsHandler  ..>  FieldReader : «create»
+SpyOnInjectedFieldsHandler "1" *--> "accessor 1" MemberAccessor 
+SpyOnInjectedFieldsHandler  -->  MockInjectionStrategy 
+SpyOnInjectedFieldsHandler  ..>  MockitoException : «create»
+StackTraceFilter  ..>  DefaultStackTraceCleaner : «create»
+StackTraceFilter "1" *--> "CLEANER 1" StackTraceCleaner 
+StackWalkerChecker  ..>  StackTraceChecker : «create»
+StartsWith  ..>  ArgumentMatcher~T~ 
+StrictRunner  ..>  FailureDetector : «create»
+StrictRunner  ..>  InternalRunner 
+StrictRunner "1" *--> "runner 1" InternalRunner 
+StrictRunner  ..>  UnnecessaryStubbingsReporter : «create»
+StrictStubsRunnerTestListener  ..>  DefaultStubbingLookupListener : «create»
+StrictStubsRunnerTestListener "1" *--> "stubbingLookupListener 1" DefaultStubbingLookupListener 
+StrictStubsRunnerTestListener  ..>  MockitoTestListener 
+StubInfoImpl "1" *--> "stubbedAt 1" DescribedInvocation 
+StubInfoImpl  ..>  StubInfo 
+StubbedInvocationMatcher "1" *--> "answers *" Answer~T~ 
+StubbedInvocationMatcher "1" *--> "usedAt 1" DescribedInvocation 
+StubbedInvocationMatcher  -->  InvocationMatcher 
+StubbedInvocationMatcher "1" *--> "strictness 1" Strictness 
+StubbedInvocationMatcher  ..>  Stubbing 
+Stubber  -->  BaseStubber 
+CheckReturnValue  ..  Stubber 
+NotExtensible  ..  Stubber 
+StubberImpl "1" *--> "answers *" Answer~T~ 
+StubberImpl  ..>  CallsRealMethods : «create»
+StubberImpl  ..>  Returns : «create»
+StubberImpl "1" *--> "strictness 1" Strictness 
+StubberImpl  ..>  Stubber 
+StubberImpl  ..>  ThrowsException : «create»
+StubberImpl  ..>  ThrowsExceptionForClassType : «create»
+Stubbing  -->  Answer~T~ 
+NotExtensible  ..  Stubbing 
+StubbingArgMismatches "1" *--> "mismatches *" Invocation 
+StubbingArgMismatches  ..>  StubbingHint : «create»
+StubbingComparator  ..>  InvocationComparator : «create»
+StubbingComparator "1" *--> "invocationComparator 1" InvocationComparator 
+SubclassByteBuddyMockMaker "1" *--> "cachingMockBytecodeGenerator 1" BytecodeGenerator 
+SubclassByteBuddyMockMaker  ..>  ClassCreatingMockMaker 
+SubclassByteBuddyMockMaker  ..>  MockMethodInterceptor : «create»
+SubclassByteBuddyMockMaker  ..>  MockitoException : «create»
+SubclassByteBuddyMockMaker  ..>  SubclassBytecodeGenerator : «create»
+SubclassByteBuddyMockMaker  ..>  SubclassInjectionLoader : «create»
+SubclassByteBuddyMockMaker  ..>  TypeCachingBytecodeGenerator : «create»
+SubclassBytecodeGenerator  ..>  BytecodeGenerator 
+SubclassBytecodeGenerator  ..>  MockitoException : «create»
+SubclassBytecodeGenerator "1" *--> "handler 1" ModuleHandler 
+SubclassBytecodeGenerator  ..>  SubclassInjectionLoader : «create»
+SubclassBytecodeGenerator "1" *--> "loader 1" SubclassLoader 
+SubclassInjectionLoader  ..>  MockitoException : «create»
+SubclassInjectionLoader  ..>  SubclassLoader 
+SubclassInjectionLoader "1" *--> "loader 1" SubclassLoader 
+TerminalMockCandidateFilter  ..>  BeanPropertySetter : «create»
+TerminalMockCandidateFilter  ..>  MockCandidateFilter 
+ThreadSafeMockingProgress  ..>  MockingProgressImpl : «create»
+ThrowsException  -->  AbstractThrowsException 
+ThrowsExceptionForClassType  -->  AbstractThrowsException 
+Timeout  ..>  VerificationOverTimeImpl : «create»
+Timeout  ..>  VerificationWithTimeout 
+Timeout  -->  VerificationWrapper~WrapperT~ 
+Times  ..>  MockitoException : «create»
+Times  ..>  VerificationInOrderMode 
+Times  ..>  VerificationMode 
+TooFewActualInvocations  -->  MockitoAssertionError 
+TooManyActualInvocations  -->  MockitoAssertionError 
+TriesToReturnSelf  ..>  Answer~T~ 
+TriesToReturnSelf  ..>  ReturnsEmptyValues : «create»
+TriesToReturnSelf "1" *--> "defaultReturn 1" ReturnsEmptyValues 
+TypeBasedCandidateFilter  ..>  MockCandidateFilter 
+TypeBasedCandidateFilter "1" *--> "next 1" MockCandidateFilter 
+TypeCachingBytecodeGenerator  ..>  BytecodeGenerator 
+TypeCachingBytecodeGenerator "1" *--> "bytecodeGenerator 1" BytecodeGenerator 
+TypeSafeMatching  ..>  ArgumentMatcherAction 
+TypeSafeMatching "1" *--> "TYPE_SAFE_MATCHING_ACTION 1" ArgumentMatcherAction 
+TypeSupport  ..>  MockitoException : «create»
+UnfinishedMockingSessionException  -->  MockitoException 
+UnfinishedStubbingException  -->  MockitoException 
+UnfinishedVerificationException  -->  MockitoException 
+UniversalTestListener  ..>  ArgMismatchFinder : «create»
+UniversalTestListener  ..>  AutoCleanableListener 
+UniversalTestListener  ..>  DefaultStubbingLookupListener : «create»
+UniversalTestListener "1" *--> "stubbingLookupListener 1" DefaultStubbingLookupListener 
+UniversalTestListener "1" *--> "logger 1" MockitoLogger 
+UniversalTestListener  ..>  MockitoTestListener 
+UniversalTestListener "1" *--> "currentStrictness 1" Strictness 
+UniversalTestListener  ..>  UnusedStubbingsFinder : «create»
+UnnecessaryStubbingException  -->  MockitoException 
+UnnecessaryStubbingsReporter  ..>  MockCreationListener 
+UnnecessaryStubbingsReporter  ..>  UnusedStubbingsFinder : «create»
+UnusedStubbings  ..>  StubbingHint : «create»
+UnusedStubbingsFinder  ..>  UnusedStubbings : «create»
+VerboseMockInvocationLogger  ..>  InvocationListener 
+VerificationAfterDelay  -->  VerificationMode 
+VerificationAwareInvocation  -->  DescribedInvocation 
+VerificationCollectorImpl  ..>  MockitoAssertionError : «create»
+VerificationCollectorImpl  ..>  VerificationCollector 
+VerificationDataImpl "1" *--> "invocations 1" InvocationContainerImpl 
+VerificationDataImpl "1" *--> "wanted 1" InvocationMatcher 
+VerificationDataImpl  ..>  VerificationData 
+VerificationDataInOrderImpl "1" *--> "inOrder 1" InOrderContext 
+VerificationDataInOrderImpl "1" *--> "allInvocations *" Invocation 
+VerificationDataInOrderImpl "1" *--> "wanted 1" MatchableInvocation 
+VerificationDataInOrderImpl  ..>  VerificationDataInOrder 
+VerificationEventImpl "1" *--> "data 1" VerificationData 
+VerificationEventImpl  ..>  VerificationEvent 
+VerificationEventImpl "1" *--> "mode 1" VerificationMode 
+VerificationInOrderFailure  -->  MockitoAssertionError 
+VerificationListener  -->  MockitoListener 
+VerificationModeFactory  ..>  AtLeast : «create»
+VerificationModeFactory  ..>  AtMost : «create»
+VerificationModeFactory  ..>  Calls : «create»
+VerificationModeFactory  ..>  Description : «create»
+VerificationModeFactory  ..>  NoInteractions : «create»
+VerificationModeFactory  ..>  NoMoreInteractions : «create»
+VerificationModeFactory  ..>  Only : «create»
+VerificationModeFactory  ..>  Times : «create»
+VerificationOverTimeImpl "1" *--> "timer 1" Timer 
+VerificationOverTimeImpl  ..>  Timer : «create»
+VerificationOverTimeImpl  ..>  VerificationMode 
+VerificationOverTimeImpl "1" *--> "delegate 1" VerificationMode 
+VerificationWithTimeout  -->  VerificationMode 
+VerificationWrapper~WrapperT~  ..>  VerificationMode 
+VerificationWrapperInOrderWrapper  ..>  InOrderWrapper : «create»
+VerificationWrapperInOrderWrapper  ..>  MockitoException : «create»
+VerificationWrapperInOrderWrapper  ..>  VerificationMode 
+VerificationWrapperInOrderWrapper "1" *--> "delegate 1" VerificationMode 
+VerificationWrapperInOrderWrapper  ..>  VerificationOverTimeImpl : «create»
+WantedButNotInvoked  -->  MockitoAssertionError 
+WarningsFinder "1" *--> "baseUnusedStubs *" Invocation 
+WarningsFinder "1" *--> "baseAllInvocations *" InvocationMatcher 
+WarningsPrinterImpl  ..>  LoggingListener : «create»
+WarningsPrinterImpl  ..>  WarningsFinder : «create»
+WarningsPrinterImpl "1" *--> "finder 1" WarningsFinder 
+WeakConcurrentSet~V~  ..>  WeakConcurrentMap~K, V~ : «create»
+WeakConcurrentSet~V~ "1" *--> "target 1" WeakConcurrentMap~K, V~ 
+WrongTypeOfReturnValue  -->  MockitoException 
