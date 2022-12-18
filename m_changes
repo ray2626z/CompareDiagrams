@@ -134,42 +134,8 @@ LocationImpl:
 + toString() String
 + getSourceFile() String
 
-CreationSettings~T~:
-
-DefaultMockitoPlugins:
-
-DefaultStackTraceCleaner:
-
-GlobalConfiguration:
-
-InstrumentationMemberAccessor:
-
-Mock:
-
-MockCreationSettings~T~:
-
-MockCreationValidator:
-
-MockMaker:
-
-MockSettings:
-
-MockSettingsImpl~T~:
-
-MockUtil:
-
-MockedStaticImpl~T~:
-
 MockitoCore:
 + isTypeMockable(Class~?~) boolean
-
-PluginInitializer:
-
-ReturnsDeepStubs:
-
-StackTraceCleaner:
-
-TypeSafeMatching:
 
 
 New methods:
@@ -183,19 +149,11 @@ DefaultStackTraceCleaner:
 - isIn(String) boolean
 + isIn(StackFrameMetadata) boolean
 
-GlobalConfiguration:
-
-InstrumentationMemberAccessor:
-
 Mock:
 + mockMaker() String
 
 MockCreationSettings~T~:
 + getMockMaker() String
-
-MockCreationValidator:
-
-MockMaker:
 
 MockSettings:
 + mockMaker(String) MockSettings
@@ -206,14 +164,6 @@ MockSettingsImpl~T~:
 MockUtil:
 - getMockMaker(String) MockMaker
 - getMockHandlerOrNull(Object) MockHandler~?~?
-
-MockedStaticImpl~T~:
-
-MockitoCore:
-
-PluginInitializer:
-
-ReturnsDeepStubs:
 
 StackTraceCleaner:
 + isIn(StackFrameMetadata) boolean
