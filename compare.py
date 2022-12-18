@@ -254,15 +254,19 @@ if __name__ == '__main__':
         output.write("Removed methods:\n")
         # for removed classes
         for r in rm_classes:
-            output.write(r + ': \n')
             methods = classes1[r]
+            if not methods:
+                continue
+            output.write(r + ': \n')
             for m in methods:
                 output.write(m)
             output.write('\n')
         # for altered classes
         for alt in rm_class_methods.keys():
-            output.write(alt + ':\n')
             methods = rm_class_methods[alt]
+            if not methods:
+                continue
+            output.write(alt + ':\n')
             for m in methods:
                 output.write(m)
             output.write('\n')
@@ -272,15 +276,19 @@ if __name__ == '__main__':
         output.write("New methods:\n")
         # for new classes
         for n in new_classes:
-            output.write(n + ':\n')
             methods = classes2[n]
+            if not methods:
+                continue
+            output.write(n + ':\n')
             for m in methods:
                 output.write(m)
             output.write('\n')
         # for altered classes
         for alt in rm_class_methods.keys():
-            output.write(alt + ':\n')
             methods = new_class_methods[alt]
+            if not methods:
+                continue
+            output.write(alt + ':\n')
             for m in methods:
                 output.write(m)
             output.write('\n')
@@ -289,9 +297,10 @@ if __name__ == '__main__':
         # altered methods
         output.write("Altered methods:\n")
         for alt in alt_class_methods.keys():
-            output.write(alt + ':\n')
-            # olds = alt_class_methods[alt].keys()
             dicts = alt_class_methods[alt]
+            if not dicts:
+                continue
+            output.write(alt + ':\n')
             for old in dicts.keys():
                 output.write(old)
                 output.write('has been changed to:\n')
